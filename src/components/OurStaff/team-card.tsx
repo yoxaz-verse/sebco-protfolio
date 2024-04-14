@@ -1,0 +1,42 @@
+"use client";
+import { Button, Card, CardBody } from "@nextui-org/react";
+import Image from "next/image";
+import React, { useState } from "react";
+import OurTeamCardError from "./team-card-error";
+import { OurTeamCardProps } from "@/data/interface-data";
+
+const OurTeamCard = ({data}:OurTeamCardProps) => {
+  const [error, setError] = useState(false);
+  const handleReload = () => {
+    setError(false);
+  };
+  const handleImageError = () => {
+    setError(true);
+  };
+  return (
+    <>
+      {error ? (
+        <OurTeamCardError onReload={handleReload} />
+      ) : (
+        <Card className=" rounded-none">
+          <CardBody className="flex justify-center items-center p-0">
+            <Image
+              src={data.image}
+              width={300}
+              height={300}
+              alt="Our Team Member"
+              onError={handleImageError}
+            />
+            <div className="text-lg font-medium py-0 my-0">{data.name}</div>
+            <div className="my-0 py-0">{data.designation}</div>
+            <button className="bg-transparent text-black border-2 border-black px-6 py-2 my-5">
+              Connect
+            </button>
+          </CardBody>
+        </Card>
+      )}
+    </>
+  );
+};
+
+export default OurTeamCard;

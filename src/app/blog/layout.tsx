@@ -1,14 +1,11 @@
 "use client"
-
-import { Navbar } from "@nextui-org/react";
-
-export default function DashboardLayout({
+export default function HomePageLayout({
     children,
 }: {
     children: React.ReactNode;
 }) {
     return (
-        <section className="bg-[#242424]">
+        <section>
             {children}
         </section>
     );
