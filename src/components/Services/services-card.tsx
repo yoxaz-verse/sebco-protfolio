@@ -1,10 +1,10 @@
 import { ServiceCardProps } from "@/data/interface-data";
 import { Card, CardBody, CardFooter } from "@nextui-org/react";
 import Image from "next/image";
-import React, { useState } from "react";
+import React, { CSSProperties, useState } from "react";
 import ServiceCardError from "./service-card-error";
 
-const ServiceCard = ({ service }: ServiceCardProps) => {
+const ServiceCard = ({ service,type,move }: ServiceCardProps) => {
   const [error, setError] = useState(false);
   const handleReload = () => {
     setError(false);
@@ -17,7 +17,7 @@ const ServiceCard = ({ service }: ServiceCardProps) => {
       {error ? (
         <ServiceCardError onReload={handleReload} />
       ) : (
-        <Card key={service.alt} className="w-[30%] rounded-none" isPressable>
+        <Card key={service.alt} className={`w-[90%] md:w-[30%] ${type!='home'?'rounded-none':'rounded-sm my-3 md:my-0'}`} style={move === 'up' ? { transform: 'translateY(-80px)' } as CSSProperties : undefined} isPressable >
           <CardBody className="overflow-visible p-0">
             <Image
               src={service.src}

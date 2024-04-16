@@ -45,6 +45,15 @@ export interface ServiceCardProps{
     alt:string;
     src:string;
     title:string;
+  },
+  type?:string;
+  move?:string;
+}
+export interface ApproachCardProps{
+  approach:{
+    img:string;
+    title:string;
+    index:string;
   }
 }
 export interface RecentPostCardProps{
@@ -52,5 +61,56 @@ export interface RecentPostCardProps{
     image:string;
     read:string;
     title:string;
+  }
+}
+export interface JobOpeningCardProps{
+  job:{
+    image:string,
+    alt:string,
+    title:string,
+    location:string,
+    description:string,
+  }
+}
+export interface ConnectWithMeProps{
+  data:{
+    name:string,
+    designation:string,
+    instagram:string,
+    twitter:string,
+    facebook:string,
+    email:string,
+    phone:string,
+    img:string,
+  }
+}
+export interface HomePageAboutProps{
+  data:{
+    title:string;
+    image:string;
+    description:string;
+    achievements:Achievements[];
+  }
+} 
+export interface Achievements{
+  heading:string,
+  description:string,
+}
+export interface Methods{
+  title:string,
+  description:string,
+}
+export interface HomePageWorkProps{
+  data:{
+    image:string;
+    title:string;
+    methods:Methods[];
+  }
+}
+export interface ClientSaysCardProps{
+  client:{
+    image:string;
+    name:string;
+    link:string;
   }
 }

@@ -3,19 +3,19 @@ import { Card, Button } from "@nextui-org/react";
 
 const cardBase = tv({
     slots: {
-        cardWrapper: 'border-none w-[320px] rounded-none',
+        cardWrapper: 'border-none rounded-none w-full p-14',
         container: 'flex flex-col items-center h-full w-full justify-center p-2',
         contentWrapper: 'text-xl text-center pb-2',
     }
 });
 
-const OurTeamCardErrors = tv({
+const QuoteComponentErrors = tv({
     extend: cardBase
 });
 
-const { cardWrapper, container, contentWrapper } = OurTeamCardErrors();
+const { cardWrapper, container, contentWrapper } = QuoteComponentErrors();
 
-const OurTeamCardError = ({ onReload }: { onReload: () => void }) => {
+const QuoteComponentError = ({ onReload }: { onReload: () => void }) => {
     return (
         <Card
             radius="lg"
@@ -29,4 +29,4 @@ const OurTeamCardError = ({ onReload }: { onReload: () => void }) => {
     )
 }
 
-export default OurTeamCardError;
+export default QuoteComponentError;

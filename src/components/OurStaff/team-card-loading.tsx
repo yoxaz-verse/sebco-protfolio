@@ -7,9 +7,9 @@ import OurTeamCardError from "./team-card-error";
 const OurTeamCardLoading = () => {
   return (
     <>
-        <Card className=" rounded-none w-[300px] h-[400px]">
+        <Card className=" rounded-none w-[300px] h-[500px]">
           <CardBody className="flex p-0">
-            <Skeleton className="w-full h-[280px]"></Skeleton>
+            <Skeleton className="w-full h-[380px]"></Skeleton>
             <div className="flex justify-center items-center flex-col py-4">
             <Skeleton className="w-[120px] py-2"></Skeleton>
             <div className="py-2">
