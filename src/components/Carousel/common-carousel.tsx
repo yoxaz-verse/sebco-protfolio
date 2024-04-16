@@ -1,10 +1,9 @@
-import { ourApproachCarouselData } from '@/data/content-data';
 import Image from 'next/image';
 import React from 'react'
 import { Carousel } from "react-responsive-carousel";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { FaChevronLeft,FaChevronRight } from "react-icons/fa6";
-const OurApproachCarousel = () => {
+const CommonCarousel = ({CarouselData}:any) => {
   return (
     <div>
          <Carousel
@@ -57,7 +56,7 @@ const OurApproachCarousel = () => {
                }
 
         >
-            {ourApproachCarouselData.map((item) => (
+            {CarouselData.map((item:any) => (
                 <div key={item.alt} className="relative p-2">
                 <Image
                     src={item.src}
@@ -73,4 +72,4 @@ const OurApproachCarousel = () => {
   )
 }
 
-export default OurApproachCarousel
+export default CommonCarousel
