@@ -15,14 +15,21 @@ import WhyUsCardsComponents from "@/components/Careers/why-us-cards-component";
 import WhyUsHero from "@/components/Careers/why-us-hero";
 import CommonCarousel from "@/components/Carousel/common-carousel";
 import ConnectWithMeModal from "@/components/ConnectWithMeModal/connect-with-me";
+import CareersCardHome from "@/components/Home/careers-card";
 import ClientSaysCard from "@/components/Home/client-say-card";
 import ClientSayCardError from "@/components/Home/client-say-card-error";
 import ClientSayCardLoading from "@/components/Home/client-say-card-loading";
 import HomepageAbout from "@/components/Home/homepage-about";
 import HomePageHero from "@/components/Home/homepage-hero";
 import HomepageOurWork from "@/components/Home/homepage-ourwork";
+import LatestComponent from "@/components/Home/latest-component";
+import MapComponent from "@/components/Home/map-component";
+import OurApproachComponentHome from "@/components/Home/our-approach-component";
 import OurCompletedProjects from "@/components/Home/our-completed-projects";
 import OurServicesComponent from "@/components/Home/our-services-component";
+import OurTechnicalStaffComponent from "@/components/Home/our-technical-staff";
+import SebcoCareers from "@/components/Home/sebco-careers";
+import VisitOurYoutube from "@/components/Home/visit-our-youtube";
 import ClientSaysComponent from "@/components/Home/what-our-clientsay-component";
 import OurApproachCard from "@/components/OurApproach/our-approach-card";
 import OurApproachComponent from "@/components/OurApproach/our-approach-component";
@@ -44,7 +51,7 @@ import ServiceCardLoading from "@/components/Services/service-card-loading";
 import ServiceComponent from "@/components/Services/service-component";
 import ServiceCard from "@/components/Services/services-card";
 import RequirementsForm from "@/components/YourRequirements/your-requirements-form";
-import { aboutUsHomepage, clientSays, ourApproachCarouselData, projects, whatWeDo } from "@/data/content-data";
+import { aboutUsHomepage, clientSays, ourApproachCarouselData, projects, sebcoCareers, whatWeDo } from "@/data/content-data";
 import { useState } from "react";
 
 export default function WebsitePage() {
@@ -152,6 +159,13 @@ export default function WebsitePage() {
               <ClientSaysCard client={clientSays[0]}/>
               <ClientSayCardLoading/>
             </div>
+            <div className="w-10/12 py-10"><MapComponent/></div>
+            <div  className="w-10/12 py-10"><SebcoCareers/></div>
+            <div className="w-10/12 py-10"><CareersCardHome career={sebcoCareers[0]}/></div>
+            <div  className="w-10/12 py-10"><OurApproachComponentHome/></div>
+            <div  className="w-10/12 py-10"><OurTechnicalStaffComponent/></div>
+            <div  className="w-10/12 py-10"><LatestComponent/></div>
+            <div  className="w-10/12 py-10"><VisitOurYoutube/></div>
           </div>
       </div>
     );
