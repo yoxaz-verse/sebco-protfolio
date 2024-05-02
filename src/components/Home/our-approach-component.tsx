@@ -20,8 +20,8 @@ const OurApproachComponentHome = () => {
       <div className='w-10/12 lg:w-8/12 flex items-center justify-center pb-16'>
         <div className='flex flex-wrap w-full justify-between flex-col md:flex-row md:gap-5 lg:gap-10'>
         {ourApproachHome.map((approach, index) => (
-               <Card key={index} className='w-full md:w-[46%] rounded-sm bg-transparent'>
-                 <Image src={approach.image} alt={approach.title} className='w-[500px] h-[200px] md:h-[250px]' width={500} height={300}/>
+               <Card key={index} className='w-full md:w-[46%] rounded-sm bg-transparent my-10 lg:my-0'>
+                 <Image src={approach.image} alt={approach.title} className='w-full h-[280px] md:h-[250px]' width={500} height={300}/>
                  <CardFooter className='bg-[#373737] text-white rounded-none flex flex-col h-[50%]'>
                   <div className='pt-1 text-start w-full font-bold'>{approach.title}</div>
                   <div>{approach.description}</div>

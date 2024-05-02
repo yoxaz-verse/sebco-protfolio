@@ -8,7 +8,7 @@ import "react-responsive-carousel/lib/styles/carousel.min.css";
 const OurCompletedProjects = () => {
   const width = useScreenWidth()||0;
   return (
-    <div>
+    <div className='my-20'>
         <div className='text-[#FFBD12] font-medium text-3xl pb-8 text-center'>Our Completed Project!</div>
         <Carousel
                showThumbs={false}

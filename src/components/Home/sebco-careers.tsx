@@ -5,7 +5,7 @@ import CareersCardHome from "./careers-card";
 
 const SebcoCareers = () => {
   return (
-    <div className="w-full flex flex-col">
+    <div className="w-full flex flex-col py-20">
       <div className="flex justify-between w-full items-center">
           <div className="text-[#FFBD12] text-xl md:text-5xl text-center font-bold pb-4 md:pb-10 z-3 w-full">
             Welcome to SEBCO Careers

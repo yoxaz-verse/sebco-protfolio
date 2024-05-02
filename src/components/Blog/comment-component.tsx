@@ -7,7 +7,7 @@ const CommentComponent = () => {
     
   }
   return (
-    <div className='bg-[#292929] w-10/12 p-8'>
+    <div className='bg-[#292929] w-10/12 p-8 my-20'>
     <div className='text-white py-6 text-2xl'>Comments</div>
     <form onSubmit={handleSubmit}>
     <Textarea

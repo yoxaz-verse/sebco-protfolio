@@ -5,7 +5,7 @@ import OurTeamCard from '../OurStaff/team-card'
 
 const OurTechnicalStaffComponent = () => {
   return (
-    <div className='w-full bg-[#373737] rounded-md flex flex-col p-4 items-center'>
+    <div className='w-full bg-[#373737] rounded-md flex flex-col p-4 items-center my-20'>
        <div className="flex justify-between items-center w-full md:w-[95%] pt-6 relative">
           <div className="text-[#FFBD12] text-2xl md:text-3xl text-start font-medium pb-6 md:pb-5 z-50 absolute w-full">
             Our Technical Staff

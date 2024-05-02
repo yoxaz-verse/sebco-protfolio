@@ -13,9 +13,9 @@ const handleSubmit=(e:any)=>{
     setFormData({ ...formData, [name]: value });
   }
   return (
-    <div className='w-10/12 flex justify-center items-center flex-col'>
+    <div className='flex justify-center items-center flex-col my-20'>
         <form onSubmit={handleSubmit} className='w-full'>
-        <div className='text-[#FFBD12] text-3xl w-full flex justify-center items-center'><span className='font-medium pr-3'>Your Requirements:</span> Building Your Vision Together</div>
+        <div className='text-[#FFBD12] text-3xl w-full flex justify-center items-center font-thin'><span className='font-medium pr-3'>Your Requirements:</span> Building Your Vision Together</div>
         <div className='w-full pt-6'>
             <div className=' text-[#FFBD12] text-xl w-full flex justify-start items-start font-medium mt-6'>Project Details:</div>
             {projectDetails.map((item, index) => (

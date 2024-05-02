@@ -7,7 +7,7 @@ export default function StaffPage() {
     return (
         <>
         <OurStaffPageHero/>
-        <OurStaffComponent/>
+        <div className="w-full flex justify-center items-center relative z-10" style={{top:'-100px'}}><OurStaffComponent/></div>
       </>
     );
 }
