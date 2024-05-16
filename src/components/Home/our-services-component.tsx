@@ -6,7 +6,7 @@ import { useScreenWidth } from '@/utils/useScreenWidth';
 const OurServicesComponent = () => {
 const width = useScreenWidth()||0;
   return (
-    <div className='bg-[#414141] flex flex-col items-center justify-center p-2'>
+    <div className='bg-[#414141] flex flex-col items-center justify-center p-2 my-20'>
         <div className='flex justify-between w-full items-center'>
         <div className='w-full md:w-[60%] lg:w-7/12'><div className='text-[#FFBD12] text-3xl text-center md:text-end pt-3 font-medium'>Our Services!</div></div>
         <div className='md:3/12 lg:w-4/12 flex justify-end items-center cursor-pointer'><div className='bg-[#242424] h-10 w-10 rounded-full flex justify-center items-center'><FaArrowRight className='text-white text-lg'/></div></div>

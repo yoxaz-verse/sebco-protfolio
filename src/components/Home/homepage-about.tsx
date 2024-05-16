@@ -4,7 +4,7 @@ import React from 'react'
 
 const HomepageAbout = ({data}:HomePageAboutProps) => {
   return (
-    <div className='flex flex-col md:flex-row justify-center items-center md:justify-between'>
+    <div className='flex flex-col md:flex-row justify-center items-center md:justify-between my-20'>
         <div className='w-10/12 md:w-7/12 lg:w-8/12'>
         <div >
             <div className='text-3xl lg:text-5xl font-medium text-[#FFBD12]'>{data.title}</div>
