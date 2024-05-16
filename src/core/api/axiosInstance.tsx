@@ -2,7 +2,7 @@ import axios from "axios";
 import { currentUserToken } from "./localStorageKeys";
 import Cookies from "js-cookie";
 
-export const baseUrlExport = "https://dev.yoxaz.com";
+export const baseUrlExport = "/api";
 
 const instance = axios.create({
   baseURL: baseUrlExport,

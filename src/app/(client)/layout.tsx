@@ -1,4 +1,4 @@
-import "../styles/global.css";
+import "../../styles/global.css";
 import type { Metadata } from "next";
 import { Providers } from "./provider";
 import Footer from "@/components/Footer/footer";
@@ -16,15 +16,15 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" style={{ backgroundColor: "#242424" }}>
-      <body  style={{overflowX:'hidden'}}>
-      
+      <body style={{ overflowX: 'hidden' }}>
+
         <Providers>
-        <Navbar/>
-            {children}
-          <Contact/>
-        <Footer/>
+          <Navbar />
+          {children}
+          <Contact />
+          <Footer />
         </Providers>
-        
+
       </body>
     </html>
   );
