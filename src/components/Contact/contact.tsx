@@ -1,7 +1,7 @@
 "use client"
 import { Checkbox, Image, Input, Textarea } from '@nextui-org/react'
 import React from 'react'
-
+import {isMobile} from 'react-device-detect';
 const Contact = () => {
   const handleSubmit = (e:any) => {
     e.preventDefault()
@@ -11,8 +11,8 @@ const Contact = () => {
     <div className='flex justify-center items-center flex-col pt-10'>
         <Image src='/contact.png' alt='contact' width={1000} height={540}/>
         <div className='w-full flex justify-end items-end'>
-            <div className='w-[70%]'>
-            <form className='flex flex-col w-[45%] mx-auto py-10 bg-white rounded-xl p-4 z-10 relative' onSubmit={handleSubmit} style={{top:'-250px'}}>
+            <div className='w-full sm:w-[70%]'>
+            <form className='flex flex-col w-[70%] sm:w-[45%] mx-auto py-10 bg-white rounded-xl p-4 z-10 my-6 sm:my-0 sm:relative' onSubmit={handleSubmit} style={{top:!isMobile?'-250px':'0px'}}>
                 <Input type='text' placeholder='Name' className='py-2 px-4 my-2 rounded' variant='bordered'/>
                 <Input type='email' placeholder='Email' className='py-2 px-4 my-2 rounded' variant='bordered'/>
                 <Input type='text' placeholder='Phone' className='py-2 px-4 my-2 rounded' variant='bordered'/>

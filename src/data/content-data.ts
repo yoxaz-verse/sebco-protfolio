@@ -1,3 +1,5 @@
+import { title } from "process";
+
 export const errorCardData =
   "The Page you are looking for doesn't exist or an other error occurred. Go back, or head over to www.heavenlymatrimony.com to choose a new direction.";
 
@@ -399,4 +401,48 @@ export const clientSays=[
     link:'https://www.youtube.com/embed/q68kOGp91R8?si=U3auKVUlYljiAUZL',
     name:'Mansi Rani',
   },
+]
+export const sebcoCareers=[
+  {
+     title:'Innovative Culture',
+     description:'We embrace innovation and encourage our team members to think outside the box. Your ideas matter, and we provide an environment where creativity flourishes. offers numerous opportunities for professional development and advancement.'
+
+  },
+  {
+     title:'Collaborative Environment',
+     description:'We embrace innovation and encourage our team members to think outside the box. Your ideas matter, and we provide an environment where creativity flourishes. offers numerous opportunities for professional development and advancement.'
+  },
+  {
+     title:'Growth Opportunities',
+     description:'We embrace innovation and encourage our team members to think outside the box. Your ideas matter, and we provide an environment where creativity flourishes. offers numerous opportunities for professional development and advancement.'
+  }
+]
+export const ourApproachHome=[
+  {
+    image:'/home/ourapproach.png',
+    title:'Quality Assurance',
+    description:'Describe your commitment to delivering high-quality construction. Highlight your safety measures to ensure a secure work environment.'
+  },
+  {
+    image:'/home/ourapproach1.png',
+    title:'Project Lifecycle',
+    description:'Explain how you handle projects from initial consultation to completion.'
+  }
+]
+export const ourTechnicalStaff=[
+  {
+    image:'/home/member1.png',
+    name:'Member 1',
+    description:'Together, we challenge ourselves for a better tomorrow by meaningful designs that help live our best life and maintain lasting relevance'
+  },
+  {
+    image:'/home/member2.png',
+    name:'Member 2',
+    description:'Contemporary design and well-made products are things that we think everybody should be able to have. It’s the reason we do what we do'
+  },
+  {
+    image:'/home/member3.png',
+    name:'Member 3',
+    description:'Our collection is ever-evolving. Yet, it remains consistently relatable and accessible. Our purpose is to inspire and help create the look you want.'
+  }
 ]

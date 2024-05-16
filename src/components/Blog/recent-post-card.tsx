@@ -19,7 +19,7 @@ const RecentPostCard = ({data}:RecentPostCardProps) => {
           <RecentPostCardError onReload={handleReload} />
         ) : (
     <div>
-         <Card className=" rounded-none w-[400px] bg-transparent text-white">
+         <Card className=" rounded-none w-[330px] lg:w-[400px] bg-transparent text-white">
           <CardBody className="flex justify-center items-center p-0">
             <Image
               src={data.image}

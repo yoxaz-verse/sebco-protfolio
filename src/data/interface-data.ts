@@ -37,8 +37,10 @@ export interface OurTeamCardProps{
     data: {
       image:string;
       name: string;
-      designation: string;
+      designation?: string;
+      description?:string;
     };
+    type?:string
   }
 export interface ServiceCardProps{
   service:{
@@ -112,5 +114,11 @@ export interface ClientSaysCardProps{
     image:string;
     name:string;
     link:string;
+  }
+}
+export interface CareerCardProps{
+  career:{
+    title:string,
+    description:string,
   }
 }

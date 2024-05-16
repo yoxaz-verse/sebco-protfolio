@@ -1,5 +1,5 @@
 "use client"
-export default function BlogPageLayout({
+export default function CareersLayout({
     children,
 }: {
     children: React.ReactNode;
