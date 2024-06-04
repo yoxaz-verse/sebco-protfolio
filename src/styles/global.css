@@ -14,3 +14,34 @@
 /* .shadow-yellow {
   box-shadow: 0 0 10px yellow;
 } */
+
+h1,
+h2,
+h3,
+h4,
+h5,
+div,
+p {
+  letter-spacing: -0.025rem;
+}
+::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #ffbd12;
+
+  border-radius: 10px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #b38207;
+}

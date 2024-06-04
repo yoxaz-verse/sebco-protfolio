@@ -4,10 +4,16 @@ import { Providers } from "./provider";
 import Footer from "@/components/Footer/footer";
 import Navbar from "@/components/Navbar/navbar";
 import Contact from "@/components/Contact/contact";
+import { Poppins } from "next/font/google";
 export const metadata: Metadata = {
   title: "Sebco",
   description: "Sebco",
 };
+const roboto = Poppins({
+  weight: ["100", "300", "400", "500", "700", "900"],
+  subsets: ["latin"],
+  display: "swap",
+});
 
 export default function RootLayout({
   children,
@@ -15,16 +21,18 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" style={{ backgroundColor: "#242424" }}>
-      <body style={{ overflowX: 'hidden' }}>
-
+    <html
+      lang="en"
+      style={{ backgroundColor: "#242424" }}
+      className={roboto.className}
+    >
+      <body style={{ overflowX: "hidden" }}>
         <Providers>
           <Navbar />
           {children}
           <Contact />
           <Footer />
         </Providers>
-
       </body>
     </html>
   );

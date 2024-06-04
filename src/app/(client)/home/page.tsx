@@ -1,4 +1,4 @@
-"use client"
+"use client";
 
 import HomepageAbout from "@/components/Home/homepage-about";
 import HomePageHero from "@/components/Home/homepage-hero";
@@ -15,27 +15,29 @@ import ClientSaysComponent from "@/components/Home/what-our-clientsay-component"
 import { aboutUsHomepage, whatWeDo } from "@/data/content-data";
 
 export default function HomePage() {
-  
-    return (
-        <>
-       <HomePageHero/>
-       <div className="flex items-center justify-center w-full pt-4 flex-col">
-       <div className='w-10/12 flex flex-col py-4'>
-       <HomepageAbout data={aboutUsHomepage}/>
-            <HomepageOurWork data={whatWeDo}/>
-            <OurCompletedProjects/>
-            <OurServicesComponent/>
-            <ClientSaysComponent/>
-            <MapComponent/>
-            <SebcoCareers/>
+  return (
+    <>
+      <HomePageHero />
+      <div className="flex items-center justify-center w-full pt-4 flex-col">
+        <div className="w-10/12 flex flex-col py-4">
+          <HomepageAbout data={aboutUsHomepage} />
+          <HomepageOurWork data={whatWeDo} />
+          <OurCompletedProjects />
+          <OurServicesComponent />
+          <ClientSaysComponent />
+          <MapComponent />
+          <SebcoCareers />
         </div>
-        <div className="w-full"> <OurApproachComponentHome/></div>
-        <div className='w-10/12 flex flex-col py-4'>
-            <OurTechnicalStaffComponent/>
-            <LatestComponent/>
-            <VisitOurYoutube/>
-            </div>
+        <div className="w-full">
+          {" "}
+          <OurApproachComponentHome />
         </div>
-      </>
-    );
+        <div className="w-10/12 flex flex-col py-4">
+          <OurTechnicalStaffComponent />
+          <LatestComponent />
+          <VisitOurYoutube />
+        </div>
+      </div>
+    </>
+  );
 }
