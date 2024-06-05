@@ -64,7 +64,7 @@ export function PageComponent(Title: any) {
         <h2 className='text-2xl font-bold'>{`${Title.Title.charAt(0).toUpperCase() + Title.Title.slice(1)}s`}</h2>
         <div className='flex flex-row gap-2'>
           <AddModal columns={newCols} generateRandomId={generateRandomId} title={Title.Title} />
-          <Button onClick={generateRandomId} className='rounded-none bg-blue-200'>Refresh</Button>
+          <Button onClick={generateRandomId} className='rounded-xl bg-blue-200'>Refresh</Button>
         </div>
       </div>
       {loading ? (

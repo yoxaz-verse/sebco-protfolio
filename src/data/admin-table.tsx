@@ -63,11 +63,11 @@ export const adminColums = {
   requiremnetColums: [
     { name: "EMAIL", uid: "email", type: "text" },
     { name: "PHONE", uid: "phone", type: "text" },
-    { name: "PROJECT_OVERVIEW", uid: "projectoverview", type: "text" },
-    { name: "SCOPE_OF_WORK", uid: "scopeOfWork", type: "text" },
+    { name: "PROJECT_OVERVIEW", uid: "project_overview", type: "text" },
+    { name: "SCOPE_OF_WORK", uid: "scope_of_work", type: "text" },
     { name: "TIMELINE", uid: "timeline", type: "text" },
     { name: "BUDGET", uid: "budget", type: "text" },
-    { name: "STYLE_AND_DESIGN", uid: "style-and-design", type: "text" },
+    { name: "STYLE_AND_DESIGN", uid: "style_and_design", type: "text" },
     { name: "MATIREAL", uid: "matireal", type: "text" },
     { name: "FUNCTIONALITY", uid: "functionality", type: "text" },
     { name: "ACTIONS", uid: "actions", type: "action" }

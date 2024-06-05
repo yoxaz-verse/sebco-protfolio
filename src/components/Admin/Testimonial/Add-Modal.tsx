@@ -156,7 +156,7 @@ export default function AddModal({ title, generateRandomId, columns }: AddModalP
 
   return (
     <>
-      <Button onPress={onOpen} color="secondary">{`Add ${title}`}</Button>
+      <Button onPress={onOpen} color="warning">{`Add ${title}`}</Button>
       <Modal
         isOpen={isOpen}
         onOpenChange={onOpenChange}

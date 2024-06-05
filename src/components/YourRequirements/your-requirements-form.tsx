@@ -1,12 +1,31 @@
+import { postData } from '@/backend/Services/firestore';
+import { Titles } from '@/data/admintitle';
 import { needsPreference, projectDetails } from '@/data/content-data';
 import { Textarea } from '@nextui-org/react'
 import React, { useState } from 'react'
 
 const RequirementsForm = () => {
-  const [formData, setFormData] = useState({});
-  const handleSubmit = (e: any) => {
+  const [formData, setFormData] = useState<any>({});
+  const handleSubmit = async (e: any) => {
     e.preventDefault();
-    console.log(formData);
+    const data = {
+      project_overview: formData.projectoverview,
+      email: formData.email,
+      timeline: formData.timeline,
+      matireal: formData.matireal,
+      style_and_design: formData.styleanddesign,
+      scope_of_work: formData.scopeoverview,
+      phone: formData.phone,
+      budget: formData.budget,
+      functionality: formData.functionality
+    }
+    console.log(data);
+    const response = await postData(Titles.Requiremnt, data);
+    if (response.status) {
+      console.log(response.data);
+      alert(response.data);
+      alert(response.status);
+    }
   }
   const handleInputChange = (e: any) => {
     const { name, value } = e.target;

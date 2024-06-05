@@ -13,12 +13,15 @@ interface DeleteModalProps {
 
 const DeleteModal: React.FC<DeleteModalProps> = ({ deletedata, title, isOpen, onOpenChange, generateRandomId }) => {
   const [submitting, setSubmitting] = useState<boolean>(false);
+
   const handleDelete = async (close: () => void) => {
     try {
       setSubmitting(true);
-      const image_delete_resp = await deleteImage(deletedata.image);
-      if (!image_delete_resp.status) {
-        throw new Error('Failed to delete the image');
+      if (deletedata.image) {
+        const image_delete_resp = await deleteImage(deletedata.image);
+        if (!image_delete_resp.status) {
+          throw new Error('Failed to delete the image');
+        }
       }
       const data_delete_resp = await deleteData(title, deletedata.id);
       if (!data_delete_resp.status) {
@@ -27,7 +30,6 @@ const DeleteModal: React.FC<DeleteModalProps> = ({ deletedata, title, isOpen, on
       setSubmitting(false);
       close();
       alert(`${title} deleted successfully`);
-
       generateRandomId();
     } catch (error) {
       console.error('Error deleting testimonial:', error);
@@ -44,7 +46,6 @@ const DeleteModal: React.FC<DeleteModalProps> = ({ deletedata, title, isOpen, on
             <ModalHeader>Delete {title}</ModalHeader>
             <ModalBody>
               Are you sure you want to delete this {title}? This action cannot be undone.
-
             </ModalBody>
             <ModalFooter>
               <Button color="secondary" onPress={onClose}>

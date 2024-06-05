@@ -271,47 +271,60 @@ export const postsData = [
 ];
 export const projectDetails = [
   {
-    placeholder:
-      "Briefly describe your project, its purpose, and your desired outcome.",
+    placeholder: "Briefly describe your project, its purpose, and your desired outcome.",
     label: "Project Overview",
+    name: "Project_Overview",
     id: "projectoverview",
   },
   {
-    placeholder:
-      "Do you have a detailed blueprint or a general idea? Outline the specific areas you want us to focus on, be it a complete build, renovation, or an addition.",
+    placeholder: "Do you have a detailed blueprint or a general idea? Outline the specific areas you want us to focus on, be it a complete build, renovation, or an addition.",
     label: "Scope Overview",
+    name: "Scope_Of_Work",
     id: "scopeoverview",
+  },
+  {
+    placeholder: "Write your email",
+    label: "Email",
+    name: "Email",
+    id: "email",
+  },
+  {
+    placeholder: "Write your Phone No",
+    label: "Phone",
+    name: "Phone",
+    id: "phone",
   },
   {
     placeholder: "Do you have a target completion date in mind?",
     label: "Timeline",
+    name: "Timeline",
     id: "timeline",
   },
   {
-    placeholder:
-      "Having a ballpark budget in mind will help us tailor a plan to your needs.",
+    placeholder: "Having a ballpark budget in mind will help us tailor a plan to your needs.",
     label: "Budget",
+    name: "Budget",
     id: "budget",
   },
 ];
 
 export const needsPreference = [
   {
-    placeholder:
-      "Do you have a particular architectural style in mind? Share any references or inspirational photos you may have.",
+    placeholder: "Do you have a particular architectural style in mind? Share any references or inspirational photos you may have.",
     label: "Style and Design",
+    name: "Style_And_Design",
     id: "styleanddesign",
   },
   {
-    placeholder:
-      "Are there specific materials you prefer for construction or finishes?",
-    label: "Materials",
-    id: "materials",
+    placeholder: "Are there specific materials you prefer for construction or finishes?",
+    label: "Material",
+    name: "Matireal",
+    id: "material",
   },
   {
-    placeholder:
-      "How will you be using the finished space? Specifying your functional needs helps us optimize the layout and features.",
+    placeholder: "How will you be using the finished space? Specifying your functional needs helps us optimize the layout and features.",
     label: "Functionality",
+    name: "Functionality",
     id: "functionality",
   },
 ];
