@@ -1,10 +1,15 @@
+<<<<<<< HEAD
 "use client"
 import { Spinner } from "@nextui-org/react";
+=======
+"use client";
+>>>>>>> acee15449e4cda3b1f3d634855af49860bcb804e
 import OurApproachDetailCard from "@/components/Project/our-approach-detailcard";
 import OurApproachHero from "@/components/ProjectHero/our-approach-hero";
 import "react-toastify/dist/ReactToastify.css";
 import CommonCarousel from "@/components/Carousel/common-carousel";
 import { ourApproachCarouselData } from "@/data/content-data";
+<<<<<<< HEAD
 import { Inter } from 'next/font/google'
 import { useEffect, useState } from "react";
 import { getDatById } from "@/backend/Services/firestore";
@@ -30,5 +35,14 @@ export default function ProjectPage() {
       <CommonCarousel CarouselData={productInfo.images} />
       <OurApproachDetailCard data={productInfo} />
     </div >
+=======
+export default function ProjectPage() {
+  return (
+    <>
+      <OurApproachHero />
+      <CommonCarousel CarouselData={ourApproachCarouselData} />
+      <OurApproachDetailCard />
+    </>
+>>>>>>> acee15449e4cda3b1f3d634855af49860bcb804e
   );
 }

@@ -3,11 +3,17 @@ import { Card, CardBody, CardFooter, Modal, ModalContent, ModalBody, useDisclosu
 import Image from "next/image";
 import React, { CSSProperties, useState } from "react";
 import ServiceCardError from "./service-card-error";
+<<<<<<< HEAD
 import { Inter } from 'next/font/google'
 
 const inter = Inter({ subsets: ['latin'] })
 
 const ServiceCard = ({ service, type, move }: any) => {
+=======
+import Animate from "../ReUseComponents/Animate";
+
+const ServiceCard = ({ service, type, move }: ServiceCardProps) => {
+>>>>>>> acee15449e4cda3b1f3d634855af49860bcb804e
   const [error, setError] = useState(false);
   const handleReload = () => {
     setError(false);
@@ -21,6 +27,7 @@ const ServiceCard = ({ service, type, move }: any) => {
       {error ? (
         <ServiceCardError onReload={handleReload} />
       ) : (
+<<<<<<< HEAD
         <Card onPress={onOpen} key={service.alt} className={`w-full md:w-[30%] ${type != 'home' ? 'rounded-none' : 'rounded-sm my-3 md:my-0'}`} style={move === 'up' ? { transform: 'translateY(-80px)' } as CSSProperties : undefined} isPressable >
           <CardBody className="overflow-visible p-0">
             <Image
@@ -30,9 +37,35 @@ const ServiceCard = ({ service, type, move }: any) => {
               alt={service.title}
               className="w-full"
             />
+=======
+        <Card
+          key={service.alt}
+          className={`w-[90%] md:w-[30%] ${
+            type != "home" ? "rounded-none" : "rounded-sm my-3 md:my-0"
+          }`}
+          style={
+            move === "up"
+              ? ({ transform: "translateY(-80px)" } as CSSProperties)
+              : undefined
+          }
+          isPressable
+        >
+          <CardBody className="overflow-visible p-0">
+            <Animate>
+              <Image
+                src={service.src}
+                width={400}
+                height={200}
+                alt={service.alt}
+                className="w-full"
+              />
+            </Animate>
+>>>>>>> acee15449e4cda3b1f3d634855af49860bcb804e
           </CardBody>
           <CardFooter className="text-small justify-center font-bold">
-            <h1>{service.title}</h1>
+            <Animate delay={1}>
+              <h1>{service.title}</h1>
+            </Animate>
           </CardFooter>
         </Card>
       )}

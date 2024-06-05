@@ -1,4 +1,4 @@
-"use client"
+"use client";
 
 import HomepageAbout from "@/components/Home/homepage-about";
 import HomePageHero from "@/components/Home/homepage-hero";
@@ -19,12 +19,20 @@ import { Inter } from 'next/font/google'
 const inter = Inter({ subsets: ['latin'] })
 
 export default function HomePage() {
+<<<<<<< HEAD
 
   return (
     <>
       <HomePageHero />
       <div className={`${inter.className} flex items-center justify-center w-full pt-4 flex-col`}>
         <div className='w-10/12 flex flex-col py-4'>
+=======
+  return (
+    <>
+      <HomePageHero />
+      <div className="flex items-center justify-center w-full pt-4 flex-col">
+        <div className="w-10/12 flex flex-col py-4">
+>>>>>>> acee15449e4cda3b1f3d634855af49860bcb804e
           <HomepageAbout data={aboutUsHomepage} />
           <HomepageOurWork data={whatWeDo} />
           <OurCompletedProjects />
@@ -32,11 +40,20 @@ export default function HomePage() {
           <ClientSaysComponent />
           <MapComponent />
           <SebcoCareers />
+<<<<<<< HEAD
         </div>
         <div className="w-full">
           <OurApproachComponentHome />
         </div>
         <div className='w-10/12 flex flex-col py-4'>
+=======
+        </div>
+        <div className="w-full">
+          {" "}
+          <OurApproachComponentHome />
+        </div>
+        <div className="w-10/12 flex flex-col py-4">
+>>>>>>> acee15449e4cda3b1f3d634855af49860bcb804e
           <OurTechnicalStaffComponent />
           <LatestComponent />
           <VisitOurYoutube />
