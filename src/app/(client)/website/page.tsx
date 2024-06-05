@@ -55,118 +55,119 @@ import { aboutUsHomepage, clientSays, ourApproachCarouselData, projects, sebcoCa
 import { useState } from "react";
 
 export default function WebsitePage() {
-    const data = {
-        image: "/services/services1.png",
-        title: "Architectural Plan",
-        description: "is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has",
-    };
-    const teamcarddata= {
-        image:'/ourstaff/team4.png',
-        name:'Kusama Shetty',
-        designation:'Team Lead'
-      }
-      const servicecarddata = {
-          alt:'service1',
-          src:'/services/services1.png',
-          title:'Architectural Plan'
-      }
-      const postdata={
-        image:'/blog/post1.png',
-        title:'Various government initiatives, such as Make in India, Housing for All, and Atmanirbhar Bharat',
-        read:'5 mins read',
-      }
-      const approach={
-          img:'/ourapproaches/ourapproach1.png',
-          title:'Pre-Construction - Building the Foundation',
-          index:'01'
-      }
-      const job= {
-        image:'/careers/job2.png',
-        alt:'Job Opening 2',
-        title:'Position - Roofer',
-        location:'Bengaluru,Onsite, 3+ yr',
-        description:'Install, repair, and replace roofing systems on residential and commercial buildings.Inspect roofs ',
-       }
-       const connect={
-        name:'Satish Kumar',
-        designation:'Manager',
-        instagram:'https://www.linkedin.com/',
-        twitter:'https://twitter.com/',
-        facebook:'https://www.facebook.com/',
-        email:'test@user.com',
-        phone:'+91 9876543210',
-        img:'/ourstaff/team1.png'
-       }
-    return (
-        <div className="flex justify-center items-center flex-col py-3">
-            <OurApproachHero/>
-        <CommonCarousel CarouselData={ourApproachCarouselData}/>
-        <OurApproachDetailCard/>
-        <ProjectDetail data={projects[0]}/>
-            <ServiceCard service={servicecarddata}/>
-            <ServiceComponent/>
-            <ServiceCardLoading/>
-          
-          <div className='py-3'>
-          <OurServicesModal data={data}/>
-          </div>
-          <OurStaffPageHero/>
-          <div className="flex justify-evenly w-full py-10">
-          <OurTeamCard data={teamcarddata}/>
-          <OurTeamCardError onReload={() => console.log('reloading')}/>
-          <OurTeamCardLoading/>
-          </div>
-          <OurStaffComponent/>
-          <div className="py-5"><BlogPageHero/></div>
-          <BlogDetailComponent/>
-          <div className="flex gap-4">
-          <RecentPostCardLoading/>
-          <RecentPostCard data={postdata}/>
-          </div>
-          <RecentPostComponent/>
-          <div className="py-3 w-full flex items-center justify-center"><CommentComponent/></div>
-          <RequirementsForm/>
-          <div className="flex justify-between items-center flex-col gap-10 w-8/12 pt-10">
-           <QuoteComponent text={'Want to get started? Contact us today for a free consultation!'}/>
-           <QuoteComponentError onReload={() => console.log('reloading')}/>
-           <QuoteCardLoading/>
-           <QuoteComponent text={'Our commitment to clear communication, collaboration, and meticulous execution ensures a smooth and successful project from start to finish.  We believe this structured approach fosters trust and builds lasting relationships with our clients.'}/>
-          </div>
-          <div className="flex items-center justify-center py-10 flex-col">
-            <OurApproachComponent/>
-            <div className="flex flex-wrap gap-10 py-5 mt-40 flex-col">
-              <div className="w-49%"><OurApproachCard approach={approach}/></div>
-              <div className="w-49%"><OurApproachCardLoading/></div>
-              <div className="w-49%"><OurApproachCardError onReload={() => console.log('reloading')}/></div>
-              </div>
-            <div className="w-10/12"><WhyUsHero/></div>
-            <div className="w-10/12 py-10"><WhyUsCardsComponents/></div>
-            <div className="w-10/12 py-10"><JobOpeningComponent/></div>
-            <div className="w-10/12 py-10"><JobOpeningCard job={job}/></div>
-            <div className="w-10/12 py-10"><JobOpeningCardLoading/></div>
-            <div className="w-10/12 py-10"><JobOpeningCardError onReload={() => console.log('reloading')}/></div>
-            <div className="flex wrap gap-3 flex-row w-1/2 items-center justify-center py-3"><ApplyJobModal/>
-            <ConnectWithMeModal data={connect}/>
-            </div>
-            <HomePageHero/>
-            <div className="w-10/12 py-10"><HomepageAbout data={aboutUsHomepage}/></div>
-            <div className="w-10/12 py-10"><HomepageOurWork data={whatWeDo}/></div>
-            <div className="w-10/12 py-10"><OurCompletedProjects/></div>
-            <div className="w-10/12 py-10"><OurServicesComponent/></div>
-            <div className="w-10/12 py-10"><ClientSaysComponent/></div>
-            <div className="flex w-9/12 gap-10 flex-col lg:flex-row mb-20">
-              <ClientSayCardError onReload={()=>console.log('reload')}/>
-              <ClientSaysCard client={clientSays[0]}/>
-              <ClientSayCardLoading/>
-            </div>
-            <div className="w-10/12 py-10"><MapComponent/></div>
-            <div  className="w-10/12 py-10"><SebcoCareers/></div>
-            <div className="w-10/12 py-10"><CareersCardHome career={sebcoCareers[0]}/></div>
-            <div  className="w-10/12 py-10"><OurApproachComponentHome/></div>
-            <div  className="w-10/12 py-10"><OurTechnicalStaffComponent/></div>
-            <div  className="w-10/12 py-10"><LatestComponent/></div>
-            <div  className="w-10/12 py-10"><VisitOurYoutube/></div>
-          </div>
+  const data = {
+    image: "/services/services1.png",
+    title: "Architectural Plan",
+    description: "is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has",
+  };
+  const teamcarddata = {
+    image: '/ourstaff/team4.png',
+    name: 'Kusama Shetty',
+    designation: 'Team Lead'
+  }
+  const servicecarddata = {
+    alt: 'service1',
+    src: '/services/services1.png',
+    title: 'Architectural Plan',
+    content: ""
+  }
+  const postdata = {
+    image: '/blog/post1.png',
+    title: 'Various government initiatives, such as Make in India, Housing for All, and Atmanirbhar Bharat',
+    read: '5 mins read',
+  }
+  const approach = {
+    img: '/ourapproaches/ourapproach1.png',
+    title: 'Pre-Construction - Building the Foundation',
+    index: '01'
+  }
+  const job = {
+    image: '/careers/job2.png',
+    alt: 'Job Opening 2',
+    title: 'Position - Roofer',
+    location: 'Bengaluru,Onsite, 3+ yr',
+    description: 'Install, repair, and replace roofing systems on residential and commercial buildings.Inspect roofs ',
+  }
+  const connect = {
+    name: 'Satish Kumar',
+    designation: 'Manager',
+    instagram: 'https://www.linkedin.com/',
+    twitter: 'https://twitter.com/',
+    facebook: 'https://www.facebook.com/',
+    email: 'test@user.com',
+    phone: '+91 9876543210',
+    img: '/ourstaff/team1.png'
+  }
+  return (
+    <div className="flex justify-center items-center flex-col py-3">
+      <OurApproachHero />
+      <CommonCarousel CarouselData={ourApproachCarouselData} />
+      <OurApproachDetailCard />
+      <ProjectDetail data={projects[0]} />
+      <ServiceCard service={servicecarddata} />
+      <ServiceComponent />
+      <ServiceCardLoading />
+
+      <div className='py-3'>
+        <OurServicesModal data={data} />
       </div>
-    );
+      <OurStaffPageHero />
+      <div className="flex justify-evenly w-full py-10">
+        <OurTeamCard data={teamcarddata} />
+        <OurTeamCardError onReload={() => console.log('reloading')} />
+        <OurTeamCardLoading />
+      </div>
+      <OurStaffComponent />
+      <div className="py-5"><BlogPageHero /></div>
+      <BlogDetailComponent />
+      <div className="flex gap-4">
+        <RecentPostCardLoading />
+        <RecentPostCard data={postdata} />
+      </div>
+      <RecentPostComponent />
+      <div className="py-3 w-full flex items-center justify-center"><CommentComponent /></div>
+      <RequirementsForm />
+      <div className="flex justify-between items-center flex-col gap-10 w-8/12 pt-10">
+        <QuoteComponent text={'Want to get started? Contact us today for a free consultation!'} />
+        <QuoteComponentError onReload={() => console.log('reloading')} />
+        <QuoteCardLoading />
+        <QuoteComponent text={'Our commitment to clear communication, collaboration, and meticulous execution ensures a smooth and successful project from start to finish.  We believe this structured approach fosters trust and builds lasting relationships with our clients.'} />
+      </div>
+      <div className="flex items-center justify-center py-10 flex-col">
+        <OurApproachComponent />
+        <div className="flex flex-wrap gap-10 py-5 mt-40 flex-col">
+          <div className="w-49%"><OurApproachCard approach={approach} /></div>
+          <div className="w-49%"><OurApproachCardLoading /></div>
+          <div className="w-49%"><OurApproachCardError onReload={() => console.log('reloading')} /></div>
+        </div>
+        <div className="w-10/12"><WhyUsHero /></div>
+        <div className="w-10/12 py-10"><WhyUsCardsComponents /></div>
+        <div className="w-10/12 py-10"><JobOpeningComponent /></div>
+        <div className="w-10/12 py-10"><JobOpeningCard job={job} /></div>
+        <div className="w-10/12 py-10"><JobOpeningCardLoading /></div>
+        <div className="w-10/12 py-10"><JobOpeningCardError onReload={() => console.log('reloading')} /></div>
+        <div className="flex wrap gap-3 flex-row w-1/2 items-center justify-center py-3"><ApplyJobModal />
+          <ConnectWithMeModal data={connect} />
+        </div>
+        <HomePageHero />
+        <div className="w-10/12 py-10"><HomepageAbout data={aboutUsHomepage} /></div>
+        <div className="w-10/12 py-10"><HomepageOurWork data={whatWeDo} /></div>
+        <div className="w-10/12 py-10"><OurCompletedProjects /></div>
+        <div className="w-10/12 py-10"><OurServicesComponent /></div>
+        <div className="w-10/12 py-10"><ClientSaysComponent /></div>
+        <div className="flex w-9/12 gap-10 flex-col lg:flex-row mb-20">
+          <ClientSayCardError onReload={() => console.log('reload')} />
+          <ClientSaysCard client={clientSays[0]} />
+          <ClientSayCardLoading />
+        </div>
+        <div className="w-10/12 py-10"><MapComponent /></div>
+        <div className="w-10/12 py-10"><SebcoCareers /></div>
+        <div className="w-10/12 py-10"><CareersCardHome career={sebcoCareers[0]} /></div>
+        <div className="w-10/12 py-10"><OurApproachComponentHome /></div>
+        <div className="w-10/12 py-10"><OurTechnicalStaffComponent /></div>
+        <div className="w-10/12 py-10"><LatestComponent /></div>
+        <div className="w-10/12 py-10"><VisitOurYoutube /></div>
+      </div>
+    </div>
+  );
 }

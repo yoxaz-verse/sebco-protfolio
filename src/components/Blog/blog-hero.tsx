@@ -3,10 +3,9 @@ import React from 'react'
 
 const BlogPageHero = () => {
   return (
-    <div>
-    <Image src={'/blog/bloghero.png'} width={1920} height={800} alt='Blog Hero Image'/>
-    
-    </div>
+    <>
+      <Image src={'/blog/bloghero.png'} width={1000} height={1000} className='w-full' alt='Blog Hero Image' />
+    </>
   )
 }
 

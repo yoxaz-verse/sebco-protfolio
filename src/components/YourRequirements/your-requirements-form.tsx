@@ -3,8 +3,8 @@ import { Textarea } from '@nextui-org/react'
 import React, { useState } from 'react'
 
 const RequirementsForm = () => {
-    const [formData, setFormData] = useState({});
-const handleSubmit=(e:any)=>{
+  const [formData, setFormData] = useState({});
+  const handleSubmit = (e: any) => {
     e.preventDefault();
     console.log(formData);
   }
@@ -13,18 +13,23 @@ const handleSubmit=(e:any)=>{
     setFormData({ ...formData, [name]: value });
   }
   return (
-    <div className='flex justify-center items-center flex-col my-20'>
-        <form onSubmit={handleSubmit} className='w-full'>
-        <div className='text-[#FFBD12] text-3xl w-full flex justify-center items-center font-thin'><span className='font-medium pr-3'>Your Requirements:</span> Building Your Vision Together</div>
+    <div className='flex justify-center w-full items-center flex-col'>
+      <form onSubmit={handleSubmit} className='w-full py-20'>
+        <h1 className='text-[#FFBD12] text-3xl w-full flex justify-center items-center font-thin'>
+          <span className='text-3xl font-bold font-medium pr-3'>
+            Your Requirements:</span> Building Your Vision Together</h1>
         <div className='w-full pt-6'>
-            <div className=' text-[#FFBD12] text-xl w-full flex justify-start items-start font-medium mt-6'>Project Details:</div>
-            {projectDetails.map((item, index) => (
+          <div className='text-[#FFBD12] text-xl w-full flex justify-start items-start font-medium pt-6'>
+            Project Details:
+          </div>
+          {projectDetails.map((item, index) => (
             <Textarea
               key={index}
               variant="bordered"
               placeholder={item.placeholder}
               label={item.label}
-              className='rounded-none py-5 text-white'
+              style={{ borderRadius: "0px" }}
+              className='py-5 text-white'
               minRows={5}
               id={item.id}
               name={item.id}
@@ -32,14 +37,15 @@ const handleSubmit=(e:any)=>{
               isRequired={true}
             />
           ))}
-       <div className=' text-[#FFBD12] text-xl w-full flex justify-start items-start font-medium mt-6'>Your Needs and Preferences</div>
-       {needsPreference.map((item, index) => (
+          <div className=' text-[#FFBD12] text-xl w-full flex justify-start items-start font-medium mt-6'>Your Needs and Preferences</div>
+          {needsPreference.map((item, index) => (
             <Textarea
               key={index}
               variant="bordered"
               placeholder={item.placeholder}
               label={item.label}
-              className='rounded-none py-5 text-white'
+              style={{ borderRadius: "0px" }}
+              className='py-5 text-white'
               minRows={5}
               id={item.id}
               name={item.id}
@@ -48,8 +54,8 @@ const handleSubmit=(e:any)=>{
             />
           ))}
         </div>
-    <div><button className='bg-[#FFBD12] rounded py-2 px-4 text-black' type='submit'>Submit</button></div>
-    </form>
+        <div><button className='bg-[#FFBD12] rounded py-2 px-4 text-black' type='submit'>Submit</button></div>
+      </form>
     </div>
   )
 }

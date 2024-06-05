@@ -14,7 +14,6 @@ function Auth() {
       return login(data.email, data.password)
     },
     onSuccess: (data) => {
-      console.log(data)
       setSubmitting(false)
       alert('Logged in successfully')
       routes.push(ADMIN_ROUTES.DASHBOARD)
@@ -42,9 +41,8 @@ function Auth() {
     }
   }
   return (
-    <div className='w-screen h-screen flex justify-center align-middle'>
-
-      <div className='w-[30%] p-5 flex flex-col justify-center text-center align-middle max-h-max gap-5 '>
+    <div className='w-screen h-screen flex justify-center gap-[2vh] align-middle'>
+      <div className='w-full md:w-1/2 p-5 flex flex-col justify-center text-center align-middle max-h-max gap-5 '>
         <h1 className='text-2xl font-bold'>Logo</h1>
         <h1 className='text-2xl font-bold'>Login</h1>
         <form className='flex flex-col gap-3' onSubmit={handleSubmit}>
@@ -63,6 +61,7 @@ function Auth() {
           <Button
             isLoading={submitting}
             color="secondary"
+            className='p-6 text-lg font-bold'
             type='submit'
             spinner={
               <svg

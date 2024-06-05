@@ -20,7 +20,7 @@ const Navbar = () => {
   };
 
   return (
-    <div className='bg-[#2C2B2B] flex justify-between items-center px-3 py-3'>
+    <div className='bg-[#2C2B2B] flex justify-between items-center px-3 py-3  w-full'>
       <div className='w-1/5 text-white text-center'>LOGO</div>
       <div className='w-4/5 flex justify-end items-center lg:hidden'>
         <Dropdown className='bg-[#494949]'>

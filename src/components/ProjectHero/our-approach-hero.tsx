@@ -1,12 +1,11 @@
-import { ourapproachHero } from '@/data/content-data'
 import Image from 'next/image'
 import React from 'react'
 
-const OurApproachHero = () => {
+const OurApproachHero = ({ mainImg }: any) => {
   return (
-    <div>
-    <Image src={ourapproachHero} width={1920} height={800} alt='Our Approach Hero Image'/>
-    </div>
+    <>
+      <Image src={mainImg} width={1920} height={800} alt='Our Approach Hero Image' />
+    </>
   )
 }
 

@@ -1,22 +1,44 @@
-"use client"
+"use client";
+import { Spinner } from "@nextui-org/react"
+import { useEffect, useState } from "react";
+import { useRouter } from "next/navigation";
 import ImagesRow from "@/components/ProjectDetail/images-row";
 import ProjectDetail from "@/components/ProjectDetail/project-detail";
-import {  projects } from "@/data/content-data";
-import "react-toastify/dist/ReactToastify.css";
+import { Titles } from "@/data/admintitle";
+import { getData } from "@/backend/Services/firestore";
+import { Inter } from 'next/font/google'
+import { useFetchData } from "@/hooks/useFetchData";
+const inter = Inter({ subsets: ['latin'] });
 
 export default function ProjectsPage() {
+  const router = useRouter();
+  const { data: projects, loading } = useFetchData(Titles.Project);
+  if (loading) {
     return (
-        <div className="flex flex-col items-center justify-center w-full">
-        {projects.map((project, index) => (
-          <div key={index} className="py-10 flex flex-col justify-center items-center">
-          <div >
-            <ProjectDetail data={project}/>
-          </div>
-           <div className=" w-10/12">
-           <ImagesRow data={project.images_carousel}/>
-           </div>
-           </div>
-        ))}
+      <div className="flex  flex-col h-[100vh] justify-center items-center text-yellow-400">
+        <Spinner color="warning" />
+        Loading Projects...
       </div>
     );
+  }
+
+  return (
+    <div className={inter.className}>
+      <div className={`flex flex-col items-center justify-center w-full`}>
+        {projects.map((project: any, index: any) => (
+          <div
+            key={index}
+            onClick={() => router.push(`/ourprojects/${project.id}`)}
+            className="py-10 flex flex-col justify-center items-center relative"
+          >
+            <ProjectDetail data={project} />
+            <div className="bg-[#FFBD12]/[20%] blur-2xl absolute rounded-full h-80 w-80 -z-10"></div>
+            <div className="w-full">
+              <ImagesRow data={project.images} />
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
 }

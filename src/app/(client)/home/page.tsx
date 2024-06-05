@@ -13,29 +13,35 @@ import SebcoCareers from "@/components/Home/sebco-careers";
 import VisitOurYoutube from "@/components/Home/visit-our-youtube";
 import ClientSaysComponent from "@/components/Home/what-our-clientsay-component";
 import { aboutUsHomepage, whatWeDo } from "@/data/content-data";
+import { Inter } from 'next/font/google'
+
+// If loading a variable font, you don't need to specify the font weight
+const inter = Inter({ subsets: ['latin'] })
 
 export default function HomePage() {
-  
-    return (
-        <>
-       <HomePageHero/>
-       <div className="flex items-center justify-center w-full pt-4 flex-col">
-       <div className='w-10/12 flex flex-col py-4'>
-       <HomepageAbout data={aboutUsHomepage}/>
-            <HomepageOurWork data={whatWeDo}/>
-            <OurCompletedProjects/>
-            <OurServicesComponent/>
-            <ClientSaysComponent/>
-            <MapComponent/>
-            <SebcoCareers/>
-        </div>
-        <div className="w-full"> <OurApproachComponentHome/></div>
+
+  return (
+    <>
+      <HomePageHero />
+      <div className={`${inter.className} flex items-center justify-center w-full pt-4 flex-col`}>
         <div className='w-10/12 flex flex-col py-4'>
-            <OurTechnicalStaffComponent/>
-            <LatestComponent/>
-            <VisitOurYoutube/>
-            </div>
+          <HomepageAbout data={aboutUsHomepage} />
+          <HomepageOurWork data={whatWeDo} />
+          <OurCompletedProjects />
+          <OurServicesComponent />
+          <ClientSaysComponent />
+          <MapComponent />
+          <SebcoCareers />
         </div>
-      </>
-    );
+        <div className="w-full">
+          <OurApproachComponentHome />
+        </div>
+        <div className='w-10/12 flex flex-col py-4'>
+          <OurTechnicalStaffComponent />
+          <LatestComponent />
+          <VisitOurYoutube />
+        </div>
+      </div>
+    </>
+  );
 }
