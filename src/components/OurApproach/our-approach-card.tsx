@@ -1,10 +1,10 @@
-import { ApproachCardProps} from "@/data/interface-data";
+import { ApproachCardProps } from "@/data/interface-data";
 import { Card, CardBody, CardFooter } from "@nextui-org/react";
 import Image from "next/image";
 import React, { useState } from "react";
 import OurApproachCardError from "./our-approach-error";
 
-const OurApproachCard = ({ approach }: ApproachCardProps) => {
+const OurApproachCard = ({ approach }: any) => {
   const [error, setError] = useState(false);
   const handleReload = () => {
     setError(false);
@@ -30,7 +30,7 @@ const OurApproachCard = ({ approach }: ApproachCardProps) => {
           <CardFooter className="text-small flex justify-between w-full my-5">
             <div className="w-5/12 text-start text-base font-medium">{approach.title}</div>
             <div className="w-3/12 flex items-end justify-end pr-3 text-3xl opacity-65 text-[#FFBD12]">
-                {approach.index}
+              {approach.index}
             </div>
           </CardFooter>
         </Card>

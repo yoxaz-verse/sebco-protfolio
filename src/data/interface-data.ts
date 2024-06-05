@@ -1,7 +1,7 @@
 export interface ToastMessage {
   type: string;
   message: string;
-  position?: string;
+  position?: string;  
 }
 export interface TopbarProps {
   username: string,
@@ -45,8 +45,8 @@ export interface OurTeamCardProps {
 export interface ServiceCardProps {
   service: {
     alt: string;
-    src: string;
-    content: string;
+    data: string;
+    description: string;
     title: string;
   },
   content?: string;

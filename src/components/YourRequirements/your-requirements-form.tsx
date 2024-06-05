@@ -16,7 +16,7 @@ const RequirementsForm = () => {
     <div className='flex justify-center w-full items-center flex-col'>
       <form onSubmit={handleSubmit} className='w-full py-20'>
         <h1 className='text-[#FFBD12] text-3xl w-full flex justify-center items-center font-thin'>
-          <span className='text-3xl font-bold font-medium pr-3'>
+          <span className='text-3xl font-bold pr-3'>
             Your Requirements:</span> Building Your Vision Together</h1>
         <div className='w-full pt-6'>
           <div className='text-[#FFBD12] text-xl w-full flex justify-start items-start font-medium pt-6'>

@@ -29,7 +29,7 @@ export default function ProjectsPage() {
           <div
             key={index}
             onClick={() => router.push(`/ourprojects/${project.id}`)}
-            className="py-10 flex flex-col justify-center items-center relative"
+            className="py-10  cursor-pointer flex flex-col justify-center items-center relative"
           >
             <ProjectDetail data={project} />
             <div className="bg-[#FFBD12]/[20%] blur-2xl absolute rounded-full h-80 w-80 -z-10"></div>
