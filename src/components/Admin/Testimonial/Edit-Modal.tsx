@@ -123,11 +123,11 @@ export default function EditModal({
   const handleSubmit = async (e: React.FormEvent, close: () => void) => {
     e.preventDefault();
     setSubmitting(true);
-
+    console.log(newCols);
     const filteredCols = newCols.filter((col: any) => col.name.toLowerCase() !== "actions");
     const allFieldsFilled = filteredCols.every((col: any) => {
-      if (col.type === 'image') {
-        return currdata[col.name.toLowerCase()] && currdata[col.name.toLowerCase()] !== "/01.png";
+      if (data.hasOwnProperty('image')) {
+        return currdata["image"];
       }
       return currdata[col.name.toLowerCase()];
     });

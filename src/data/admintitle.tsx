@@ -9,5 +9,6 @@ export const Titles = {
   Requiremnt: "Requiremnt",
   LatestNew: "Latest-New",
   Contact: "Contact",
-  Comments: "Comment"
+  Comments: "Comment",
+  Apply_for_job: "Job Posting"
 }

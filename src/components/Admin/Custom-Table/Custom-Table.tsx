@@ -105,6 +105,17 @@ export default function CustomTable({ title, data, columns, onOpenEdit, onOpenVi
             </div>
           </>
         );
+      case "action3":
+        return (
+          <>
+            <div className="relative flex items-center gap-2">
+              <Button isIconOnly className="bg-transparent"
+                onClick={() => {
+                  onOpenDelete(data);
+                }}>    <DeleteIcon className="fill-red-400" /></Button>
+            </div>
+          </>
+        );
       case "action2":
         return (
           <>

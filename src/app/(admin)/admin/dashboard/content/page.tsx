@@ -5,6 +5,7 @@ import PageGetPostDeleteComponent from '@/components/Admin/Pages/PageGetPostDele
 import { adminColums } from '@/data/admin-table';
 import { Titles } from '@/data/admintitle';
 import PageGetPostComponent from '@/components/Admin/Pages/PageGetPost';
+import PageGetDeleteComponent from '@/components/Pages/PageGetDelete';
 
 
 
@@ -23,6 +24,7 @@ function Page() {
         <PageComponent Title={Titles.Project} columns={adminColums.projectColumns} />
         <PageComponent Title={Titles.Requiremnt} columns={adminColums.requiremnetColums} />
         <PageComponent Title={Titles.CompletedProjects} columns={adminColums.completedProjects} />
+        <PageGetDeleteComponent Title={Titles.Apply_for_job} columns={adminColums.jobPosting} />
       </div>
     </>
   );

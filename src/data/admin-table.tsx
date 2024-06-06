@@ -75,6 +75,14 @@ export const adminColums = {
   completedProjects: [
     { name: "IMAGES", uid: "images", type: "images" },
     { name: "ACTIONS", uid: "actions", type: "action" }
+  ],
+  jobPosting: [
+    { name: "JOBID", uid: "id", type: "id" },
+    { name: "NAME", uid: "name", type: "text" },
+    { name: "EMAIL", uid: "email", type: "text" },
+    { name: "PHONE", uid: "phone", type: "text" },
+    { name: "RESUME", uid: "resume", type: "file" },
+    { name: "ACTIONS", uid: "action3", type: "action" }
   ]
 }
 
