@@ -1,7 +1,7 @@
 export interface ToastMessage {
   type: string;
   message: string;
-  position?: string;  
+  position?: string;
 }
 export interface TopbarProps {
   username: string,
@@ -69,9 +69,10 @@ export interface RecentPostCardProps {
 }
 export interface JobOpeningCardProps {
   job: {
+    id: any,
     image: string,
     alt: string,
-    title: string,
+    position: string,
     location: string,
     description: string,
   }

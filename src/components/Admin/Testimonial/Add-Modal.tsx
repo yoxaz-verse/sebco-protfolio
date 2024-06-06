@@ -113,7 +113,7 @@ export default function AddModal({ title, generateRandomId, columns }: AddModalP
     const current_time = new Date().getTime();
 
     if (hasImageColumn && file) {
-      const image_upload_resp = await uploadImage(file, `${title}/${data.name ?? data.heading ?? data.title}-${current_time}`);
+      const image_upload_resp = await uploadImage(file, `${title}/${data.name ?? data.heading ?? data.title ?? data.position}-${current_time}`);
       if (!image_upload_resp.status) {
         alert("Image upload failed");
         setSubmitting(false);
