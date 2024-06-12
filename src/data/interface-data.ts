@@ -63,7 +63,7 @@ export interface ApproachCardProps {
 export interface RecentPostCardProps {
   data: {
     image: string;
-    read: string;
+    description: string;
     title: string;
   }
 }
@@ -100,6 +100,8 @@ export interface HomePageAboutProps {
 export interface Achievements {
   heading: string,
   description: string,
+  tag: string;
+
 }
 export interface Methods {
   title: string,

@@ -13,7 +13,7 @@ export const adminColums = {
   newColumns: [
     { name: "NAME", uid: "name", type: "text" },
     { name: "IMAGE", uid: "image", type: "image" },
-    { name: "YOUTUBE-LINK", uid: "youtubeLink", type: "text" },
+    { name: "LINK", uid: "youtubeLink", type: "text" },
     { name: "ACTIONS", uid: "actions", type: "action" },
   ],
   blogColumns: [
@@ -29,6 +29,7 @@ export const adminColums = {
     { name: "ACTIONS", uid: "actions", type: "action" }
   ],
   latestNewsColumns: [
+    { name: "Title", uid: "title", type: "text" },
     { name: "IMAGE", uid: "image", type: "image" },
     { name: "DESCRIPTION", uid: "description", type: "text" },
     { name: "ACTIONS", uid: "actions", type: "action" }

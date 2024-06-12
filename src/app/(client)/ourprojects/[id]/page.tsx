@@ -22,11 +22,13 @@ export default function ProjectPage() {
       </div>
     );
   }
-  console.log(productInfo);
+
   return (
     <div className={inter.className}>
       <OurApproachHero mainImg={productInfo.image} />
-      <CommonCarousel CarouselData={productInfo.images} />
+      <Animate>
+        <CommonCarousel CarouselData={productInfo.images} />
+      </Animate>
       <OurApproachDetailCard data={productInfo} />
     </div >
 

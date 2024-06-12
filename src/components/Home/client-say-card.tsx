@@ -1,3 +1,4 @@
+"use client";
 import { ClientSaysCardProps, ServiceCardProps } from "@/data/interface-data";
 import { Avatar, Card, CardBody, CardFooter, Divider } from "@nextui-org/react";
 import Image from "next/image";
@@ -14,6 +15,10 @@ const ClientSaysCard = ({ client }: ClientSaysCardProps) => {
   const handleImageError = () => {
     setError(true);
   };
+  console.log(client);
+  const videoUrl = client.link;
+  const videoId = videoUrl.split('v=')[1];
+  const embedLink = `https://www.youtube.com/embed/${videoId}`;
   return (
     <>
       {error ? (
@@ -32,7 +37,7 @@ const ClientSaysCard = ({ client }: ClientSaysCardProps) => {
               style={{ transform: "translateY(-50px)" }}
             />
             <iframe
-              src={client.link}
+              src={embedLink}
               title="YouTube video player"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
               className="px-3 w-60 h-40 lg:w-72"

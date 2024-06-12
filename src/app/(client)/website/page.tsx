@@ -82,10 +82,12 @@ export default function WebsitePage() {
     index: '01'
   }
   const job = {
+    id: "1234",
     image: '/careers/job2.png',
     alt: 'Job Opening 2',
     title: 'Position - Roofer',
     location: 'Bengaluru,Onsite, 3+ yr',
+    position:"Frontend",
     description: 'Install, repair, and replace roofing systems on residential and commercial buildings.Inspect roofs ',
   }
   const connect = {
@@ -122,7 +124,7 @@ export default function WebsitePage() {
       <BlogDetailComponent />
       <div className="flex gap-4">
         <RecentPostCardLoading />
-        <RecentPostCard data={postdata} />
+        <RecentPostCard data={{ ...postdata, description: "This is dummy" }} />
       </div>
       <RecentPostComponent />
       <div className="py-3 w-full flex items-center justify-center"><CommentComponent /></div>

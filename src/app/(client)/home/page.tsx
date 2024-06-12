@@ -1,4 +1,4 @@
-"use client";
+import { getData } from "@/backend/Services/firestore";
 import HomepageAbout from "@/components/Home/homepage-about";
 import HomePageHero from "@/components/Home/homepage-hero";
 import HomepageOurWork from "@/components/Home/homepage-ourwork";
@@ -17,7 +17,9 @@ import { Inter } from 'next/font/google'
 // If loading a variable font, you don't need to specify the font weight
 const inter = Inter({ subsets: ['latin'] })
 
-export default function HomePage() {
+export default async function HomePage() {
+  const completedProjectdata = await getData(`/Completed Project`)
+  console.log(completedProjectdata);
   return (
     <>
       <HomePageHero />
@@ -25,7 +27,7 @@ export default function HomePage() {
         <div className="w-10/12 flex flex-col py-4">
           <HomepageAbout data={aboutUsHomepage} />
           <HomepageOurWork data={whatWeDo} />
-          <OurCompletedProjects />
+          <OurCompletedProjects  />
           <OurServicesComponent />
           <ClientSaysComponent />
           <MapComponent />

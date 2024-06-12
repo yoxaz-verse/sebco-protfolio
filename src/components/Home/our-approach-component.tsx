@@ -5,7 +5,9 @@ import React from "react";
 import { FaArrowRight } from "react-icons/fa";
 import Animate from "../ReUseComponents/Animate";
 
+
 const OurApproachComponentHome = () => {
+  
   return (
     <Animate className="bg-gradient-to-b from-[#414141] to-[#000000] flex items-center justify-center flex-col border-none">
       <div className="flex justify-between items-center w-9/12 pt-6">

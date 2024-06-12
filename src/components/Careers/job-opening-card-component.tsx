@@ -2,9 +2,10 @@ import { JobOpeningCardProps } from '@/data/interface-data'
 import Image from 'next/image'
 import React from 'react'
 import ApplyJobModal from '../ApplyJobModal/apply-job-modal'
+import Animate from '../ReUseComponents/Animate'
 const JobOpeningCard = ({ job }: JobOpeningCardProps) => {
   return (
-    <div className='flex flex-col md:flex-row bg-[#252525] text-white border-solid border-[#363636] border-1'>
+    <Animate className='flex flex-col md:flex-row bg-[#252525] text-white border-solid border-[#363636] border-1'>
       <div className="w-full md:w-1/4">
         <Image src={job.image} width={200} height={200} layout="responsive" className="object-cover" alt={job.alt} />
       </div>
@@ -16,7 +17,7 @@ const JobOpeningCard = ({ job }: JobOpeningCardProps) => {
           <ApplyJobModal id={job.id} />
         </div>
       </div>
-    </div>
+    </Animate>
   )
 }
 

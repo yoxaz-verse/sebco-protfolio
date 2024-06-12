@@ -8,6 +8,7 @@ import { Titles } from "@/data/admintitle";
 import { getData } from "@/backend/Services/firestore";
 import { Inter } from 'next/font/google'
 import { useFetchData } from "@/hooks/useFetchData";
+import Animate from "@/components/ReUseComponents/Animate";
 const inter = Inter({ subsets: ['latin'] });
 
 export default function ProjectsPage() {
@@ -24,7 +25,7 @@ export default function ProjectsPage() {
 
   return (
     <div className={inter.className}>
-      <div className={`flex flex-col items-center justify-center w-full`}>
+      <Animate className={`flex flex-col items-center justify-center w-full`}>
         {projects.map((project: any, index: any) => (
           <div
             key={index}
@@ -38,7 +39,7 @@ export default function ProjectsPage() {
             </div>
           </div>
         ))}
-      </div>
+      </Animate>
     </div>
   );
 }

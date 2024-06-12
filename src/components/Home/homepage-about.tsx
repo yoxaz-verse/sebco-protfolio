@@ -1,7 +1,9 @@
+"use client";
 import { HomePageAboutProps } from "@/data/interface-data";
 import Image from "next/image";
 import React from "react";
 import Animate from "../ReUseComponents/Animate";
+import CountUp from 'react-countup';
 
 const HomepageAbout = ({ data }: HomePageAboutProps) => {
   return (
@@ -19,9 +21,15 @@ const HomepageAbout = ({ data }: HomePageAboutProps) => {
           {data.achievements.map((item, index) => (
             <div key={index} className="w-5/12 md:w-3/12 opacity-80 p-3 lg:p-5">
               <div className="text-[#FFBD12] md:text-xl lg:text-3xl font-medium">
-                {item.heading}
+                <CountUp enableScrollSpy start={0} end={parseInt(item.heading)} delay={0}>
+                  {({ countUpRef }) => (
+                    <div>
+                      <span ref={countUpRef} />{item.tag}
+                    </div>
+                  )}
+                </CountUp>
               </div>
-              <Animate  className="text-[#FFFFFF] md:text-xs lg:text-sm py-1 lg:py-2">
+              <Animate className="text-[#FFFFFF] md:text-xs lg:text-sm py-1 lg:py-2">
                 {item.description}
               </Animate>
             </div>

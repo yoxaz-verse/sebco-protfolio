@@ -1,10 +1,25 @@
+"use client"
 import React from "react";
 import { FaArrowRight } from "react-icons/fa";
 import RecentPostCard from "../Blog/recent-post-card";
 import { postsData } from "@/data/content-data";
 import Animate from "../ReUseComponents/Animate";
+import { useFetchData } from "@/hooks/useFetchData";
+import { Titles } from "@/data/admintitle";
+import { Spinner } from "@nextui-org/react";
 
 const LatestComponent = () => {
+  const { data, loading } = useFetchData(Titles.LatestNew);
+  if (loading) {
+    return (
+      <div className="flex  flex-col h-[100vh] justify-center items-center text-yellow-400">
+        <Spinner color="warning" />
+        Loading Latest News...
+      </div>
+    );
+  }
+  console.log(data);
+
   return (
     <div className="flex flex-col my-20">
       <div className="flex justify-between items-center w-full md:w-full pt-6 relative">
@@ -18,12 +33,12 @@ const LatestComponent = () => {
         </div>
       </div>
       <div className="flex gap-4 flex-col md:flex-row">
-        {postsData.map((post) => (
+        {data.map((post:any,index:number) => (
           <Animate
-            key={post.read}
+            key={index}
             className="w-full md:w-[47%] lg:w-[33%] flex justify-center items-center py-4 md:py-0"
           >
-            <RecentPostCard data={post} key={post.read} />
+            <RecentPostCard data={post} key={index} />
           </Animate>
         ))}
       </div>

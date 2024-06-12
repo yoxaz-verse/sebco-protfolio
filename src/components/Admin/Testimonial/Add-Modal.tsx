@@ -165,6 +165,7 @@ export default function AddModal({ title, generateRandomId, columns }: AddModalP
           setUploadImageUrl("/01.png");
           setSubmitting(false);
         }}
+        scrollBehavior="outside"
       >
         <ModalContent>
           {(onClose) => (
@@ -177,6 +178,8 @@ export default function AddModal({ title, generateRandomId, columns }: AddModalP
                 <ModalHeader className="flex flex-col gap-1">{`Add ${title}`}</ModalHeader>
                 <ModalBody>
                   {columns.map((column: any, columnIndex: number) => {
+                    console.log(column);
+
                     switch (column.type) {
                       case "text":
                         return (

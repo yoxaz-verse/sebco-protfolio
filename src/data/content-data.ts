@@ -401,20 +401,27 @@ export const aboutUsHomepage = {
     "Welcome to Sebco, where we redefine construction excellence for both residential and commercial projects. As a premier construction agency, we take pride in transforming visions into tangible reality, whether its crafting dream homes or empowering thriving businesses.",
   achievements: [
     {
-      heading: "500+",
+      heading: "500",
       description: "Happy Customer",
+      tag: "+"
     },
     {
-      heading: "250+",
+      heading: "250",
       description: "Return Customer",
+      tag: "+"
+
     },
     {
-      heading: "70%",
+      heading: "70",
       description: "Report Business",
+      tag: "%"
+
     },
     {
       heading: "800",
       description: "Projects Completed",
+      tag: "+"
+
     },
   ],
 };

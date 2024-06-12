@@ -5,6 +5,7 @@ import { Inter } from 'next/font/google'
 import { useFetchData } from '@/hooks/useFetchData'
 import { Titles } from '@/data/admintitle'
 import { Spinner } from '@nextui-org/react'
+import Animate from '../ReUseComponents/Animate'
 
 const inter = Inter({ subsets: ['latin'] })
 const ServiceComponent = () => {
@@ -20,7 +21,7 @@ const ServiceComponent = () => {
     );
   }
   return (
-    <div className={`${inter.className} flex justify-center items-center flex-col py-3`}>
+    <Animate className={`${inter.className} flex justify-center items-center flex-col py-3`}>
       <div className="text-[#FFBD12] text-2xl py-8 font-medium">Our Services</div>
       <div className="w-full px-[1vh] relative flex flex-wrap gap-10">
         {data.map((service: any) => (
@@ -28,7 +29,7 @@ const ServiceComponent = () => {
         ))}
       </div>
       <div className='bg-[#FFBD12]/[60%] blur-2xl -bottom-[10rem]  -z-10 absolute rounded-full h-80 w-80'></div>
-    </div>
+    </Animate>
   )
 }
 

@@ -29,7 +29,7 @@ const RecentPostCard = ({ data }: RecentPostCardProps) => {
                 className='w-full min-h-full'
                 onError={handleImageError}
               />
-              <div className="my-0 py-3 flex justify-start items-start w-full px-2">{data.read}</div>
+              <div className="my-0 py-3 flex justify-start items-start w-full px-2">{data.description}</div>
               <div className="text-base font-base py-0 my-0">{data.title}</div>
             </CardBody>
           </Card>

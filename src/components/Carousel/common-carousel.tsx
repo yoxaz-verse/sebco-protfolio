@@ -3,6 +3,7 @@ import React from 'react';
 import { Carousel } from "react-responsive-carousel";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { FaChevronLeft, FaChevronRight } from "react-icons/fa6";
+import Animate from '../ReUseComponents/Animate';
 
 const CommonCarousel = ({ CarouselData }: any) => {
   if (!CarouselData || CarouselData.length === 0) {
@@ -13,7 +14,7 @@ const CommonCarousel = ({ CarouselData }: any) => {
     <Carousel
       showThumbs={false}
       showStatus={false}
-      infiniteLoop={true}
+      infiniteLoop={false}
       showArrows={true}
       swipeable={true}
       autoFocus={true}
@@ -59,7 +60,7 @@ const CommonCarousel = ({ CarouselData }: any) => {
       }
     >
       {CarouselData.map((item: any) => (
-        <div key={item.data} className="relative p-2">
+        <Animate key={item.data} className="relative p-2">
           <Image
             src={item.data}
             height={100}
@@ -67,7 +68,7 @@ const CommonCarousel = ({ CarouselData }: any) => {
             alt="slides"
             className='h-1/2 w-1/2 rounded-lg'
           />
-        </div>
+        </Animate>
       ))}
     </Carousel>
   );

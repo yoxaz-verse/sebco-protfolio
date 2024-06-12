@@ -19,13 +19,13 @@ const HomepageOurWork = ({ data }: HomePageWorkProps) => {
         <Animate className="text-4xl text-[#FFBD12] font-medium pb-1">
           {data.title}
         </Animate>
-        <div className="flex flex-col pt-3 md:w-10/12 lg:w-7/12">
+        <div className="flex flex-col pt-3 md:w-10/12 lg:w-full">
           {data.methods.map((item, index) => (
             <Animate key={index} className="flex flex-col gap-2">
               <div className="text-[#E1E1E1] md:text-sm lg::text-base font-bold p-0 m-0 pt-8">
                 {item.title}
               </div>
-              <div className="text-[#E1E1E1] p-0 m-0 md:text-xs lg:text-sm w-11/12">
+              <div className="text-[#E1E1E1] p-0 m-0 md:text-xs lg:text-sm w-full">
                 {item.description}
               </div>
             </Animate>

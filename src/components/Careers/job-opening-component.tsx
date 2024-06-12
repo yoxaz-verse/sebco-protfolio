@@ -17,7 +17,7 @@ const JobOpeningComponent = () => {
       </>
     )
   }
-  console.log(data);
+
   return (
     <div className='flex flex-col gap-10 py-20'>
       <div className='text-xl font-medium text-white'>Current Job Openings</div>
