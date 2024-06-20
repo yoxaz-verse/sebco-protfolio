@@ -28,20 +28,23 @@ export default function AddModal({ title, generateRandomId, columns }: AddModalP
   const [submitting, setSubmitting] = useState(false);
   const [file, setFile] = useState<File | null>(null);
   const [files, setFiles] = useState<FileList | any>(Array(5).fill(null));
-  const [tabs, setTabs] = useState<string[]>(Array(5).fill(""));
+  const [tabs, setTabs] = useState<string[]>([]);
   const [service, setService] = useState<string>("");
   const [serviceArr, setServiceArr] = useState<string[]>([]);
 
-  const pushTabs = (tab: string, index: number) => {
+  const pushTabs = (tab: string) => {
     const tabsArr = [...tabs];
-    tabsArr[index] = tab;
+    tabsArr.push(tab);
     setTabs(tabsArr);
   };
 
   const removeTab = (index: number): void => {
+    console.log(tabs);
+    console.log(serviceArr);
     const tabsArr = [...tabs];
     const updatedServiceArr = [...serviceArr];
     updatedServiceArr.splice(index, 1);
+    tabsArr.splice(index, 1);
     setTabs(tabsArr);
     setServiceArr(updatedServiceArr);
   };
@@ -76,7 +79,7 @@ export default function AddModal({ title, generateRandomId, columns }: AddModalP
 
     const urls: string[] = [];
 
-    // Use Promise.all to handle multiple asynchronous file reader operations
+
     Promise.all(filesToUpload.map(file => {
       const reader = new FileReader();
       reader.readAsDataURL(file);
@@ -91,7 +94,6 @@ export default function AddModal({ title, generateRandomId, columns }: AddModalP
         reader.onerror = reject;
       });
     })).then(() => {
-      // Update state with the array of URLs
       setUploadImageUrlArr(urls);
     }).catch(error => {
       console.error('Error reading files:', error);
@@ -159,15 +161,15 @@ export default function AddModal({ title, generateRandomId, columns }: AddModalP
     const resp = await postData(title, data);
     if (!resp.status) {
       alert("Data upload failed");
-      setServiceArr(Array(5).fill(""));
+      setServiceArr([]);
       setUploadImageUrlArr(Array(5).fill(""));
     } else {
       alert("Data uploaded successfully");
-
-      setServiceArr(Array(5).fill(""));
+      generateRandomId();
+      setServiceArr([]);
       setUploadImageUrlArr(Array(5).fill("/01.png"));
-
-
+      setSubmitting(false);
+      close();
     }
   };
 
@@ -175,11 +177,14 @@ export default function AddModal({ title, generateRandomId, columns }: AddModalP
     <>
       <Button onPress={onOpen} color="warning">{`Add ${title}`}</Button>
       <Modal
+        isDismissable={false}
         isOpen={isOpen}
         onOpenChange={onOpenChange}
         placement="top-center"
         className="overflow-y-scroll"
         onClose={() => {
+          setServiceArr([]);
+          setUploadImageUrlArr(Array(5).fill("/01.png"));
           setUploadImageUrl("/01.png");
           setSubmitting(false);
         }}
@@ -283,16 +288,9 @@ export default function AddModal({ title, generateRandomId, columns }: AddModalP
                                 onChange={(e) => setService(e.target.value)}
                               />
                               <Button color="primary" onClick={() => {
-                                if (service.length > 0) {
-                                  const emptyIndex = tabs.findIndex(tab => tab === "");
-                                  if (emptyIndex !== -1) {
-                                    pushTabs(service, emptyIndex);
-                                    setServiceArr([...serviceArr, service]);
-                                    setService("");
-                                  } else {
-                                    alert("No more space for new tabs");
-                                  }
-                                }
+                                pushTabs(service);
+                                setServiceArr([...serviceArr, service]);
+                                setService("");
                               }}>Add</Button>
                             </div>
                           </div>
@@ -303,7 +301,11 @@ export default function AddModal({ title, generateRandomId, columns }: AddModalP
                   })}
                 </ModalBody>
                 <ModalFooter>
-                  <Button color="danger" variant="flat" onPress={() => onClose()}>
+                  <Button color="danger" variant="flat" onPress={() => {
+                    setServiceArr([]);
+                    setUploadImageUrlArr(Array(5).fill("/01.png"));
+                    onClose()
+                  }}>
                     Close
                   </Button>
                   <Button isLoading={submitting} color="secondary" type="submit">
@@ -314,7 +316,7 @@ export default function AddModal({ title, generateRandomId, columns }: AddModalP
             </>
           )}
         </ModalContent>
-      </Modal>
+      </Modal >
     </>
   );
 }

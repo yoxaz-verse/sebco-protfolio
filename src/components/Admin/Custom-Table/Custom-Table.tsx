@@ -1,5 +1,5 @@
 import React, { Dispatch, SetStateAction, useEffect } from "react";
-import { Table, TableHeader, TableColumn, TableBody, Modal, ModalContent, ModalHeader, TableRow, TableCell, User, Chip, Tooltip, ChipProps, Pagination, Textarea, Link, Button } from "@nextui-org/react";
+import { Table, TableHeader, TableColumn, TableBody, Spinner, Modal, ModalContent, ModalHeader, TableRow, TableCell, User, Chip, Tooltip, ChipProps, Pagination, Textarea, Link, Button } from "@nextui-org/react";
 import { getData } from "@/backend/Services/firestore";
 import Image from "next/image";
 import { EyeIcon } from "../Icons/EyeIcon";
@@ -19,22 +19,18 @@ interface CustomTableProps {
   data: any;
   columns: any;
   id: any;
+  isLoading: any;
   generateRandomId: () => void;
   onOpenEdit: (data: any) => any;
   onOpenDelete: (data: any) => any;
   onOpenView: (data: any) => any;
 }
-export default function CustomTable({ title, data, columns, onOpenEdit, onOpenView, onOpenDelete, id }: CustomTableProps) {
+export default function CustomTable({ title, isLoading, data, columns, onOpenEdit, onOpenView, onOpenDelete, id }: CustomTableProps) {
   const [table_data, setTableData] = React.useState(data);
   console.log(table_data);
   const renderCell = React.useCallback((data: any, columnKey: React.Key) => {
-    console.log(data.images);
     const cellValue = data[columnKey as keyof any];
-    console.log(columnKey);
-    console.log(cellValue);
     const post_code = data["postal code"];
-    console.log(post_code);
-
 
     switch (columnKey) {
       case "name":
@@ -71,7 +67,7 @@ export default function CustomTable({ title, data, columns, onOpenEdit, onOpenVi
         return post_code;
       case "project_details":
         return (
-          <div className="flex flex-col">
+          <div className="flex flex-col gap-4">
             {data.projectDetails.map((p: any, index: number) => (
               <Chip color="primary" key={index}>{p}</Chip>
             ))}
@@ -199,7 +195,11 @@ export default function CustomTable({ title, data, columns, onOpenEdit, onOpenVi
           </TableColumn>
         )}
       </TableHeader>
-      <TableBody items={items}>
+      <TableBody loadingContent={isLoading ? <Spinner color="warning" label="Loading..." /> : <></>}
+        isLoading={isLoading}
+        emptyContent={"No data to display.."}
+        items={items}
+      >
         {(item: any) => (
           <TableRow key={item.id}>
             {(columnKey) => <TableCell>{renderCell(item, columnKey)}</TableCell>}
