@@ -12,7 +12,7 @@ const data: any[] = [
   // Your data array goes here
 ];
 
-export function PageComponent(Title: any) {
+export function      PageComponent(Title: any) {
   const [randomId, setRandomId] = React.useState<string>(Math.random().toString(36).substring(7));
   const { isOpen: isOpenContent, onOpen: onOpenContent, onOpenChange: onOpenChangeContent } = useDisclosure();
   const [currdata, setcurrData] = useState<any>(null);
