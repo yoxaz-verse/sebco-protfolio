@@ -74,7 +74,7 @@ const ViewModal: React.FC<ViewModalProps> = ({
                 files.map((imgUrl: any, imgIndex: any) => (
                   <Image
                     key={imgIndex}
-                    src={imgUrl.data}
+                    src={imgUrl}
                     alt={`${column.name}-${imgIndex}`}
                     width={200}
                     height={200}

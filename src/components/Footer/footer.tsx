@@ -20,17 +20,17 @@ const Footer = () => {
             </div>
           </div>
           <div className="w-full justify-between lg:6/12  flex">
-            <div className=" ">
-              <div
-                className="py-3 px-2 cursor-pointer"
-                onClick={() => router.push("/careers")}
-              >
-                Work With us
-              </div>
-              <div className="py-3 px-2 cursor-pointer">Advertise With us</div>
-              <div className="py-3 px-2 cursor-pointer">Support Us</div>
-              <div className="py-3 px-2 cursor-pointer">Business Advices</div>
+
+            <div
+              className="py-3 px-2 cursor-pointer"
+              onClick={() => router.push("/careers")}
+            >
+              Work With us
             </div>
+            <div className="py-3 px-2 cursor-pointer">Advertise With us</div>
+            <div className="py-3 px-2 cursor-pointer">Support Us</div>
+            <div className="py-3 px-2 cursor-pointer">Business Advices</div>
+
             <div className=" ">
               <div className="py-3 px-2 cursor-pointer">Private Coaching</div>
               <div className="py-3 px-2 cursor-pointer">Our Work</div>

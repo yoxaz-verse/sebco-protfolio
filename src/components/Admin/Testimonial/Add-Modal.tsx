@@ -39,8 +39,7 @@ export default function AddModal({ title, generateRandomId, columns }: AddModalP
   };
 
   const removeTab = (index: number): void => {
-    console.log(tabs);
-    console.log(serviceArr);
+
     const tabsArr = [...tabs];
     const updatedServiceArr = [...serviceArr];
     updatedServiceArr.splice(index, 1);
@@ -175,10 +174,11 @@ export default function AddModal({ title, generateRandomId, columns }: AddModalP
 
   return (
     <>
-      <Button onPress={onOpen} color="warning">{`Add ${title}`}</Button>
+      <Button onPress={onOpen} className="bg-violet-700 text-white">{`Add ${title}`}</Button>
       <Modal
         isDismissable={false}
         isOpen={isOpen}
+        scrollBehavior="inside"
         onOpenChange={onOpenChange}
         placement="top-center"
         className="overflow-y-scroll"
@@ -220,7 +220,6 @@ export default function AddModal({ title, generateRandomId, columns }: AddModalP
                             <input
                               className="hidden"
                               id={`${title}-image-${columnIndex}`}
-                              name={column.name.toLowerCase()}
                               placeholder="Image"
                               required
                               type="file"

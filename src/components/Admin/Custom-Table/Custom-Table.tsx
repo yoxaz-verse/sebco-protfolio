@@ -6,6 +6,7 @@ import { EyeIcon } from "../Icons/EyeIcon";
 import { EditIcon } from "../Icons/EditIcon";
 import { DeleteIcon } from "../Icons/DeleteIcon";
 import { projectDetails } from "@/data/content-data";
+import { useRouter } from "next/navigation";
 
 
 const statusColorMap: Record<string, ChipProps["color"]> = {
@@ -27,7 +28,8 @@ interface CustomTableProps {
 }
 export default function CustomTable({ title, isLoading, data, columns, onOpenEdit, onOpenView, onOpenDelete, id }: CustomTableProps) {
   const [table_data, setTableData] = React.useState(data);
-  console.log(table_data);
+
+  const navigate = useRouter();
   const renderCell = React.useCallback((data: any, columnKey: React.Key) => {
     const cellValue = data[columnKey as keyof any];
     const post_code = data["postal code"];
@@ -53,7 +55,7 @@ export default function CustomTable({ title, isLoading, data, columns, onOpenEdi
         );
       case "images":
         return (
-          <Image src={data.images[0].data} alt={data.images[0].status} width={50} height={50} />
+          <Image src={data.images[0]} alt={"images"} width={50} height={50} />
         );
       case "description":
         return (
@@ -63,12 +65,16 @@ export default function CustomTable({ title, isLoading, data, columns, onOpenEdi
             className="max-w-xs"
           />
         );
+      case "resume":
+        return (
+          <Button color="warning" onClick={() => navigate.push(data.resume)}>Click Here</Button>
+        );
       case "postal code":
         return post_code;
       case "project_details":
         return (
           <div className="flex flex-col gap-4">
-            {data.projectDetails.map((p: any, index: number) => (
+            {data?.projectDetails && data.projectDetails.map((p: any, index: number) => (
               <Chip color="primary" key={index}>{p}</Chip>
             ))}
           </div>

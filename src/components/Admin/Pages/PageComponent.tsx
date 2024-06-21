@@ -59,7 +59,7 @@ export function PageComponent(Title: any) {
   }, [Title.columns]);
 
   return (
-    <div>
+    <div tabIndex={Title.Title.toLowerCase()}>
       <div className='w-full flex p-[1rem] justify-between'>
         <h2 className='text-2xl font-bold'>{`${Title.Title.charAt(0).toUpperCase() + Title.Title.slice(1)}s`}</h2>
         <div className='flex flex-row gap-2'>

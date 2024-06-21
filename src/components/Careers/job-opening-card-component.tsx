@@ -3,6 +3,7 @@ import Image from 'next/image'
 import React from 'react'
 import ApplyJobModal from '../ApplyJobModal/apply-job-modal'
 import Animate from '../ReUseComponents/Animate'
+
 const JobOpeningCard = ({ job }: JobOpeningCardProps) => {
   return (
     <Animate className='flex flex-col md:flex-row bg-[#252525] text-white border-solid border-[#363636] border-1'>
