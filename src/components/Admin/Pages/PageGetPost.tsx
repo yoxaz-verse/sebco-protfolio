@@ -64,16 +64,9 @@ export function PageGetPostComponent(Title: any) {
         <h2 className='text-2xl font-bold'>{`${Title.Title.charAt(0).toUpperCase() + Title.Title.slice(1)}s`}</h2>
         <AddModal columns={newCols} generateRandomId={generateRandomId} title={Title.Title} />
       </div>
-      {loading ? (
-        <>
-          <div className='flex flex-col h-[100vh] items-center'>
-            <Spinner color='primary' />
-            <h1>Loading...</h1>
-          </div>
-        </>
-      ) : (
-        <CustomTable id={randomId} generateRandomId={generateRandomId} title={Title.Title} data={data} onOpenView={handleOnOpenView} onOpenDelete={handleOnOpenDelete} onOpenEdit={handleOnOpenEdit} columns={Title.columns} />
-      )}
+
+      <CustomTable isLoading={loading} id={randomId} generateRandomId={generateRandomId} title={Title.Title} data={data} onOpenView={handleOnOpenView} onOpenDelete={handleOnOpenDelete} onOpenEdit={handleOnOpenEdit} columns={Title.columns} />
+
       <ViewModal large columns={newCols} title={Title.Title} data={currdata} onOpenChange={onOpenChangeView} isOpen={isOpenView} onClose={onClose} />
     </div>
   );
