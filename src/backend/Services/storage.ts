@@ -44,10 +44,13 @@ export const multipleUpload = async (files: FileList, filePath: string) => {
   try {
     let urls: any = [];
 
-    await Promise.all(Array.from(files).map(async (file: File) => {
-      let url = await uploadImage(file, filePath);
+    await Promise.all(Array.from(files).map(async (file: File, index: number) => {
+      let updatedFileName = `${filePath}${index}`
+      let url = await uploadImage(file, updatedFileName);
       urls.push(url.data);
     }));
+
+    console.log(urls);
 
     return {
       data: urls,
