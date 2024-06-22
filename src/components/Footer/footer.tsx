@@ -35,7 +35,7 @@ const Footer = () => {
               <div className="py-3 px-2 cursor-pointer">Private Coaching</div>
               <div className="py-3 px-2 cursor-pointer">Our Work</div>
               <div className="py-3 px-2 cursor-pointer">Our Commitment</div>
-              <div className="py-3 px-2 cursor-pointer">Our Team</div>
+              <div onClick={() => router.push("/staff")} className="py-3 px-2 cursor-pointer">Our Team</div>
             </div>
             <div className=" ">
               <div className="py-3 px-2 cursor-pointer">About Us</div>

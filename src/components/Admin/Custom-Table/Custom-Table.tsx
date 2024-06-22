@@ -67,7 +67,7 @@ export default function CustomTable({ title, isLoading, data, columns, onOpenEdi
         );
       case "resume":
         return (
-          <Button color="warning" onClick={() => navigate.push(data.resume)}>Click Here</Button>
+          <Button color="secondary" onClick={() => navigate.push(data.resume)}>Click Here</Button>
         );
       case "postal code":
         return post_code;
@@ -201,7 +201,7 @@ export default function CustomTable({ title, isLoading, data, columns, onOpenEdi
           </TableColumn>
         )}
       </TableHeader>
-      <TableBody loadingContent={isLoading ? <Spinner color="warning" label="Loading..." /> : <></>}
+      <TableBody loadingContent={isLoading ? <Spinner color="secondary" label="Loading..." /> : <></>}
         isLoading={isLoading}
         emptyContent={"No data to display.."}
         items={items}

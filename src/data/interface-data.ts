@@ -37,6 +37,7 @@ export interface OurTeamCardProps {
   data: {
     image: string;
     name: string;
+    role: string;
     designation?: string;
     description?: string;
   };
@@ -62,9 +63,10 @@ export interface ApproachCardProps {
 }
 export interface RecentPostCardProps {
   data: {
+    id: any;
     image: string;
     description: string;
-    title: string;
+    heading: string;
   }
 }
 export interface JobOpeningCardProps {

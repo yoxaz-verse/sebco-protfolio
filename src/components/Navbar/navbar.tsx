@@ -7,16 +7,16 @@ import { IoMenu } from "react-icons/io5";
 const Navbar = () => {
   const router = useRouter();
   const [isOpen, setIsOpen] = useState(false);
-  
-  const routePage = (url:string) => {
+
+  const routePage = (url: string) => {
     router.push(url);
     setIsOpen(false)
   };
-  
+
   const pathname = usePathname();
   const path = pathname.split("/").pop();
-  const isActive = (page:string) => {
-    return path === page ? 'underline decoration-[#FFBD12] text-white underline-offset-4 decoration-4' : 'text-white';
+  const isActive = (page: string) => {
+    return path === page ? 'underline cursor-pointer decoration-[#FFBD12] text-white underline-offset-4 decoration-4' : 'text-white  cursor-pointer';
   };
 
   return (
@@ -26,7 +26,7 @@ const Navbar = () => {
         <Dropdown className='bg-[#494949]'>
           <DropdownTrigger>
             <Button variant="light">
-              <IoMenu className='text-2xl text-white'/>
+              <IoMenu className='text-2xl text-white' />
             </Button>
           </DropdownTrigger>
           <DropdownMenu aria-label="Navigation Menu">
@@ -42,9 +42,6 @@ const Navbar = () => {
             <DropdownItem onClick={() => routePage('/ourprojects')} className={isActive('ourprojects')}>
               Projects
             </DropdownItem>
-            <DropdownItem onClick={() => routePage('/requirements')} className={isActive('requirements')}>
-              Your Requirements
-            </DropdownItem>
             <DropdownItem onClick={() => routePage('/contact')} className={isActive('contact')}>
               Contact Us
             </DropdownItem>
@@ -59,7 +56,7 @@ const Navbar = () => {
           </DropdownMenu>
         </Dropdown>
       </div>
-      
+
       {/* Full Navbar for Large Screens */}
       <div className='w-4/5 justify-evenly items-center hidden lg:flex'>
         <div className={`cursor-pointer ${isActive('home')}`} onClick={() => routePage('/home')}>
@@ -74,20 +71,18 @@ const Navbar = () => {
         <div className={`cursor-pointer ${isActive('ourprojects')}`} onClick={() => routePage('/ourprojects')}>
           Projects
         </div>
-        <div className={`cursor-pointer ${isActive('requirements')}`} onClick={() => routePage('/requirements')}>
-          Your Requirements
-        </div>
         <div className={`cursor-pointer ${isActive('contact')}`} onClick={() => routePage('/contact')}>
+
           Contact Us
         </div>
         <button
           className='bg-[#FFBD12] py-2 px-3 rounded text-black'
-          onClick={() => routePage('/contact')}
+          onClick={() => routePage('/requirements')}
         >
           Get a Free Quote
         </button>
       </div>
-      
+
     </div>
   );
 };

@@ -28,7 +28,7 @@ const OurServicesComponent = () => {
       </div>
       <div className='w-10/12 md:w-[30%] text-center text-white pt-2 text-sm'>Over so decades of practice alongside thecreativity and drive of some of the worlds mosttalented designers and craftsman - its truly thebest of every world.</div>
       <div className='flex w-full justify-center items-center md:justify-evenly py-3 md:py-10 mt-4 md:mt-20 flex-col md:flex-row'>
-        {data.map((service: any) => (
+        {data.splice(0, 3).map((service: any) => (
           <ServiceCard type={"home"} service={service} key={service.id} />
         ))}
       </div>

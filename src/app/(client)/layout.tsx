@@ -29,7 +29,7 @@ export default function RootLayout({
       <body style={{ overflowX: "hidden" }}>
         <Providers>
           <Navbar />
-            {children}
+          {children}
           <Contact />
           <Footer />
         </Providers>

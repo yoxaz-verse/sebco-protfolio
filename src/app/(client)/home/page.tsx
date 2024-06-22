@@ -27,14 +27,13 @@ export default async function HomePage() {
         <div className="w-10/12 flex flex-col py-4">
           <HomepageAbout data={aboutUsHomepage} />
           <HomepageOurWork data={whatWeDo} />
-          <OurCompletedProjects  />
+          <OurCompletedProjects />
           <OurServicesComponent />
           <ClientSaysComponent />
           <MapComponent />
           <SebcoCareers />
         </div>
         <div className="w-full">
-          {" "}
           <OurApproachComponentHome />
         </div>
         <div className="w-10/12 flex flex-col py-4">

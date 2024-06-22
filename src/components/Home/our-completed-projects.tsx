@@ -20,34 +20,37 @@ const OurCompletedProjects = () => {
       </div>
     );
   }
-  return (
-    <div className="my-20">
-      <div className="text-[#FFBD12] font-medium text-3xl pb-8 text-center">
-        Our Completed Project!
+  else {
+    const recentProjects = Object.values(data) || [];
+    return (
+      <div className="my-20">
+        <div className="text-[#FFBD12] font-medium text-3xl pb-8 text-center">
+          Our Completed Project!
+        </div>
+        {
+          !loading && <Carousel
+            showThumbs={false}
+            showStatus={false}
+            infiniteLoop={true}
+            autoFocus={true}
+            autoPlay={true}
+            emulateTouch={true}
+            centerMode={true}
+            showIndicators={false}
+            centerSlidePercentage={width <= 640 ? 95 : 35}
+          >
+            {recentProjects.splice(0, 3).map((item: any, index: number) => (
+
+              <Animate key={item.alt ?? `image${index}`} className="relative p-2">
+                <Image src={item.images[0].data} height={300} width={300} alt={item.alt ?? `image${index}`} />
+              </Animate>
+            ))}
+          </Carousel>
+        }
+
       </div>
-      {
-        !loading && <Carousel
-          showThumbs={false}
-          showStatus={false}
-          infiniteLoop={true}
-          autoFocus={true}
-          autoPlay={true}
-          emulateTouch={true}
-          centerMode={true}
-          showIndicators={false}
-          centerSlidePercentage={width <= 640 ? 95 : 35}
-        >
-          {data.map((item: any, index: number) => (
-
-            <Animate key={item.alt ?? `image${index}`} className="relative p-2">
-              <Image src={item.images[0].data} height={300} width={300} alt={item.alt ?? `image${index}`} />
-            </Animate>
-          ))}
-        </Carousel>
-      }
-
-    </div>
-  );
+    );
+  }
 };
 
 export default OurCompletedProjects;

@@ -16,19 +16,21 @@ const ClientSaysComponent = () => {
       </div>
     );
   }
-  return (
-    <div className="flex justify-evenly items-center flex-col py-3 my-20">
-      <div className="text-[#FFBD12] text-4xl pb-20 font-medium">
-        What Our Client Says!
+  else {
+    const nData = Object.values(data) || [];
+    return (
+      <div className="flex justify-evenly items-center flex-col py-3 my-20">
+        <div className="text-[#FFBD12] text-4xl pb-20 font-medium">
+          What Our Client Says!
+        </div>
+        <div className="w-10/12 flex flex-wrap justify-evenly gap-10">
+          {nData.splice(0, 3).map((client: any, index: number) => (
+            <ClientSaysCard key={index} client={client} />
+          ))}
+        </div>
       </div>
-
-      <div className="w-10/12 flex flex-wrap justify-evenly gap-10">
-        {data.map((client: any, index: number) => (
-          <ClientSaysCard key={index} client={client} />
-        ))}
-      </div>
-    </div>
-  );
+    );
+  }
 };
 
 export default ClientSaysComponent;
