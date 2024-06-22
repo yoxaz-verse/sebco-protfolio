@@ -11,7 +11,9 @@ export default function CarrersPage() {
     <div className="flex justify-center items-center">
       <Animate className="flex flex-col w-[80%] pt-10">
         <WhyUsHero />
-        <Animate className="relative justify-center items-center flex" style={{ top: '-100px' }}><WhyUsCardsComponents /></Animate>
+        <Animate className="relative justify-center items-center flex" style={{ top: '-100px' }}>
+          <WhyUsCardsComponents />
+        </Animate>
         <JobOpeningComponent />
       </Animate>
     </div>

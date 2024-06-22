@@ -27,21 +27,23 @@ export default function AddModal({ title, generateRandomId, columns }: AddModalP
   const [uploadImageUrlArr, setUploadImageUrlArr] = useState<string[]>(Array(5).fill("/01.png"));
   const [submitting, setSubmitting] = useState(false);
   const [file, setFile] = useState<File | null>(null);
-  const [files, setFiles] = useState<(File | null)[]>(Array(5).fill(null));
-  const [tabs, setTabs] = useState<string[]>(Array(5).fill(""));
+  const [files, setFiles] = useState<FileList | any>(Array(5).fill(null));
+  const [tabs, setTabs] = useState<string[]>([]);
   const [service, setService] = useState<string>("");
   const [serviceArr, setServiceArr] = useState<string[]>([]);
 
-  const pushTabs = (tab: string, index: number) => {
+  const pushTabs = (tab: string) => {
     const tabsArr = [...tabs];
-    tabsArr[index] = tab;
+    tabsArr.push(tab);
     setTabs(tabsArr);
   };
 
   const removeTab = (index: number): void => {
+
     const tabsArr = [...tabs];
     const updatedServiceArr = [...serviceArr];
     updatedServiceArr.splice(index, 1);
+    tabsArr.splice(index, 1);
     setTabs(tabsArr);
     setServiceArr(updatedServiceArr);
   };
@@ -60,24 +62,41 @@ export default function AddModal({ title, generateRandomId, columns }: AddModalP
     reader.readAsDataURL(file);
   };
 
-  const handleMultipleChange = (e: React.ChangeEvent<HTMLInputElement>, index: number) => {
-    console.log(index);
+  const handleMultipleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     if (!e.target.files) {
       alert("No file uploaded");
       return;
     }
-    const file = e.target.files[0];
-    const reader = new FileReader();
-    reader.onloadend = () => {
-      const newUploadImageUrlArr = [...uploadImageUrlArr];
-      newUploadImageUrlArr[index] = reader.result as string;
-      setUploadImageUrlArr(newUploadImageUrlArr);
-    };
-    reader.readAsDataURL(file);
 
-    const newFiles = [...files];
-    newFiles[index] = file;
+    const files: FileList = e.target.files;
+    console.log(files);
+    const newFiles: File[] = Array.from(files);
     setFiles(newFiles);
+
+    const filesToUpload = newFiles.slice(0, 5);
+
+
+    const urls: string[] = [];
+
+
+    Promise.all(filesToUpload.map(file => {
+      const reader = new FileReader();
+      reader.readAsDataURL(file);
+
+      return new Promise<string>((resolve, reject) => {
+        reader.onloadend = () => {
+          const url = reader.result as string;
+          urls.push(url);
+          resolve(url);
+        };
+
+        reader.onerror = reject;
+      });
+    })).then(() => {
+      setUploadImageUrlArr(urls);
+    }).catch(error => {
+      console.error('Error reading files:', error);
+    });
   };
 
   const handleSubmit = async (e: any, close: () => void) => {
@@ -104,7 +123,7 @@ export default function AddModal({ title, generateRandomId, columns }: AddModalP
       setSubmitting(false);
       return;
     }
-    if (hasImagesColumn && files.every((file) => file === null)) {
+    if (hasImagesColumn && files.every((file: any) => file === null)) {
       alert("Please select at least one image");
       setSubmitting(false);
       return;
@@ -123,9 +142,8 @@ export default function AddModal({ title, generateRandomId, columns }: AddModalP
     }
 
     if (hasImagesColumn) {
-      const filesToUpload = files.filter((file) => file !== null) as File[];
-      if (filesToUpload.length > 0) {
-        const images_upload_resp = await multipleUpload(filesToUpload, `${title}/${data.name ?? data.heading ?? data.title}-${current_time}`);
+      if (files.length > 0) {
+        const images_upload_resp = await multipleUpload(files, `${title}/${data.name ?? data.heading ?? data.title}-${current_time}`);
         if (!images_upload_resp.status) {
           alert("Multiple image upload failed");
           setSubmitting(false);
@@ -142,13 +160,13 @@ export default function AddModal({ title, generateRandomId, columns }: AddModalP
     const resp = await postData(title, data);
     if (!resp.status) {
       alert("Data upload failed");
-      setServiceArr(Array(5).fill(""));
+      setServiceArr([]);
       setUploadImageUrlArr(Array(5).fill(""));
     } else {
       alert("Data uploaded successfully");
       generateRandomId();
-      setServiceArr(Array(5).fill(""));
-      setUploadImageUrlArr(Array(5).fill(""));
+      setServiceArr([]);
+      setUploadImageUrlArr(Array(5).fill("/01.png"));
       setSubmitting(false);
       close();
     }
@@ -156,16 +174,20 @@ export default function AddModal({ title, generateRandomId, columns }: AddModalP
 
   return (
     <>
-      <Button onPress={onOpen} color="warning">{`Add ${title}`}</Button>
+      <Button onPress={onOpen} className="bg-violet-700 text-white">{`Add ${title}`}</Button>
       <Modal
+        isDismissable={false}
         isOpen={isOpen}
+        scrollBehavior="inside"
         onOpenChange={onOpenChange}
         placement="top-center"
+        className="overflow-y-scroll"
         onClose={() => {
+          setServiceArr([]);
+          setUploadImageUrlArr(Array(5).fill("/01.png"));
           setUploadImageUrl("/01.png");
           setSubmitting(false);
         }}
-        scrollBehavior="outside"
       >
         <ModalContent>
           {(onClose) => (
@@ -178,8 +200,6 @@ export default function AddModal({ title, generateRandomId, columns }: AddModalP
                 <ModalHeader className="flex flex-col gap-1">{`Add ${title}`}</ModalHeader>
                 <ModalBody>
                   {columns.map((column: any, columnIndex: number) => {
-                    console.log(column);
-
                     switch (column.type) {
                       case "text":
                         return (
@@ -200,7 +220,6 @@ export default function AddModal({ title, generateRandomId, columns }: AddModalP
                             <input
                               className="hidden"
                               id={`${title}-image-${columnIndex}`}
-                              name={column.name.toLowerCase()}
                               placeholder="Image"
                               required
                               type="file"
@@ -224,7 +243,7 @@ export default function AddModal({ title, generateRandomId, columns }: AddModalP
                               <div className="flex flex-row overflow-x-scroll">
                                 {uploadImageUrlArr.map((uploadImg: any, imgIndex: any) => (
                                   <div key={imgIndex}>
-                                    <label htmlFor={`${title}-multiple-image-${imgIndex}`}>
+                                    <label htmlFor={`${title}-multiple-image`}>
                                       <Image
                                         className="cursor-pointer"
                                         src={uploadImg}
@@ -234,18 +253,18 @@ export default function AddModal({ title, generateRandomId, columns }: AddModalP
                                         height={200}
                                       />
                                     </label>
-                                    <input
-                                      className="hidden"
-                                      id={`${title}-multiple-image-${imgIndex}`}
-                                      name={column.name.toLowerCase()}
-                                      placeholder="Images"
-                                      type="file"
-                                      multiple={false}
-                                      accept="image/*"
-                                      onChange={(e) => handleMultipleChange(e, imgIndex)}
-                                    />
                                   </div>
                                 ))}
+                                <input
+                                  id={`${title}-multiple-images`}
+                                  name={column.name.toLowerCase()}
+                                  placeholder="Images"
+                                  type="file"
+                                  max={5}
+                                  multiple={true}
+                                  accept="image/png image/jpeg"
+                                  onChange={(e) => handleMultipleChange(e)}
+                                />
                               </div>
                             </label>
                           </div>
@@ -268,16 +287,9 @@ export default function AddModal({ title, generateRandomId, columns }: AddModalP
                                 onChange={(e) => setService(e.target.value)}
                               />
                               <Button color="primary" onClick={() => {
-                                if (service.length > 0) {
-                                  const emptyIndex = tabs.findIndex(tab => tab === "");
-                                  if (emptyIndex !== -1) {
-                                    pushTabs(service, emptyIndex);
-                                    setServiceArr([...serviceArr, service]);
-                                    setService("");
-                                  } else {
-                                    alert("No more space for new tabs");
-                                  }
-                                }
+                                pushTabs(service);
+                                setServiceArr([...serviceArr, service]);
+                                setService("");
                               }}>Add</Button>
                             </div>
                           </div>
@@ -288,7 +300,11 @@ export default function AddModal({ title, generateRandomId, columns }: AddModalP
                   })}
                 </ModalBody>
                 <ModalFooter>
-                  <Button color="danger" variant="flat" onPress={() => onClose()}>
+                  <Button color="danger" variant="flat" onPress={() => {
+                    setServiceArr([]);
+                    setUploadImageUrlArr(Array(5).fill("/01.png"));
+                    onClose()
+                  }}>
                     Close
                   </Button>
                   <Button isLoading={submitting} color="secondary" type="submit">
@@ -299,7 +315,7 @@ export default function AddModal({ title, generateRandomId, columns }: AddModalP
             </>
           )}
         </ModalContent>
-      </Modal>
+      </Modal >
     </>
   );
 }

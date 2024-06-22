@@ -43,9 +43,10 @@ export default function EditModal({
   const [files, setFiles] = useState<(File | null)[]>(Array(5).fill("/01.png"));
   const [file, setFile] = useState<(File | null)>(null);
   const [loading, setLoading] = useState<boolean>(false);
-  const pushTabs = (tab: string, index: number) => {
+
+  const pushTabs = (tab: string) => {
     const tabsArr = [...tabs];
-    tabsArr[index] = tab;
+    tabsArr.push(tab);
     setTabs(tabsArr);
   };
 
@@ -64,11 +65,9 @@ export default function EditModal({
       setUploadImageUrl(data.image || "/01.png");
       if (data.images) {
         const arr: any = [...files];
-        data.images.forEach((e: any, index: any) => {
-          arr[index] = e.data;
-        });
+
         setFiles(data.images);
-        setUploadImageUrlArr(arr);
+        setUploadImageUrlArr(data.images);
       }
       if (data.projectDetails) {
         const t = [...tabs];
@@ -95,24 +94,43 @@ export default function EditModal({
     reader.readAsDataURL(file);
   };
 
-  const handleMultipleChange = (e: React.ChangeEvent<HTMLInputElement>, index: number) => {
-    console.log(index);
+  const handleMultipleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+
     if (!e.target.files) {
       alert("No file uploaded");
       return;
     }
-    const file = e.target.files[0];
-    const reader = new FileReader();
-    reader.onloadend = () => {
-      const newUploadImageUrlArr = [...uploadImageUrlArr];
-      newUploadImageUrlArr[index] = reader.result as string;
-      setUploadImageUrlArr(newUploadImageUrlArr);
-    };
-    reader.readAsDataURL(file);
 
-    const newFiles = [...files];
-    newFiles[index] = file;
+    const files: FileList = e.target.files;
+    console.log(files);
+    const newFiles: File[] = Array.from(files);
     setFiles(newFiles);
+
+    const filesToUpload = newFiles.slice(0, 5);
+
+
+    const urls: string[] = [];
+
+
+    Promise.all(filesToUpload.map(file => {
+      const reader = new FileReader();
+      reader.readAsDataURL(file);
+
+      return new Promise<string>((resolve, reject) => {
+        reader.onloadend = () => {
+          const url = reader.result as string;
+          urls.push(url);
+          resolve(url);
+        };
+
+        reader.onerror = reject;
+      });
+    })).then(() => {
+      setUploadImageUrlArr(urls);
+    }).catch(error => {
+      console.error('Error reading files:', error);
+    });
+
   };
 
 
@@ -220,30 +238,38 @@ export default function EditModal({
                         );
                       case "images":
                         return (
-                          <div className="flex flex-row gap-2 overflow-x-scroll">
-                            {uploadImageUrlArr.map((imageUrl: string, index: number) => (
-                              <div key={index}>
-                                <label htmlFor={`${title}-image-${index}`}>
-                                  <Image
-                                    className="cursor-pointer"
-                                    src={imageUrl}
-                                    alt="upload"
-                                    width={200}
-                                    height={200}
-                                  />
-                                </label>
+                          <div>
+                            <h1>{column.name}</h1>
+                            <label>
+                              <div className="flex flex-row overflow-x-scroll">
+                                {uploadImageUrlArr.map((uploadImg: any, imgIndex: any) => (
+                                  <div key={imgIndex}>
+                                    <label htmlFor={`${title}-multiple-image`}>
+                                      <Image
+                                        className="cursor-pointer"
+                                        src={uploadImg}
+                                        alt="upload"
+                                        key={imgIndex}
+                                        width={200}
+                                        height={200}
+                                      />
+                                    </label>
+                                  </div>
+                                ))}
                                 <input
-                                  className="hidden"
-                                  id={`${title}-image-${index}`}
+                                  id={`${title}-multiple-images`}
                                   name={column.name.toLowerCase()}
-                                  placeholder="Image"
+                                  placeholder="Images"
                                   type="file"
-                                  accept="image/*"
-                                  onChange={(e) => handleMultipleChange(e, index)}
+                                  max={5}
+                                  multiple={true}
+                                  accept="image/png image/jpeg"
+                                  onChange={(e) => handleMultipleChange(e)}
                                 />
                               </div>
-                            ))}
+                            </label>
                           </div>
+
                         );
                       case "tabselect":
                         return (
@@ -263,16 +289,9 @@ export default function EditModal({
                                 onChange={(e) => setService(e.target.value)}
                               />
                               <Button color="primary" onClick={() => {
-                                if (service.length > 0) {
-                                  const emptyIndex = tabs.findIndex((tab: any) => tab === "");
-                                  if (emptyIndex !== -1) {
-                                    pushTabs(service, emptyIndex);
-                                    setTabs([...tabs, service]);
-                                    setService("");
-                                  } else {
-                                    alert("No more space for new tabs");
-                                  }
-                                }
+                                pushTabs(service);
+                                setTabs([...tabs, service]);
+                                setService("");
                               }}>Add</Button>
                             </div>
                           </div>

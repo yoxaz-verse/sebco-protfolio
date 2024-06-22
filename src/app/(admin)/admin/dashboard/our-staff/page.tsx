@@ -6,7 +6,7 @@ function Page() {
     { name: "IMAGE", uid: "image", type: "image" },
     { name: "DESCRIPTION", uid: "description", type: "textbox" },
     { name: "ROLE", uid: "role", type: "text" },
-    { name: "ACTIONS", uid: "actions", type: "textbox" },
+    { name: "ACTIONS", uid: "actions", type: "actions" },
   ];
   const Title: any = "our-staff";
   return <PageComponent Title={Title} columns={newColumns} />
