@@ -7,9 +7,11 @@ import Animate from "../ReUseComponents/Animate";
 import { useFetchData } from "@/hooks/useFetchData";
 import { Titles } from "@/data/admintitle";
 import { Spinner } from "@nextui-org/react";
+import { useRouter } from "next/navigation";
 
 const OurTechnicalStaffComponent = () => {
   const { data, loading } = useFetchData(Titles.Our_Staff);
+  const navigation = useRouter();
   if (loading) {
     return (
       <Spinner color="warning" content="Loading.." />
@@ -24,7 +26,7 @@ const OurTechnicalStaffComponent = () => {
             Our Technical Staff
           </div>
           <div className="flex justify-end items-end z-10 pb-4 md:pb-5 w-full">
-            <div className="bg-[#2C2B2B] h-6 w-6 md:h-10 md:w-10 rounded-full flex justify-center items-center cursor-pointer">
+            <div onClick={() => navigation.push("/staff")} className="cursor-pointer bg-[#2C2B2B] h-6 w-6 md:h-10 md:w-10 rounded-full flex justify-center items-center cursor-pointer">
               <FaArrowRight className="text-white text-sm md:text-lg" />
             </div>
           </div>

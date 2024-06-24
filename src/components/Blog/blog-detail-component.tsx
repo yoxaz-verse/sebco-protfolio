@@ -1,5 +1,5 @@
 import { blogData } from '@/data/content-data'
-import { RecentPostCardProps } from '@/data/interface-data';
+import { RecentNewsCardProps, RecentPostCardProps } from '@/data/interface-data';
 import { Divider } from '@nextui-org/react'
 import Image from 'next/image'
 import React from 'react'
@@ -37,5 +37,16 @@ const BlogDetailComponentById = ({ data }: RecentPostCardProps) => {
   )
 }
 
-
-export { BlogDetailComponent, BlogDetailComponentById }
+const NewsDetailComponentById = ({ data }: RecentNewsCardProps) => {
+  return (
+    <div className='flex flex-col text-white w-9/12'>
+      <div className='text-2xl font-bold py-3 pt-20'>{data.title}</div>
+      <Image src={data.image} width={800}
+        height={800}
+        alt='Blog Detail Image' className='w-full' />
+      <div className='w-full p-3'>{data.description}</div>
+      <Divider orientation='horizontal' className='w-full mt-16 border-t-2 border-red-500 divider' />
+    </div>
+  )
+}
+export { BlogDetailComponent, BlogDetailComponentById, NewsDetailComponentById }

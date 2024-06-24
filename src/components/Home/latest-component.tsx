@@ -7,6 +7,7 @@ import Animate from "../ReUseComponents/Animate";
 import { useFetchData } from "@/hooks/useFetchData";
 import { Titles } from "@/data/admintitle";
 import { Spinner } from "@nextui-org/react";
+import { useRouter } from "next/navigation";
 
 const LatestComponent = () => {
   const { data, loading } = useFetchData(Titles.LatestNew);
@@ -19,7 +20,7 @@ const LatestComponent = () => {
     );
   }
 
-
+  const navigate = useRouter();
   return (
     <div className="flex flex-col my-20">
       <div className="flex justify-between items-center w-full md:w-full pt-6 relative">
@@ -27,7 +28,7 @@ const LatestComponent = () => {
           Latest News
         </div>
         <div className="flex justify-end items-end z-10 pb-4 md:pb-5 w-full">
-          <div className="bg-[#2C2B2B] h-6 w-6 md:h-10 md:w-10 rounded-full flex justify-center items-center cursor-pointer">
+          <div onClick={() => navigate.push("/latest-news")} className="cursor-pointer bg-[#2C2B2B] h-6 w-6 md:h-10 md:w-10 rounded-full flex justify-center items-center cursor-pointer">
             <FaArrowRight className="text-white text-sm md:text-lg" />
           </div>
         </div>

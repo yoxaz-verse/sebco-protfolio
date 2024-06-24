@@ -69,6 +69,14 @@ export interface RecentPostCardProps {
     heading: string;
   }
 }
+export interface RecentNewsCardProps {
+  data: {
+    id: any;
+    image: string;
+    description: string;
+    title: string;
+  }
+}
 export interface JobOpeningCardProps {
   job: {
     id: any,
