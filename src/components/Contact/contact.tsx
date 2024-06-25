@@ -40,7 +40,15 @@ const Contact = () => {
   const [click, setClick] = useState<boolean>(false);
   return (
     <div className="flex p-2 md:p-4 gap-4 justify-center items-center flex-col pt-10 " style={{ overflowX: "hidden" }}>
-      <div className={`flex flex-col h-[20vh] md:h-[30vh] gap-4 w-full p-8 flex-col justify-center bg-gradient-to-tr from-black via-[#373737] to-white/40 ${inter.className}  text-white rounded-xl`}>
+      <Image
+        src="/contact.png"
+        alt="contact"
+        className="hidden md:flex opacity-100 sm:opacity-0 md:opacity-100"
+        width={1000}
+        height={540}
+        style={{ width: "150vw", height: "max-content" }}
+      />
+      <div className={`flex md:hidden flex-col h-[20vh] md:h-[30vh] gap-4 w-full p-8 flex-col justify-center bg-gradient-to-tr from-black via-[#373737] to-white/40 ${inter.className}  text-white rounded-xl`}>
         <h1 className="text-xl md:text-3xl font-semibold w-[60%]">
           Your Trusted Construction Partner</h1>
         <h1 className="text-[10px] md:text-[16px] w-[80%] md:w-[50%]">

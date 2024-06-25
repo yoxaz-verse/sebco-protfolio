@@ -13,10 +13,8 @@ function Page() {
   return (
     <>
       <div className='flex flex-col gap-[2vh]'>
-
-        <PageComponent Title={Titles.LatestNew} columns={adminColums.latestNewsColumns} />
         <PageComponent Title={Titles.Requiremnt} columns={adminColums.requiremnetColums} />
-        <PageComponent Title={Titles.CompletedProjects} columns={adminColums.completedProjects} />
+        <PageComponent Title={Titles.Contact} columns={adminColums.contactColumns} />
       </div>
     </>
   );

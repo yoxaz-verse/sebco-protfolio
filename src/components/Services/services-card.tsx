@@ -4,6 +4,8 @@ import Image from "next/image";
 import React, { CSSProperties, useState } from "react";
 import ServiceCardError from "./service-card-error";
 import { Inter } from 'next/font/google'
+import { useRouter } from "next/navigation";
+
 const inter = Inter({ subsets: ['latin'] });
 
 const ServiceCard = ({ service, type, move }: any) => {
@@ -16,7 +18,7 @@ const ServiceCard = ({ service, type, move }: any) => {
     setError(true);
   };
   const { isOpen, onOpenChange, onOpen, onClose } = useDisclosure();
-
+  const navigate = useRouter();
   return (
     <>
       {error ? (
@@ -62,7 +64,7 @@ const ServiceCard = ({ service, type, move }: any) => {
                   </CardBody>
                   <CardFooter className="text-3xl justify-center font-bold">
                     {type !== "testimonal" && (
-                      <Button onPress={onClose} color="warning" className="px-2 py-4 rounded-none">Get A Free Quote</Button>
+                      <Button onPress={() => navigate.push("/requirements")} color="warning" className="px-2 py-4 cursor-pointer rounded-none">Get A Free Quote</Button>
                     )}
 
                   </CardFooter>

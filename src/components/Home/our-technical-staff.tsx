@@ -26,7 +26,9 @@ const OurTechnicalStaffComponent = () => {
             Our Technical Staff
           </div>
           <div className="flex justify-end items-end z-10 pb-4 md:pb-5 w-full">
-            <div onClick={() => navigation.push("/staff")} className="cursor-pointer bg-[#2C2B2B] h-6 w-6 md:h-10 md:w-10 rounded-full flex justify-center items-center cursor-pointer">
+          </div>
+          <div className="flex justify-center items-center md:justify-end md:items-end z-10 pb-4 md:pb-20">
+            <div onClick={() => navigation.push("/staff")} className="bg-[#2C2B2B] h-6 w-6 md:h-10 md:w-10 rounded-full flex justify-center items-center cursor-pointer">
               <FaArrowRight className="text-white text-sm md:text-lg" />
             </div>
           </div>

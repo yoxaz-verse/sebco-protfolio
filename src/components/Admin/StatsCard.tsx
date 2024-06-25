@@ -3,7 +3,7 @@ import { Titles } from "@/data/admintitle";
 import { useFetchData } from "@/hooks/useFetchData"
 import { animate } from "framer-motion";
 import { useEffect, useRef } from "react";
-import { Card, CardBody, CardHeader, CardFooter } from "@nextui-org/react";
+import { Card, CardBody, CardHeader, CardFooter, User } from "@nextui-org/react";
 import { useRouter } from "next/navigation";
 
 const Counter = ({ from, to }: { from: number, to: number }) => {
@@ -41,9 +41,7 @@ export const StatsCard = ({ title, link }: { title: string, link: any }) => {
   } else {
     return (
       <Card isPressable={true} onPress={() => router.push(link)} className="text-violet-400 cursor-pointer w-[300px] h-[150px] flex flex-row items-center justify-around px-[2rem]">
-        <h1 className="font-bold text-xl">
-          No of {title.toUpperCase() === "Apply_for_job".toUpperCase() ? "People applied for Jobs" : `${title.toUpperCase()}S`}
-        </h1>
+        <User name={title.toUpperCase() === "Apply_for_job".toUpperCase() ? "People applied for Jobs" : `${title.toUpperCase()}S`} />
         <Counter to={data.length} from={0} />
       </Card>
     )

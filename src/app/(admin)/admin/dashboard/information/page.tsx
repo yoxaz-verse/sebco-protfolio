@@ -14,7 +14,7 @@ function Page() {
     <>
       <div className='flex flex-col gap-[2vh]'>
         <PageComponent Title={Titles.Contact} columns={adminColums.contactColumns} />
-        <PageGetPostComponent Title={Titles.Comments} columns={adminColums.commentColums} />
+
         <PageGetDeleteComponent Title={Titles.Apply_for_job} columns={adminColums.jobPosting} />
       </div>
     </>

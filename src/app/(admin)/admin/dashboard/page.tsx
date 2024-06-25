@@ -11,17 +11,6 @@ function Dashboard() {
         {Object.entries(Titles).map(([key, value], index) => {
           return (
             <>
-              {index === 0 && <>
-                <h1 className='col-span-4 md:col-span-1 font-bold'>Content</h1>
-              </>}
-              {(index !== 0 && index !== 12 && index % 3 === 0) && (
-                <div className="col-span-4 md:col-span-1">
-                  <h2 className="font-bold">Content {index / 3}</h2>
-                </div>
-              )}
-              {(index === 12) && (
-                <h1 className='col-span-4 font-bold md:col-span-1'>Our Staff</h1>
-              )}
               <StatsCard
                 key={index}
                 title={key}
