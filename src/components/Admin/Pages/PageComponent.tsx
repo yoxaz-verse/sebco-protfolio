@@ -12,7 +12,7 @@ const data: any[] = [
   // Your data array goes here
 ];
 
-export function      PageComponent(Title: any) {
+export function PageComponent(Title: any) {
   const [randomId, setRandomId] = React.useState<string>(Math.random().toString(36).substring(7));
   const { isOpen: isOpenContent, onOpen: onOpenContent, onOpenChange: onOpenChangeContent } = useDisclosure();
   const [currdata, setcurrData] = useState<any>(null);
@@ -61,7 +61,10 @@ export function      PageComponent(Title: any) {
   return (
     <div tabIndex={Title.Title.toLowerCase()}>
       <div className='w-full flex p-[1rem] justify-between'>
-        <h2 className='text-2xl font-bold'>{`${Title.Title.charAt(0).toUpperCase() + Title.Title.slice(1)}s`}</h2>
+
+        <h2 className='text-2xl font-bold'>
+          {`${Title.Title.charAt(0).toUpperCase() + Title.Title.slice(1)}${(Title.Title.toLowerCase() === 'gallery' && Title.Title.toLowerCase() === 'jobs' && Title.Title.toLowerCase() === 'blogs' && Title.Title.toLowerCase() === "") ? '' : 's'}`}
+        </h2>
         <div className='flex flex-row gap-2'>
           <AddModal columns={newCols} generateRandomId={generateRandomId} title={Title.Title} />
           <Button onClick={generateRandomId} className='rounded-xl bg-blue-200'>Refresh</Button>

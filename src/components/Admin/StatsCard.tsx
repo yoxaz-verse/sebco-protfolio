@@ -32,9 +32,7 @@ export const StatsCard = ({ title, link }: { title: string, link: any }) => {
   if (loading) {
     return (
       <Card onClick={() => router.push(link)} className="text-violet-400 w-[300px] h-[150px]   flex flex-row items-center justify-around">
-        <h1 className="font-bold">
-          No of {title.toUpperCase() === "Apply_for_job".toUpperCase() ? "People applied for Jobs" : `${title.toUpperCase()}S`}
-        </h1>
+        <User name={title.toUpperCase() === "Apply_for_job".toUpperCase() ? "People applied for Jobs" : `${title.toUpperCase()}S`} />
         <Counter from={0} to={0} />
       </Card>
     )

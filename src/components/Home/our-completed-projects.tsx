@@ -21,7 +21,8 @@ const OurCompletedProjects = () => {
       </div>
     );
   } else {
-    const recentProjects = Object.values(data) || [];
+    const recentProjects: any = Object.values(data) || [];
+    console.log(recentProjects[0].images);
     return (
       <div className="my-20">
         <div className="text-[#FFBD12] font-medium text-3xl pb-8 text-center">
@@ -32,7 +33,18 @@ const OurCompletedProjects = () => {
           <div className="flex justify-center items-center">
             {recentProjects.slice(0, 3).map((item: any, index: number) => (
               <Animate key={item.alt ?? `image${index}`} className="relative p-2">
-                <Image src={item.images[0]?.data} height={300} width={300} alt={item.alt ?? `image${index}`} />
+                <div className="grid border w-full border-yellow-600 rounded-sm  grid-cols-2 md:grid-cols-3 gap-2 grid-rows-3">
+                  {/* Corrected mapping of images */}
+                  {item.images.map((i: any, key: any) => (
+                    <Image
+                      key={key}
+                      src={i}
+                      height={300}
+                      width={300}
+                      alt={item.alt ?? `image${key}`}
+                    />
+                  ))}
+                </div>
               </Animate>
             ))}
           </div>

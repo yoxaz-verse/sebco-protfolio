@@ -27,20 +27,15 @@ const Footer = () => {
               >
                 Work With us
               </div>
-              <div className="py-3 px-2 cursor-pointer">Advertise With us</div>
-              <div className="py-3 px-2 cursor-pointer">Support Us</div>
-              <div className="py-3 px-2 cursor-pointer">Business Advices</div>
             </div>
             <div className="">
-              <div className="py-3 px-2 cursor-pointer">Private Coaching</div>
-              <div className="py-3 px-2 cursor-pointer">Our Work</div>
-              <div className="py-3 px-2 cursor-pointer">Our Commitment</div>
+              <div onClick={() => router.push("/services")} className="py-3 px-2 cursor-pointer">Our Services</div>
+              <div onClick={() => router.push("/project")} className="py-3 px-2 cursor-pointer">Our Work</div>
               <div onClick={() => router.push("/staff")} className="py-3 px-2 cursor-pointer">Our Team</div>
             </div>
             <div className=" ">
-              <div className="py-3 px-2 cursor-pointer">About Us</div>
+              <div onClick={() => router.push("/about-us")} className="py-3 px-2 cursor-pointer">About Us</div>
               <div className="py-3 px-2 cursor-pointer">FAQs</div>
-              <div className="py-3 px-2 cursor-pointer">Report a Bug</div>
             </div>
           </div>
         </div>

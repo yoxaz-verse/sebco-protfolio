@@ -14,7 +14,7 @@ function Page() {
   return (
     <>
       <PageComponent Title={Title} columns={newColumns} />
-      <PageComponent Title={Titles.Jobs} columns={adminColums.jobsColums} />
+      <PageComponent Title={Titles.CompletedProjects} columns={adminColums.completedProjects} />
     </>
   )
 }

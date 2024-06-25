@@ -21,16 +21,16 @@ export default function AdminNavbar() {
       link: ADMIN_ROUTES.CONTENT,
     },
     {
+      name: "Information",
+      link: ADMIN_ROUTES.INFORMATION,
+    },
+    {
       name: "Enquiries",
       link: ADMIN_ROUTES.ENQUIRY,
     },
     {
-      name: "Information",
-      link: ADMIN_ROUTES.CONTENT3,
-    },
-    {
-      name: "Content3",
-      link: ADMIN_ROUTES.CONTENT2,
+      name: "Recruitment",
+      link: ADMIN_ROUTES.RECRUITMENT,
     },
     {
       name: "Company",

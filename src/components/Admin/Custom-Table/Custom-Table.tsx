@@ -28,7 +28,7 @@ interface CustomTableProps {
 }
 export default function CustomTable({ title, isLoading, data, columns, onOpenEdit, onOpenView, onOpenDelete, id }: CustomTableProps) {
   const [table_data, setTableData] = React.useState(data);
-
+  console.log(data);
   const navigate = useRouter();
   const renderCell = React.useCallback((data: any, columnKey: React.Key) => {
     const cellValue = data[columnKey as keyof any];
@@ -51,7 +51,7 @@ export default function CustomTable({ title, isLoading, data, columns, onOpenEdi
         );
       case "image":
         return (
-          <Image src={data.image} alt={data.name} width={50} height={50} />
+          <Image src={data.image} alt={"images"} width={50} height={50} />
         );
       case "images":
         return (

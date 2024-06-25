@@ -13,9 +13,9 @@ function Page() {
   return (
     <>
       <div className='flex flex-col gap-[2vh]'>
-        <PageComponent Title={Titles.Contact} columns={adminColums.contactColumns} />
-
-        <PageGetDeleteComponent Title={Titles.Apply_for_job} columns={adminColums.jobPosting} />
+        <PageComponent Title={Titles.Service} columns={adminColums.serviceColumns} />
+        <PageComponent Title={Titles.Location} columns={adminColums.locationColumns} />
+        <PageComponent Title={Titles.Project} columns={adminColums.projectColumns} />
       </div>
     </>
   );

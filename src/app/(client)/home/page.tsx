@@ -14,8 +14,6 @@ import ClientSaysComponent from "@/components/Home/what-our-clientsay-component"
 import { aboutUsHomepage, whatWeDo } from "@/data/content-data";
 import { Inter } from 'next/font/google'
 
-// If loading a variable font, you don't need to specify the font weight
-const inter = Inter({ subsets: ['latin'] })
 
 export default async function HomePage() {
   const completedProjectdata = await getData(`/Completed Project`)
@@ -27,7 +25,6 @@ export default async function HomePage() {
         <div className="w-10/12 flex flex-col py-4">
           <HomepageAbout data={aboutUsHomepage} />
           <HomepageOurWork data={whatWeDo} />
-          <OurCompletedProjects />
           <OurServicesComponent />
           <ClientSaysComponent />
           <MapComponent />
@@ -40,6 +37,7 @@ export default async function HomePage() {
           <OurTechnicalStaffComponent />
           <LatestComponent />
           <VisitOurYoutube />
+          <OurCompletedProjects />
         </div>
       </div>
     </>
