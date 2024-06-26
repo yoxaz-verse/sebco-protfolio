@@ -168,6 +168,7 @@ export default function AddModal({ title, generateRandomId, columns }: AddModalP
       setServiceArr([]);
       setUploadImageUrlArr(Array(5).fill("/01.png"));
       setSubmitting(false);
+      setUploadImageUrl("/01.png");
       close();
     }
   };

@@ -28,16 +28,28 @@ interface CustomTableProps {
 }
 export default function CustomTable({ title, isLoading, data, columns, onOpenEdit, onOpenView, onOpenDelete, id }: CustomTableProps) {
   const [table_data, setTableData] = React.useState(data);
-  console.log(data);
+
   const navigate = useRouter();
   const renderCell = React.useCallback((data: any, columnKey: React.Key) => {
     const cellValue = data[columnKey as keyof any];
     const post_code = data["postal code"];
+    console.log(columnKey);
 
     switch (columnKey) {
       case "name":
         return (
           <h3>{data.name}</h3>
+        );
+      case "complete_date":
+        return (
+          <h3>{data.completion_date}</h3>
+        );
+      case "project_link":
+        return (
+          <Link href={data.project_link} target="_blank" underline={"hover"}>
+            {data.project_link}
+          </Link>
+
         );
       case "heading":
         return (
