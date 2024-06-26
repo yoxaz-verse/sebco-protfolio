@@ -12,6 +12,7 @@ import { Button } from "@nextui-org/react";
 
 const LatestComponent = () => {
   const { data, loading } = useFetchData(Titles.LatestNew);
+  const router = useRouter();
   if (loading) {
     return (
       <div className="flex  flex-col h-[100vh] justify-center items-center text-yellow-400">
@@ -21,7 +22,7 @@ const LatestComponent = () => {
     );
   }
 
-  const router = useRouter();
+
   const handleNavigate = () => {
     router.push("/latest-news");
   };

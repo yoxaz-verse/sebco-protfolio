@@ -10,7 +10,7 @@ import { useRouter } from 'next/navigation';
 
 const OurServicesComponent = () => {
   const width = useScreenWidth() || 0;
-
+  const navigate = useRouter();
   const { data, loading } = useFetchData(Titles.Service);
   if (loading) {
     return (
@@ -20,7 +20,7 @@ const OurServicesComponent = () => {
       </div>
     );
   }
-  const navigate = useRouter();
+
   return (
     <div className='bg-[#414141] flex flex-col items-center justify-center p-2 my-20'>
       <div className='flex justify-between w-full items-center'>
