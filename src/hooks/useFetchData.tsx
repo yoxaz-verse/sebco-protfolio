@@ -41,7 +41,7 @@ export function useFetchDataById(Title: string, id: any) {
       }
     }
     fetchData();
-  }, []);
+  }, [Title, id]);
 
   return {
     data,

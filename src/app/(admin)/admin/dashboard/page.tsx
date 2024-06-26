@@ -31,7 +31,7 @@ function Dashboard() {
   };
 
   return (
-    <div className='grid grid-cols-4 md:grid-cols-4 gap-4 grid-rows-3 md:grid-rows-3'>
+    <div className='grid grid-cols-1 md:grid-cols-4 gap-4 grid-rows-0 md:grid-rows-3'>
       {Object.entries(Titles).map(([key, value], index) => (
         <StatsCard
           key={index}

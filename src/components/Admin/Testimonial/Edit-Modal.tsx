@@ -64,8 +64,6 @@ export default function EditModal({
       setCurrData(data);
       setUploadImageUrl(data.image || "/01.png");
       if (data.images) {
-        const arr: any = [...files];
-
         setFiles(data.images);
         setUploadImageUrlArr(data.images);
       }
@@ -78,7 +76,7 @@ export default function EditModal({
       }
       setLoading(false);
     }
-  }, [data]);
+  }, [data, files, tabs]);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     if (!e.target.files) {
