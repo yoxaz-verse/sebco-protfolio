@@ -1,4 +1,5 @@
-import { getData } from "@/backend/Services/firestore";
+"use client";
+import React from "react";
 import HomepageAbout from "@/components/Home/homepage-about";
 import HomePageHero from "@/components/Home/homepage-hero";
 import HomepageOurWork from "@/components/Home/homepage-ourwork";
@@ -12,16 +13,13 @@ import SebcoCareers from "@/components/Home/sebco-careers";
 import VisitOurYoutube from "@/components/Home/visit-our-youtube";
 import ClientSaysComponent from "@/components/Home/what-our-clientsay-component";
 import { aboutUsHomepage, whatWeDo } from "@/data/content-data";
-import { Inter } from 'next/font/google'
+import dynamic from "next/dynamic";
 
-// If loading a variable font, you don't need to specify the font weight
-const inter = Inter({ subsets: ['latin'] })
+const Map = dynamic(() => import("@/components/Home/map-component"), {
+  ssr: false
+});
 
-export default async function HomePage() {
-  const completedProjectdata = await getData(`/Completed Project`)
-  console.log(completedProjectdata);
-  console.log = () => { };
-  console.error = () => { };
+export default function HomePage() {
   return (
     <>
       <HomePageHero />
@@ -32,7 +30,7 @@ export default async function HomePage() {
           <OurCompletedProjects />
           <OurServicesComponent />
           <ClientSaysComponent />
-          <MapComponent />
+          <Map />
           <SebcoCareers />
         </div>
         <div className="w-full">

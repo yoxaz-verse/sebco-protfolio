@@ -5,7 +5,7 @@ import Footer from "@/components/Footer/footer";
 import Navbar from "@/components/Navbar/navbar";
 import Contact from "@/components/Contact/contact";
 import { Poppins } from "next/font/google";
-import OurCompletedProjects from "@/components/Home/our-completed-projects";
+
 
 export const metadata: Metadata = {
   title: "Sebco",

@@ -1,7 +1,7 @@
 "use client";
 import React from 'react';
 import { Titles } from '@/data/admintitle';
-import { StatsCard } from '@/components/Admin/StatsCard';
+import StatsCard from '@/components/Admin/StatsCard';
 import { ADMIN_ROUTES } from '@/core/routes';
 
 function Dashboard() {

@@ -9,16 +9,20 @@ import Image from 'next/image';
 import "../../styles/global.css";
 import { Button } from '@nextui-org/react';
 import { useRouter } from 'next/navigation';
-
+import { useState, useEffect } from 'react';
 const defaultIcon: any = new Icon({
-  iconUrl: String("./marker-icon-2x.png")
+  iconUrl: "./marker-icon-2x.png"
 });
 
 const MapComponent: React.FC = () => {
+  const [mounted, setMounted] = useState<boolean>()
+  useEffect(() => {
+    setMounted(true)
+  }, [])
   const { data, loading } = useFetchData(Titles.Location);
   const center: LatLngExpression = [8.50515, 76.271080];
   const router = useRouter();
-  if (!loading) {
+  if (!loading && mounted) {
     return (
       <div className='w-full flex flex-col'>
         <h1 className='text-[#FFBD12] font-medium text-xl lg:text-3xl pb-8'>

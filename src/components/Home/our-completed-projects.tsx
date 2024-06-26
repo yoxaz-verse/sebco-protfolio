@@ -2,7 +2,6 @@
 import { useScreenWidth } from "@/utils/useScreenWidth";
 import Image from "next/image";
 import React from "react";
-import { Carousel } from "react-responsive-carousel";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import Animate from "../ReUseComponents/Animate";
 import { useFetchData } from "@/hooks/useFetchData";
@@ -10,7 +9,6 @@ import { Titles } from "@/data/admintitle";
 import { Spinner } from "@nextui-org/react";
 
 const OurCompletedProjects = () => {
-  const width = useScreenWidth() || 0;
   const { data, loading } = useFetchData(Titles.CompletedProjects);
 
   if (loading) {
@@ -22,7 +20,6 @@ const OurCompletedProjects = () => {
     );
   } else {
     const recentProjects: any = Object.values(data) || [];
-    console.log(recentProjects[0].images);
     return (
       <div className="my-20">
         <div className="text-[#FFBD12] font-medium text-3xl pb-8 text-center">
