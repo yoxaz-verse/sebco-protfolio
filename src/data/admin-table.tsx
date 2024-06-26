@@ -39,6 +39,7 @@ export const adminColums = {
     { name: "LONGITUDE", uid: "longitude", type: "text" },
     { name: "DESCRIPTION", uid: "description", type: "text" },
     { name: "TITLE", uid: "title", type: "text" },
+    { name: "PROJECT_LINK", uid: "youtubeLink", type: "text" },
     { name: "IMAGE", uid: "image", type: "image" },
     { name: "ACTION", uid: "action", type: "action2" }
   ],

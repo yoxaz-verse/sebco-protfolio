@@ -5,10 +5,11 @@ import React from 'react';
 import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
 import "leaflet/dist/leaflet.css";
 import { Icon, LatLngExpression } from 'leaflet';
-import markerIconUrl from "leaflet/dist/images/marker-icon.png";
-import markerShadowUrl from "leaflet/dist/images/marker-shadow.png";
 import Image from 'next/image';
 import "../../styles/global.css";
+import { Button } from '@nextui-org/react';
+import { useRouter } from 'next/navigation';
+
 const defaultIcon: any = new Icon({
   iconUrl: String("./marker-icon-2x.png")
 });
@@ -16,7 +17,7 @@ const defaultIcon: any = new Icon({
 const MapComponent: React.FC = () => {
   const { data, loading } = useFetchData(Titles.Location);
   const center: LatLngExpression = [8.50515, 76.271080];
-
+  const router = useRouter();
   if (!loading) {
     return (
       <div className='w-full flex flex-col'>
@@ -30,6 +31,7 @@ const MapComponent: React.FC = () => {
           {data.map((location: any, _: number) => (
             <Marker
               key={location.id}
+              icon={defaultIcon}
               position={[location.latitude, location.longitude]}
             >
               <Popup className='p-0 w-[400px] overflow-y-scroll bg-[#2C2C2B]'>
@@ -37,6 +39,7 @@ const MapComponent: React.FC = () => {
                   <Image src={location.image} loading='lazy' alt="location_image" width={800} height={800} />
                   <h3 className='text-2xl'>{location.name}</h3>
                   <h1 className='text-xl font-bold'>{location.description}</h1>
+                  <Button color='warning' onClick={() => router.push(location.project_link)}>Know More</Button>
                 </div>
               </Popup>
             </Marker>

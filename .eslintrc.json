@@ -7,19 +7,25 @@
   ],
   "overrides": [
     {
-      "files": ["*.ts", "*.tsx"],
+      "files": [
+        "*.ts",
+        "*.tsx"
+      ],
       "parser": "@typescript-eslint/parser",
-      "plugins": ["@typescript-eslint"],
-      "extends": ["plugin:@typescript-eslint/recommended"]
+      "plugins": [
+        "@typescript-eslint"
+      ],
+      "extends": [
+        "plugin:@typescript-eslint/recommended"
+      ]
     },
     {
-      "files": ["*.js", "*.jsx"],
-      "rules": {
-        // Add any specific rules for JS/JSX files here if needed
-      }
+      "files": [
+        "*.js",
+        "*.jsx"
+      ],
+      "rules": {}
     }
   ],
-  "rules": {
-    // Your custom rules here
-  }
+  "rules": {}
 }
