@@ -32,9 +32,6 @@ const OurTeamCard = ({ data, type }: OurTeamCardProps) => {
               <h1>{data.role}</h1>
             </div>
             <div className={`my-0 py-0 ${type === 'home' && 'text-start text-sm pb-5 w-10/12 py-3'}`}>{type == 'home' ? data.description : data.designation}</div>
-            {type != 'home' && <button className="bg-transparent text-black border-2 border-black px-6 py-2 my-5">
-              Connect
-            </button>}
           </CardBody>
         </Card>
       )}
