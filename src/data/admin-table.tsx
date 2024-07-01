@@ -76,6 +76,7 @@ export const adminColums = {
     { name: "ACTIONS", uid: "actions", type: "action" }
   ],
   completedProjects: [
+    { name: "TITLE", uid: "title", type: "text" },
     { name: "IMAGES", uid: "images", type: "images" },
     { name: "ACTIONS", uid: "actions", type: "action" }
   ],

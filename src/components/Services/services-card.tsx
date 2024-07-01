@@ -25,17 +25,17 @@ const ServiceCard = ({ service, type, move }: any) => {
         <ServiceCardError onReload={handleReload} />
       ) : (
         <>
-          <Card onPress={onOpen} key={service.alt} className={`w-full md:w-[30%] ${type !== 'home' ? 'rounded-none' : 'rounded-sm my-3 md:my-0'}`} style={move === 'up' ? { transform: 'translateY(-80px)' } as CSSProperties : undefined} isPressable >
-            <CardBody className="overflow-visible p-0">
+          <Card onPress={onOpen} key={service.alt} className={`w-full md:w-[30%]   ${type !== 'home' ? 'rounded-none' : 'rounded-sm my-3 md:my-0'}`} style={move === 'up' ? { transform: 'translateY(-80px)' } as CSSProperties : undefined} isPressable >
+            <CardBody className="overflow-visible p-0 h-[20rem] md:h-[30rem]">
               <Image
                 src={service.image}
                 width={400}
-                height={200}
+                height={400}
                 alt={service.title}
-                className="w-full"
+                className="w-full h-full object-cover"
               />
             </CardBody>
-            <CardFooter className="text-sm justify-center font-bold">
+            <CardFooter className="text-xl justify-center  rounded-b-xl font-bold">
               <h1>{service.title ?? service.name}</h1>
             </CardFooter>
           </Card>

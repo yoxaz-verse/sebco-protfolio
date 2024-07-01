@@ -11,7 +11,8 @@ import { Button } from '@nextui-org/react';
 import { useRouter } from 'next/navigation';
 import { useState, useEffect } from 'react';
 const defaultIcon: any = new Icon({
-  iconUrl: "./marker-icon-2x.png"
+  iconUrl: "./marker-icon-3x.png",
+  iconSize: [24, 35]
 });
 
 const MapComponent: React.FC = () => {
@@ -20,7 +21,22 @@ const MapComponent: React.FC = () => {
     setMounted(true)
   }, [])
   const { data, loading } = useFetchData(Titles.Location);
-  const center: LatLngExpression = [8.50515, 76.271080];
+  const center: LatLngExpression = [9.979882, 76.580307];
+  /*
+   const computerCenter = (data: any[]): LatLngExpression => {
+     let avgLat = 0;
+     let avgLng = 0;
+     if (data.length > 0) {
+       const sumLat = data.reduce((sum, d) => sum + d.latitude, 0);
+       const sumLng = data.reduce((sum, d) => sum + d.longitude, 0);
+       avgLat = sumLat / data.length;
+       avgLng = sumLng / data.length;
+     }
+ 
+     return [avgLat, avgLng];
+   };
+   */
+  console.log(data);
   const router = useRouter();
   if (!loading && mounted) {
     return (
@@ -28,7 +44,7 @@ const MapComponent: React.FC = () => {
         <h1 className='text-[#FFBD12] font-medium text-xl lg:text-3xl pb-8'>
           Browse Property through Map
         </h1>
-        <MapContainer center={center} zoom={10} style={{ height: '400px' }}>
+        <MapContainer center={center} zoom={8} style={{ height: '500px' }}>
           <TileLayer
             url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
           />
@@ -38,11 +54,10 @@ const MapComponent: React.FC = () => {
               icon={defaultIcon}
               position={[location.latitude, location.longitude]}
             >
-              <Popup className='p-0 w-[400px] overflow-y-scroll bg-[#2C2C2B]'>
-                <div className='bg-[#2C2C2B] overflow-y-scroll text-yellow-600'>
-                  <Image src={location.image} loading='lazy' alt="location_image" width={800} height={800} />
-                  <h3 className='text-2xl'>{location.name}</h3>
-                  <h1 className='text-xl font-bold'>{location.description}</h1>
+              <Popup className='p-0 w-[200px]  bg-[#2C2C2B]'>
+                <div className='bg-[#2C2C2B] flex flex-col items-center  gap-[1rem] justify-center text-yellow-600'>
+                  <h3 className='text-lg w-full'>{location.title}</h3>
+                  <Image src={location.image} loading='lazy' alt="location_image" width={400} height={400} />
                   <Button color='warning' onClick={() => router.push(location.project_link)}>Know More</Button>
                 </div>
               </Popup>

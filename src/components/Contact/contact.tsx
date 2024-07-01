@@ -44,9 +44,9 @@ const Contact = () => {
         src="/contact.png"
         alt="contact"
         className="hidden md:flex opacity-100 sm:opacity-0 md:opacity-100"
-        width={1000}
+        width={500}
         height={540}
-        style={{ width: "150vw", height: "max-content" }}
+        style={{ width: "150vw" }}
       />
       <div className={`flex md:hidden flex-col h-[20vh] md:h-[30vh] gap-4 w-full p-8 flex-col justify-center bg-gradient-to-tr from-black via-[#373737] to-white/40 ${inter.className}  text-white rounded-xl`}>
         <h1 className="text-xl md:text-3xl font-semibold w-[60%]">
@@ -57,41 +57,37 @@ const Contact = () => {
       <div className="w-full flex justify-end items-end">
         <Animate className="w-full md:w-[70%]">
           <form
-            className="flex flex-col w-[90%] xl:w-[45%] mx-auto  bg-white rounded-xl p-4 z-10 gap-2 md:gap-4 sm:relative"
+            className="flex flex-col w-[90%] lg:w-[75%] text-md lg:text-xl  mx-auto  bg-white rounded-xl p-8 md:p-4 z-10 gap-2 md:gap-4 sm:relative"
             onSubmit={handleSubmit}
-            style={{ top: isMobile ? "0px" : "-250px" }}
+            style={{ top: isMobile ? "0px" : "-310px", left: isMobile ? "0px" : "8rem" }}
           >
-            <Input
+            <input
               type="text"
               placeholder="Name"
-              className="p-4 rounded"
-              variant="bordered"
+              className="p-4 h-[40px] md:h-[70px] border border-gray-300 rounded-lg outline-none"
               name="name"
               value={formData.name}
               onChange={handleChange}
             />
-            <Input
+            <input
               type="email"
               placeholder="Email"
-              className="p-4 rounded"
-              variant="bordered"
+              className="p-4 h-[40px] md:h-[70px] border border-gray-300 rounded-lg outline-none"
               name="email"
               value={formData.email}
               onChange={handleChange}
             />
-            <Input
+            <input
               type="text"
               placeholder="Phone"
-              className="p-4 rounded"
-              variant="bordered"
+              className="p-4 h-[40px] md:h-[70px] border border-gray-300 rounded-lg outline-none"
               name="phone"
               value={formData.phone}
               onChange={handleChange}
             />
-            <Textarea
+            <textarea
               placeholder="Message"
-              className="p-4 rounded"
-              variant="bordered"
+              className="p-4 h-[50px] md:h-[100px] border border-gray-300 rounded-lg outline-none"
               name="message"
               value={formData.message}
               onChange={handleChange}
@@ -102,7 +98,7 @@ const Contact = () => {
               </Checkbox>
               <span className="text-[#FFBD12]">terms & conditions</span>
             </div>
-            <Button disabled={click} color="warning">
+            <Button className="rounded-lg px-[3rem] py-[1rem]" disabled={click} color="warning">
               Send
             </Button>
           </form>

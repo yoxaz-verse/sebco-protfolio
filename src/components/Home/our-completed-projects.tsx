@@ -7,10 +7,11 @@ import Animate from "../ReUseComponents/Animate";
 import { useFetchData } from "@/hooks/useFetchData";
 import { Titles } from "@/data/admintitle";
 import { Spinner } from "@nextui-org/react";
+import { useRouter } from "next/navigation";
 
 const OurCompletedProjects = () => {
   const { data, loading } = useFetchData(Titles.CompletedProjects);
-
+  const router = useRouter();
   if (loading) {
     return (
       <div className="flex flex-col h-screen justify-center items-center text-yellow-400">
@@ -28,22 +29,21 @@ const OurCompletedProjects = () => {
 
         {!loading && (
           <div className="flex justify-center items-center">
-            {recentProjects.slice(0, 3).map((item: any, index: number) => (
-              <Animate key={item.alt ?? `image${index}`} className="relative p-2">
-                <div className="grid border w-full border-yellow-600 rounded-sm  grid-cols-2 md:grid-cols-3 gap-2 grid-rows-3">
-                  {/* Corrected mapping of images */}
-                  {item.images.map((i: any, key: any) => (
-                    <Image
-                      key={key}
-                      src={i}
-                      height={300}
-                      width={300}
-                      alt={item.alt ?? `image${key}`}
-                    />
-                  ))}
-                </div>
-              </Animate>
-            ))}
+            <div className="grid  w-full rounded-sm  grid-cols-2 md:grid-cols-3 gap-2 grid-rows-3">
+              {recentProjects.slice(0, 3).map((item: any, index: number) => (
+                <Animate key={item.alt ?? `image${index}`} className="relative p-2">
+                  <Image
+                    onClick={() => router.push(`/completedprojects/${item.id}`)}
+                    key={index}
+                    className="cursor-pointer"
+                    src={item.images[0]}
+                    height={300}
+                    width={300}
+                    alt={item.alt ?? `image${index}`}
+                  />
+                </Animate>
+              ))}
+            </div>
           </div>
         )}
       </div>
