@@ -17,11 +17,23 @@ export default function AdminNavbar() {
       link: ADMIN_ROUTES.DASHBOARD,
     },
     {
-      name: "Content",
+      name: "General",
       link: ADMIN_ROUTES.CONTENT,
     },
     {
-      name: "Our-Staff",
+      name: "Information",
+      link: ADMIN_ROUTES.INFORMATION,
+    },
+    {
+      name: "Enquiries",
+      link: ADMIN_ROUTES.ENQUIRY,
+    },
+    {
+      name: "Recruitment",
+      link: ADMIN_ROUTES.RECRUITMENT,
+    },
+    {
+      name: "Company",
       link: ADMIN_ROUTES.OUR_STAFF,
     }
 

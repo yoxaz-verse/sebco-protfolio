@@ -5,7 +5,7 @@ import { storage } from "../database";
 
 export const uploadImage = async (file: File, filePath: string) => {
   try {
-    console.log(file, filePath);
+
     const storageRef = ref(storage, filePath);
     await uploadBytes(storageRef, file);
     const url = await getDownloadURL(storageRef);
@@ -37,20 +37,30 @@ export const deleteImage = async (filePath: string) => {
   }
 }
 
-export const multipleUpload = async (files: File[], filePath: string) => {
+export const multipleUpload = async (files: FileList, filePath: string) => {
   try {
-    const urls = await Promise.all(files.map(async (file) => {
-      return await uploadImage(file, filePath);
+    let urls: any = [];
+
+    await Promise.all(Array.from(files).map(async (file: File, index: number) => {
+      let updatedFileName = `${filePath}_${index}`
+      let url = await uploadImage(file, updatedFileName);
+      urls.push(url.data);
     }));
+
+    console.log(urls);
+
     return {
       data: urls,
       status: true
-    }
+    };
   } catch (e) {
-    console.log(e);
+    console.error('Error uploading files:', e);
     return {
       data: null,
       status: false
-    }
+    };
   }
-}
+};
+
+
+

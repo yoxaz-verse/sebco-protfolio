@@ -19,6 +19,23 @@ const firebaseConfig = {
   measurementId: "G-P2HNM8Q90M"
 };
 
+/*const firebaseConfig = {
+
+  apiKey: "AIzaSyDgohZ6izgV6oyeQdqsYilI_aCXIYMSNmw",
+
+  authDomain: "sebco-1db08.firebaseapp.com",
+
+  projectId: "sebco-1db08",
+
+  storageBucket: "sebco-1db08.appspot.com",
+
+  messagingSenderId: "871816575742",
+
+  appId: "1:871816575742:web:20e01a4034bf0d61f843af",
+
+  measurementId: "G-FG6PYYLKWK"
+
+};*/
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 export const analytics = isSupported().then(yes => yes ? getAnalytics(app) : null);

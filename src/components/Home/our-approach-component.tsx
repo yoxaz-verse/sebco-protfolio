@@ -1,13 +1,15 @@
+"use client";
 import { ourApproachHome } from "@/data/content-data";
 import { Card, CardBody, CardFooter } from "@nextui-org/react";
 import Image from "next/image";
 import React from "react";
 import { FaArrowRight } from "react-icons/fa";
 import Animate from "../ReUseComponents/Animate";
+import { useRouter } from "next/navigation";
 
 
 const OurApproachComponentHome = () => {
-  
+  const navigate = useRouter();
   return (
     <Animate className="bg-gradient-to-b from-[#414141] to-[#000000] flex items-center justify-center flex-col border-none">
       <div className="flex justify-between items-center w-9/12 pt-6">
@@ -15,7 +17,7 @@ const OurApproachComponentHome = () => {
           Our Approach!
         </div>
         <div className="flex justify-center items-center md:justify-end md:items-end z-10 pb-4 md:pb-20">
-          <div className="bg-[#2C2B2B] h-6 w-6 md:h-10 md:w-10 rounded-full flex justify-center items-center cursor-pointer">
+          <div onClick={() => navigate.push("/approach")} className="bg-[#2C2B2B] h-6 w-6 md:h-10 md:w-10 rounded-full flex justify-center items-center cursor-pointer">
             <FaArrowRight className="text-white text-sm md:text-lg" />
           </div>
         </div>

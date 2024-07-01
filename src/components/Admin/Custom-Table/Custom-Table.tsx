@@ -1,11 +1,12 @@
 import React, { Dispatch, SetStateAction, useEffect } from "react";
-import { Table, TableHeader, TableColumn, TableBody, Modal, ModalContent, ModalHeader, TableRow, TableCell, User, Chip, Tooltip, ChipProps, Pagination, Textarea, Link, Button } from "@nextui-org/react";
+import { Table, TableHeader, TableColumn, TableBody, Spinner, Modal, ModalContent, ModalHeader, TableRow, TableCell, User, Chip, Tooltip, ChipProps, Pagination, Textarea, Link, Button } from "@nextui-org/react";
 import { getData } from "@/backend/Services/firestore";
 import Image from "next/image";
 import { EyeIcon } from "../Icons/EyeIcon";
 import { EditIcon } from "../Icons/EditIcon";
 import { DeleteIcon } from "../Icons/DeleteIcon";
 import { projectDetails } from "@/data/content-data";
+import { useRouter } from "next/navigation";
 
 
 const statusColorMap: Record<string, ChipProps["color"]> = {
@@ -19,27 +20,36 @@ interface CustomTableProps {
   data: any;
   columns: any;
   id: any;
+  isLoading: any;
   generateRandomId: () => void;
   onOpenEdit: (data: any) => any;
   onOpenDelete: (data: any) => any;
   onOpenView: (data: any) => any;
 }
-export default function CustomTable({ title, data, columns, onOpenEdit, onOpenView, onOpenDelete, id }: CustomTableProps) {
+export default function CustomTable({ title, isLoading, data, columns, onOpenEdit, onOpenView, onOpenDelete, id }: CustomTableProps) {
   const [table_data, setTableData] = React.useState(data);
-  console.log(table_data);
-  const renderCell = React.useCallback((data: any, columnKey: React.Key) => {
-    console.log(data.images);
-    const cellValue = data[columnKey as keyof any];
-    console.log(columnKey);
-    console.log(cellValue);
-    const post_code = data["postal code"];
-    console.log(post_code);
 
+  const navigate = useRouter();
+  const renderCell = React.useCallback((data: any, columnKey: React.Key) => {
+    const cellValue = data[columnKey as keyof any];
+    const post_code = data["postal code"];
+    console.log(columnKey);
 
     switch (columnKey) {
       case "name":
         return (
           <h3>{data.name}</h3>
+        );
+      case "complete_date":
+        return (
+          <h3>{data.completion_date}</h3>
+        );
+      case "project_link":
+        return (
+          <Link href={data.project_link} target="_blank" underline={"hover"}>
+            {data.project_link}
+          </Link>
+
         );
       case "heading":
         return (
@@ -53,11 +63,11 @@ export default function CustomTable({ title, data, columns, onOpenEdit, onOpenVi
         );
       case "image":
         return (
-          <Image src={data.image} alt={data.name} width={50} height={50} />
+          <Image src={data.image} alt={"images"} width={50} height={50} />
         );
       case "images":
         return (
-          <Image src={data.images[0].data} alt={data.images[0].status} width={50} height={50} />
+          <Image src={data.images[0]} alt={"images"} width={50} height={50} />
         );
       case "description":
         return (
@@ -67,12 +77,16 @@ export default function CustomTable({ title, data, columns, onOpenEdit, onOpenVi
             className="max-w-xs"
           />
         );
+      case "resume":
+        return (
+          <Button color="secondary" onClick={() => navigate.push(data.resume)}>Click Here</Button>
+        );
       case "postal code":
         return post_code;
       case "project_details":
         return (
-          <div className="flex flex-col">
-            {data.projectDetails.map((p: any, index: number) => (
+          <div className="flex flex-col gap-4">
+            {data?.projectDetails && data.projectDetails.map((p: any, index: number) => (
               <Chip color="primary" key={index}>{p}</Chip>
             ))}
           </div>
@@ -199,7 +213,11 @@ export default function CustomTable({ title, data, columns, onOpenEdit, onOpenVi
           </TableColumn>
         )}
       </TableHeader>
-      <TableBody items={items}>
+      <TableBody loadingContent={isLoading ? <Spinner color="secondary" label="Loading..." /> : <></>}
+        isLoading={isLoading}
+        emptyContent={"No data to display.."}
+        items={items}
+      >
         {(item: any) => (
           <TableRow key={item.id}>
             {(columnKey) => <TableCell>{renderCell(item, columnKey)}</TableCell>}

@@ -40,7 +40,9 @@ p {
 
   border-radius: 10px;
 }
-
+.leaflet-popup-content-wrapper{
+   background : transparent
+}
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
   background: #b38207;

@@ -1,5 +1,5 @@
 "use client"
-export default function WebsiteLayout({
+export default function ServicesLayout({
     children,
 }: {
     children: React.ReactNode;

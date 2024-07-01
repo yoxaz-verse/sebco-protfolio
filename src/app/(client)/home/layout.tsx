@@ -1,12 +1,12 @@
 "use client"
-export default function BlogPageLayout({
-    children,
+export default function HomePageLayout({
+  children,
 }: {
-    children: React.ReactNode;
+  children: React.ReactNode;
 }) {
-    return (
-        <section>
-            {children}
-        </section>
-    );
+  return (
+    <section>
+      {children}
+    </section>
+  );
 }

@@ -3,6 +3,7 @@ import Image from 'next/image'
 import React from 'react'
 
 const ProjectDetail = ({ data }: any) => {
+  console.log(data);
   return (
     <div className='flex justify-center shadow-xl rounded-xl items-center py-10 text-white'>
       <div className='flex flex-col md:flex-row flex-wrap w-10/12 justify-between'>

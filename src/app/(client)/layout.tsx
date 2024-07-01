@@ -5,6 +5,8 @@ import Footer from "@/components/Footer/footer";
 import Navbar from "@/components/Navbar/navbar";
 import Contact from "@/components/Contact/contact";
 import { Poppins } from "next/font/google";
+
+
 export const metadata: Metadata = {
   title: "Sebco",
   description: "Sebco",
@@ -29,7 +31,7 @@ export default function RootLayout({
       <body style={{ overflowX: "hidden" }}>
         <Providers>
           <Navbar />
-            {children}
+          {children}
           <Contact />
           <Footer />
         </Providers>

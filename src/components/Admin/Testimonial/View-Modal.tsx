@@ -47,7 +47,7 @@ const ViewModal: React.FC<ViewModalProps> = ({
       setLoading(false);
     }
   }, [data]);
-  console.log(files);
+
   const renderField = (column: any, value: any, index: number) => {
     switch (column.type) {
       case "text":
@@ -74,7 +74,7 @@ const ViewModal: React.FC<ViewModalProps> = ({
                 files.map((imgUrl: any, imgIndex: any) => (
                   <Image
                     key={imgIndex}
-                    src={imgUrl.data}
+                    src={imgUrl}
                     alt={`${column.name}-${imgIndex}`}
                     width={200}
                     height={200}
@@ -114,7 +114,9 @@ const ViewModal: React.FC<ViewModalProps> = ({
       className="overflow-y-scroll"
       size={large ? "xl" : "lg"}
       onOpenChange={onOpenChange}
-      placement="top-center"
+      placement="center"
+      isDismissable={false}
+      scrollBehavior="inside"
     >
       <ModalContent>
         <ModalHeader>View {title}</ModalHeader>

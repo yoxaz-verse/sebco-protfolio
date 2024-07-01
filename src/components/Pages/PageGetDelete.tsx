@@ -18,7 +18,7 @@ export function PageGetDeleteComponent(Title: any) {
   const { isOpen: isOpenDelete, onOpen: onOpenDelete, onOpenChange: onOpenChangeDelete } = useDisclosure();
   const { isOpen: isOpenView, onOpen: onOpenView, onOpenChange: onOpenChangeView, onClose } = useDisclosure();
   const [loading, setLoading] = useState<boolean>(false);
-  console.log(currdata);
+
   useEffect(() => {
     setLoading(true);
     const timeout = setTimeout(() => {
@@ -65,16 +65,7 @@ export function PageGetDeleteComponent(Title: any) {
           <Button onClick={generateRandomId} className='rounded-none bg-blue-200'>Refresh</Button>
         </div>
       </div>
-      {loading ? (
-        <>
-          <div className='flex flex-col h-[100vh] items-center'>
-            <Spinner color='primary' />
-            <h1>Loading...</h1>
-          </div>
-        </>
-      ) : (
-        <CustomTable id={randomId} generateRandomId={generateRandomId} title={Title.Title} data={data} onOpenView={handleOnOpenView} onOpenDelete={handleOnOpenDelete} onOpenEdit={handleOnOpenEdit} columns={Title.columns} />
-      )}
+      <CustomTable isLoading={loading} id={randomId} generateRandomId={generateRandomId} title={Title.Title} data={data} onOpenView={handleOnOpenView} onOpenDelete={handleOnOpenDelete} onOpenEdit={handleOnOpenEdit} columns={Title.columns} />
       <DeleteModal generateRandomId={() => setRandomId(Math.random().toString(36).substring(7))} title={Title.Title} deletedata={currdata} onOpenChange={onOpenChangeDelete} isOpen={isOpenDelete} />
       <ViewModal large columns={newCols} title={Title.Title} data={currdata} onOpenChange={onOpenChangeView} isOpen={isOpenView} onClose={onClose} />
     </>

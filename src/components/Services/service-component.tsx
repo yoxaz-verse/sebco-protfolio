@@ -28,7 +28,7 @@ const ServiceComponent = () => {
           <ServiceCard type={"home"} service={service} key={service.id} />
         ))}
       </div>
-      <div className='bg-[#FFBD12]/[60%] blur-2xl -bottom-[10rem]  -z-10 absolute rounded-full h-80 w-80'></div>
+      <div className='bg-[#FFBD12]/[30%] blur-2xl -bottom-[4rem]  -z-20 absolute rounded-full h-80 w-80'></div>
     </Animate>
   )
 }

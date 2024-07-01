@@ -1,14 +1,14 @@
 export const Titles = {
-  Jobs: "Jobs",
   Testimonial: "Testimonial",
   Blogs: "Blogs",
+  LatestNew: "Latest-New",
   Service: "Service",
   Project: "Project",
   Location: "Location",
-  CompletedProjects: "Completed Project",
   Requiremnt: "Requiremnt",
-  LatestNew: "Latest-New",
   Contact: "Contact",
-  Comments: "Comment",
-  Apply_for_job: "Job Posting"
+  Apply_for_job: "Job Posting",
+  Jobs: "Jobs",
+  CompletedProjects: "Gallery",
+  Our_Staff: "our-staff",
 }

@@ -59,24 +59,20 @@ export function PageComponent(Title: any) {
   }, [Title.columns]);
 
   return (
-    <div>
+    <div tabIndex={Title.Title.toLowerCase()}>
       <div className='w-full flex p-[1rem] justify-between'>
-        <h2 className='text-2xl font-bold'>{`${Title.Title.charAt(0).toUpperCase() + Title.Title.slice(1)}s`}</h2>
+
+        <h2 className='text-2xl font-bold'>
+          {`${Title.Title.charAt(0).toUpperCase() + Title.Title.slice(1)}${(Title.Title.toLowerCase() === 'gallery' && Title.Title.toLowerCase() === 'jobs' && Title.Title.toLowerCase() === 'blogs' && Title.Title.toLowerCase() === "") ? '' : 's'}`}
+        </h2>
         <div className='flex flex-row gap-2'>
           <AddModal columns={newCols} generateRandomId={generateRandomId} title={Title.Title} />
           <Button onClick={generateRandomId} className='rounded-xl bg-blue-200'>Refresh</Button>
         </div>
       </div>
-      {loading ? (
-        <>
-          <div className='flex flex-col h-[100vh] items-center'>
-            <Spinner color='primary' />
-            <h1>Loading...</h1>
-          </div>
-        </>
-      ) : (
-        <CustomTable id={randomId} generateRandomId={generateRandomId} title={Title.Title} data={data} onOpenView={handleOnOpenView} onOpenDelete={handleOnOpenDelete} onOpenEdit={handleOnOpenEdit} columns={Title.columns} />
-      )}
+
+      <CustomTable isLoading={loading} id={randomId} generateRandomId={generateRandomId} title={Title.Title} data={data} onOpenView={handleOnOpenView} onOpenDelete={handleOnOpenDelete} onOpenEdit={handleOnOpenEdit} columns={Title.columns} />
+
       <EditModal newCols={newCols} generateRandomId={() => setRandomId(Math.random().toString(36).substring(7))} id={randomId} isOpen={isOpenContent} onOpenChange={onOpenChangeContent} data={currdata} title={Title.Title} />
       <DeleteModal generateRandomId={() => setRandomId(Math.random().toString(36).substring(7))} title={Title.Title} deletedata={currdata} onOpenChange={onOpenChangeDelete} isOpen={isOpenDelete} />
       <ViewModal large={true} columns={newCols} title={Title.Title} data={currdata} onOpenChange={onOpenChangeView} isOpen={isOpenView} onClose={onClose} />
