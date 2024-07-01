@@ -1,9 +1,12 @@
+"use client";
 import { sebcoCareers } from "@/data/content-data";
 import React from "react";
 import { FaArrowRight } from "react-icons/fa";
 import CareersCardHome from "./careers-card";
+import { useRouter } from "next/navigation";
 
 const SebcoCareers = () => {
+  const navigate = useRouter();
   return (
     <div className="w-full flex flex-col py-20">
       <div className="flex justify-between w-full items-center">
@@ -11,7 +14,7 @@ const SebcoCareers = () => {
           Welcome to SEBCO Careers
         </div>
         <div className="flex justify-center items-center md:justify-end md:items-end z-10 pb-3 md:pb-8">
-          <div className="bg-[#2C2B2B] h-6 w-6 md:h-10 md:w-10 rounded-full flex justify-center items-center cursor-pointer">
+          <div onClick={() => navigate.push("/careers")} className="bg-[#2C2B2B] h-6 w-6 md:h-10 md:w-10 rounded-full flex justify-center items-center cursor-pointer">
             <FaArrowRight className="text-white text-sm md:text-lg" />
           </div>
         </div>
@@ -21,7 +24,7 @@ const SebcoCareers = () => {
           <CareersCardHome career={career} key={index} />
         ))}
       </div>
-    </div>
+    </div >
   );
 };
 

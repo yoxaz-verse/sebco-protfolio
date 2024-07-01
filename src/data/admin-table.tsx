@@ -39,6 +39,7 @@ export const adminColums = {
     { name: "LONGITUDE", uid: "longitude", type: "text" },
     { name: "DESCRIPTION", uid: "description", type: "text" },
     { name: "TITLE", uid: "title", type: "text" },
+    { name: "PROJECT_LINK", uid: "project_link", type: "text" },
     { name: "IMAGE", uid: "image", type: "image" },
     { name: "ACTION", uid: "action", type: "action2" }
   ],
@@ -57,6 +58,7 @@ export const adminColums = {
     { name: "CLIENT", uid: "client", type: "text" },
     { name: "SERVICES_PROVIDED", uid: "service_dropdown", type: "textbox" },
     { name: "PROJECT_DETAILS", uid: "project_details", type: "tabselect" },
+    { name: "COMPLETION_DATE", uid: "complete_date", type: "text" },
     { name: "IMAGES", uid: "images", type: "images" },
     { name: "MAIN IMAGE", uid: "image", type: "image" },
     { name: "ACTIONS", uid: "actions", type: "action" }
@@ -74,6 +76,7 @@ export const adminColums = {
     { name: "ACTIONS", uid: "actions", type: "action" }
   ],
   completedProjects: [
+    { name: "TITLE", uid: "title", type: "text" },
     { name: "IMAGES", uid: "images", type: "images" },
     { name: "ACTIONS", uid: "actions", type: "action" }
   ],

@@ -14,40 +14,35 @@ const Footer = () => {
           <div className="w-5/12">
             <div className="text-xl">Logo</div>
             <div className="flex w-full pt-10">
-              <RiInstagramFill className="text-white mr-4 text-lg" />
-              <ImTwitter className="text-white mx-4 text-lg" />
-              <BsFacebook className="text-white mx-4 text-lg" />
+              <RiInstagramFill className="text-white cursor-pointer mr-4 text-lg" />
+              <ImTwitter className="text-white mx-4 cursor-pointer text-lg" />
+              <BsFacebook className="text-white mx-4 cursor-pointer text-lg" />
             </div>
           </div>
-          <div className="w-full justify-between lg:6/12  flex">
-
-            <div
-              className="py-3 px-2 cursor-pointer"
-              onClick={() => router.push("/careers")}
-            >
-              Work With us
+          <div className="w-full justify-between lg:1/2  flex">
+            <div className="flex flex-col">
+              <div
+                className="py-3 px-2 cursor-pointer"
+                onClick={() => router.push("/careers")}
+              >
+                Work With us
+              </div>
             </div>
-            <div className="py-3 px-2 cursor-pointer">Advertise With us</div>
-            <div className="py-3 px-2 cursor-pointer">Support Us</div>
-            <div className="py-3 px-2 cursor-pointer">Business Advices</div>
-
-            <div className=" ">
-              <div className="py-3 px-2 cursor-pointer">Private Coaching</div>
-              <div className="py-3 px-2 cursor-pointer">Our Work</div>
-              <div className="py-3 px-2 cursor-pointer">Our Commitment</div>
-              <div className="py-3 px-2 cursor-pointer">Our Team</div>
+            <div className="">
+              <div onClick={() => router.push("/services")} className="py-3 px-2 cursor-pointer">Our Services</div>
+              <div onClick={() => router.push("/project")} className="py-3 px-2 cursor-pointer">Our Work</div>
+              <div onClick={() => router.push("/staff")} className="py-3 px-2 cursor-pointer">Our Team</div>
             </div>
             <div className=" ">
-              <div className="py-3 px-2 cursor-pointer">About Us</div>
+              <div onClick={() => router.push("/about-us")} className="py-3 px-2 cursor-pointer">About Us</div>
               <div className="py-3 px-2 cursor-pointer">FAQs</div>
-              <div className="py-3 px-2 cursor-pointer">Report a Bug</div>
             </div>
           </div>
         </div>
         <Divider orientation="horizontal" className="text-white divider" />
         <div className="flex py-6">
           <div className="w-5/12">
-            <div>© 2022 Embrace, Inc All rights reserved</div>
+            <div>© 2024 Embrace, Inc All rights reserved</div>
           </div>
           <div className="w-7/12 flex">
             <div className="w-1/3 px-2 cursor-pointer">Terms of Use</div>

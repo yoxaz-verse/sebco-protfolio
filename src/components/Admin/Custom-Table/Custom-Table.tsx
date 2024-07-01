@@ -33,11 +33,23 @@ export default function CustomTable({ title, isLoading, data, columns, onOpenEdi
   const renderCell = React.useCallback((data: any, columnKey: React.Key) => {
     const cellValue = data[columnKey as keyof any];
     const post_code = data["postal code"];
+    console.log(columnKey);
 
     switch (columnKey) {
       case "name":
         return (
           <h3>{data.name}</h3>
+        );
+      case "complete_date":
+        return (
+          <h3>{data.completion_date}</h3>
+        );
+      case "project_link":
+        return (
+          <Link href={data.project_link} target="_blank" underline={"hover"}>
+            {data.project_link}
+          </Link>
+
         );
       case "heading":
         return (
@@ -51,7 +63,7 @@ export default function CustomTable({ title, isLoading, data, columns, onOpenEdi
         );
       case "image":
         return (
-          <Image src={data.image} alt={data.name} width={50} height={50} />
+          <Image src={data.image} alt={"images"} width={50} height={50} />
         );
       case "images":
         return (
@@ -67,7 +79,7 @@ export default function CustomTable({ title, isLoading, data, columns, onOpenEdi
         );
       case "resume":
         return (
-          <Button color="warning" onClick={() => navigate.push(data.resume)}>Click Here</Button>
+          <Button color="secondary" onClick={() => navigate.push(data.resume)}>Click Here</Button>
         );
       case "postal code":
         return post_code;
@@ -201,7 +213,7 @@ export default function CustomTable({ title, isLoading, data, columns, onOpenEdi
           </TableColumn>
         )}
       </TableHeader>
-      <TableBody loadingContent={isLoading ? <Spinner color="warning" label="Loading..." /> : <></>}
+      <TableBody loadingContent={isLoading ? <Spinner color="secondary" label="Loading..." /> : <></>}
         isLoading={isLoading}
         emptyContent={"No data to display.."}
         items={items}

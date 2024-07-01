@@ -6,6 +6,7 @@ import React, { CSSProperties, useState } from "react";
 import ClientSayCardError from "./client-say-card-error";
 import Animate from "../ReUseComponents/Animate";
 import { randomFill } from "crypto";
+import { useRouter } from "next/navigation";
 
 const ClientSaysCard = ({ client }: ClientSaysCardProps) => {
   const [error, setError] = useState(false);
@@ -17,6 +18,7 @@ const ClientSaysCard = ({ client }: ClientSaysCardProps) => {
   };
   console.log(client);
   const videoUrl = client.link;
+  const router = useRouter();
   const videoId = videoUrl.split('v=')[1];
   const embedLink = `https://www.youtube.com/embed/${videoId}`;
   return (
@@ -28,7 +30,7 @@ const ClientSaysCard = ({ client }: ClientSaysCardProps) => {
           key={client.name}
           className={`w-full md:w-[45%] lg:w-[30%] bg-[#2C2B2B] rounded-sm`}
         >
-          <div className="p-5 flex items-center z-10 relative flex-col">
+          <div onClick={() => router.push("/testimonals")} className="p-5 flex items-center z-10 relative flex-col">
             <Avatar
               src={client.image}
               alt={client.name}

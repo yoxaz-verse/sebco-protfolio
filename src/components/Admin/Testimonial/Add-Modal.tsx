@@ -168,6 +168,7 @@ export default function AddModal({ title, generateRandomId, columns }: AddModalP
       setServiceArr([]);
       setUploadImageUrlArr(Array(5).fill("/01.png"));
       setSubmitting(false);
+      setUploadImageUrl("/01.png");
       close();
     }
   };
@@ -240,7 +241,7 @@ export default function AddModal({ title, generateRandomId, columns }: AddModalP
                           <div key={columnIndex}>
                             <h1>{column.name}</h1>
                             <label>
-                              <div className="flex flex-row overflow-x-scroll">
+                              <div className="flex w-full flex-row gap-4 overflow-x-scroll">
                                 {uploadImageUrlArr.map((uploadImg: any, imgIndex: any) => (
                                   <div key={imgIndex}>
                                     <label htmlFor={`${title}-multiple-image`}>
@@ -249,8 +250,8 @@ export default function AddModal({ title, generateRandomId, columns }: AddModalP
                                         src={uploadImg}
                                         alt="upload"
                                         key={imgIndex}
-                                        width={200}
-                                        height={200}
+                                        width={400}
+                                        height={400}
                                       />
                                     </label>
                                   </div>

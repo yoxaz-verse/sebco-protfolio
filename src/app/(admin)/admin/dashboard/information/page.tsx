@@ -13,10 +13,9 @@ function Page() {
   return (
     <>
       <div className='flex flex-col gap-[2vh]'>
-        <PageComponent Title={Titles.Testimonial} columns={adminColums.newColumns} />
-        <PageComponent Title={Titles.Blogs} columns={adminColums.blogColumns} />
-        <PageComponent Title={Titles.Jobs} columns={adminColums.jobsColums} />
-
+        <PageComponent Title={Titles.Service} columns={adminColums.serviceColumns} />
+        <PageComponent Title={Titles.Location} columns={adminColums.locationColumns} />
+        <PageComponent Title={Titles.Project} columns={adminColums.projectColumns} />
       </div>
     </>
   );

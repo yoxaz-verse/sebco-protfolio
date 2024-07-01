@@ -1,13 +1,18 @@
 "use client";
 import { Titles } from "@/data/admintitle";
-import { useFetchData } from "@/hooks/useFetchData"
+import { useFetchData } from "@/hooks/useFetchData";
 import { animate } from "framer-motion";
 import { useEffect, useRef } from "react";
-import { Card, CardBody, CardHeader, CardFooter } from "@nextui-org/react";
+import { Card, User } from "@nextui-org/react";
 import { useRouter } from "next/navigation";
 
-const Counter = ({ from, to }: { from: number, to: number }) => {
-  const nodeRef = useRef<any>();
+interface StatsCardProps {
+  title: string;
+  link: any;
+}
+
+const Counter = ({ from, to }: { from: number; to: number }) => {
+  const nodeRef = useRef<HTMLHeadingElement>(null);
 
   useEffect(() => {
     const node = nodeRef.current;
@@ -15,37 +20,41 @@ const Counter = ({ from, to }: { from: number, to: number }) => {
     const controls = animate(from, to, {
       duration: 5,
       onUpdate(value) {
-        node.textContent = value.toFixed(0);
+        if (node) {
+          node.textContent = value.toFixed(0);
+        }
       }
     });
 
     return () => controls.stop();
   }, [from, to]);
-  return <h1 className="font-bold text-4xl" ref={nodeRef} />
-}
 
+  return <h1 className="font-bold text-4xl" ref={nodeRef} />;
+};
 
-export const StatsCard = ({ title, link }: { title: string, link: any }) => {
+const StatsCard: React.FC<StatsCardProps> = ({ title, link }) => {
   const { data, loading } = useFetchData(title);
-  const Apply_For_Job = Titles.Apply_for_job;
+  const normalizedTitle = title.toUpperCase();
   const router = useRouter();
-  if (loading) {
-    return (
-      <Card onClick={() => router.push(link)} className="text-violet-400 w-[300px] h-[150px]   flex flex-row items-center justify-around">
-        <h1 className="font-bold">
-          No of {title.toUpperCase() === "Apply_for_job".toUpperCase() ? "People applied for Jobs" : `${title.toUpperCase()}S`}
-        </h1>
+
+  const cardPressHandler = () => {
+    router.push(link);
+  };
+
+  return (
+    <Card
+      isPressable={!loading}
+      onPress={cardPressHandler}
+      className="text-violet-400 w-[300px] h-[150px] flex flex-row items-center justify-around px-[2rem] cursor-pointer"
+    >
+      <User className="flex flex-row" name={normalizedTitle === Titles.Apply_for_job ? "People applied for Jobs" : `${normalizedTitle}s`} />
+      {loading ? (
         <Counter from={0} to={0} />
-      </Card>
-    )
-  } else {
-    return (
-      <Card isPressable={true} onPress={() => router.push(link)} className="text-violet-400 cursor-pointer w-[300px] h-[150px] flex flex-row items-center justify-around px-[2rem]">
-        <h1 className="font-bold text-xl">
-          No of {title.toUpperCase() === "Apply_for_job".toUpperCase() ? "People applied for Jobs" : `${title.toUpperCase()}S`}
-        </h1>
-        <Counter to={data.length} from={0} />
-      </Card>
-    )
-  }
-}
+      ) : (
+        <Counter from={0} to={data?.length || 0} />
+      )}
+    </Card>
+  );
+};
+
+export default StatsCard;

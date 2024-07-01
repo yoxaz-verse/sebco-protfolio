@@ -59,14 +59,13 @@ const CommonCarousel = ({ CarouselData }: any) => {
         )
       }
     >
-      {CarouselData.map((item: any) => (
-        <Animate key={item.data} className="relative p-2">
+      {CarouselData.map((item: any, index: any) => (
+        <Animate key={index} className="relative p-2">
           <Image
-            src={item.data}
+            src={item}
             height={100}
             width={100}
             alt="slides"
-            className='h-1/2 w-1/2 rounded-lg'
           />
         </Animate>
       ))}

@@ -25,7 +25,8 @@ function Page() {
     });
 
   }, [routes])
-
+  console.log = () => { };
+  console.error = () => { };
   return (
     <>
       <Suspense>
