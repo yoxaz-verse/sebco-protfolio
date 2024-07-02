@@ -1,6 +1,6 @@
 "use client";
 import React from "react";
-import { Navbar, NavbarBrand, NavbarContent, NavbarItem, NavbarMenuToggle, NavbarMenu, NavbarMenuItem, Link, Button } from "@nextui-org/react";
+import { Navbar, NavbarBrand, Image, NavbarContent, NavbarItem, NavbarMenuToggle, NavbarMenu, NavbarMenuItem, Link, Button } from "@nextui-org/react";
 import { ADMIN_ROUTES } from "@/core/routes";
 import { logout } from "@/backend/Services/auth";
 import { useRouter, usePathname } from "next/navigation";
@@ -58,7 +58,8 @@ export default function AdminNavbar() {
           className="sm:hidden"
         />
         <NavbarBrand>
-          <p className="font-bold text-inherit">Logo</p>
+
+          <Image src="./logo.png" width={20} height={20} />
         </NavbarBrand>
       </NavbarContent>
 

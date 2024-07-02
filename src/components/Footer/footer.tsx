@@ -12,7 +12,7 @@ const Footer = () => {
       <div className="w-10/12 text-white pt-8">
         <div className="flex flex-col md:flex-row sm:pb-8">
           <div className="w-5/12">
-            <div className="text-xl">Logo</div>
+            <img src="./logo.png" className="w-1/2" />
             <div className="flex w-full pt-10">
               <RiInstagramFill className="text-white cursor-pointer mr-4 text-lg" />
               <ImTwitter className="text-white mx-4 cursor-pointer text-lg" />

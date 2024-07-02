@@ -549,3 +549,35 @@ export const ourTechnicalStaff = [
       "Our collection is ever-evolving. Yet, it remains consistently relatable and accessible. Our purpose is to inspire and help create the look you want.",
   },
 ];
+
+export const howWeHandleProjectHandle = {
+  "Site Visit": "Our team will visit the site and we assess the lay of the land and then the site measurements are taken. It is necessary to understand the structure of the soil and evaluate how the foundation is needed",
+  "Design": "The house plan is designed and drawn according to the client's needs and within your budget and VASTU based architectural plans if necessary. Further discussions with our designers will finalize the plan with changes required by the client. As soon as the plan is finalised, 3D elevation is started and the design is finalized by making necessary changes as mentioned above.",
+  "Estimate": "The estimations for civil works up to plastering is determined by the decided plan, elevation, specifications, and brand of materials used, foundation details and unique market conditions on the the block, wire, cement for the construction. The total construction cost is estimated based on Electricals, Plumbing, Painting, Flooring, Windows, doors, Number of Beams, Cladding, Steel Work, Handrail, Roof Tress Work etc.A fifteen page detailed work specification will be given with the estimate. Information such as brands of the materials used, size,quality and quantity required are given alongside with the estimate/specification, on each stage of the work.",
+  "Agreement": "In the agreement, the date of agreement, money transactions on the construction process and also mentions the commencement and completion of work as per specifications.",
+  "Construction": "The progress of the construction will be supervised by the site engineer, and from the office, the project engineer, project manager etc. will assess and supervise the work.As per the mutual agreement, at the stage of starting the work, the client, the related people and the engineers will together create a WhatsApp group, and the progress and other reports of the work, and photos of construction will be posted in the group..",
+  "Ensuring quality": "From the foundation, accuracy of measurements and quality of materials are ensured under the supervision of our team of engineers. All the building works are progressed using quality assured branded materials, blocks, sand, metals are purchased after the quality assurance by visiting the crusher directly by our team. At each stage of the civil work, the provision of irrigation systems also improves the quality. There will be 20-30 checklists for each phase of work and each phase of construction progressed after the respective engineers ensured that these checklists were completed. A special site engineer is assigned for this purpose.",
+  "Work schedule": "The work schedule from the start of construction to completion is given to the client so that the construction progress can be assessed. And at the stage of purchase of the TILE, PAINT, CP, SANITARY, SWITCHES etc. are and our team will foresee the time for purchasing TILE, PAINT, CP, SANITARY, SWITCHES etc. So, the client can join us for the purchase them according to their likes and interest."
+}
+
+export const whatWeDoDataFinal = [
+  "Construction (EPC) Of Civil Structures",
+  "Consultancy (PMC)",
+  "Architectural Plan",
+  "3D modelling",
+  "Building Permit",
+  "Vasthu Consultancy",
+  "Estimates",
+  "Exterior & Interior Design Supervision"
+]
+export const ourApproachdataFinal = {
+  "INITIAL CONSULTATION AND DISCOVERY": {
+    "Understanding Your Needs": "We start with a detailed conversation to understand your vision, goals, and specific needs. This helps us tailor our approach to align perfectly with your expectation",
+    "Research and Analysis": "We conduct thorough research on your industry, competitors, and target audience to inform our strategy and design."
+  },
+  "CONCEPT DEVELOPMENT": {
+    "Collaborative Brainstorming": "Our team engages in creative brainstorming sessions to generate innovative ideas that resonate with your brand.",
+    "Initial Design Concept": "We present multiple design concept and options for your review ,providing a diverse range of ideas to choose."
+  },
+  "CLIENT COLLABORATION AND FEEDBACK": {}
+}

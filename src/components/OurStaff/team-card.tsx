@@ -27,20 +27,11 @@ const OurTeamCard = ({ data, type }: OurTeamCardProps) => {
               alt="Our Team Member"
               onError={handleImageError}
             />
-
-            <div
-              className={`text-lg font-medium py-0 my-0 ${type === 'home' && 'text-start w-10/12 py-2'}`}>{data.name}</div>
-            <div
-              className={`my-0 py-0 ${type === 'home' && 'text-start text-sm pb-5 w-10/12 py-3'}`}>{type == 'home' ? data.description : data.designation}</div>
-
-
             <div className={`flex flex-row gap-2 py-0 my-0 ${type === 'home' && 'text-start w-10/12 py-2'}`}>
               <h1>{data.name},</h1>
               <h1>{data.role}</h1>
             </div>
             <div className={`my-0 py-0 ${type === 'home' && 'text-start text-sm pb-5 w-10/12 py-3'}`}>{type == 'home' ? data.description : data.designation}</div>
-
-
           </CardBody>
         </Card>
       )}

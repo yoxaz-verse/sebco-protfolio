@@ -1,5 +1,5 @@
 "use client";
-import { Button, Dropdown, DropdownItem, DropdownMenu, DropdownTrigger } from '@nextui-org/react';
+import { Button, Dropdown, Image, DropdownItem, DropdownMenu, DropdownTrigger } from '@nextui-org/react';
 import { usePathname, useRouter } from 'next/navigation'
 import React, { useState } from 'react'
 import { IoMenu } from "react-icons/io5";
@@ -21,7 +21,7 @@ const Navbar = () => {
 
   return (
     <div className='bg-[#2C2B2B] flex justify-between items-center px-3 py-3  w-full'>
-      <div className='w-1/5 text-white text-center'>LOGO</div>
+      <img src="./logo.png" className='w-[8%] rounded-full bg-yellow-600/20 p-2' />
       <div className='w-4/5 flex justify-end items-center lg:hidden'>
         <Dropdown className='bg-[#494949]'>
           <DropdownTrigger>
