@@ -4,6 +4,7 @@ import OurApproachComponent from "@/components/OurApproach/our-approach-componen
 import OurApproachHero from "@/components/ProjectHero/our-approach-hero";
 import QuoteComponent from "@/components/QuoteComponent.tsx/quote-component";
 import Animate from "@/components/ReUseComponents/Animate";
+import { useDisclosure } from "@nextui-org/react";
 
 export default function ApproachPage() {
 

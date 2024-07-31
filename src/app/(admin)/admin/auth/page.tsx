@@ -1,8 +1,9 @@
 "use client";
-import { login } from '@/backend/Services/auth';
+import { login, register } from '@/backend/Services/auth';
 import { ADMIN_ROUTES } from '@/core/routes';
 import { Button, Input } from '@nextui-org/react'
 import { useMutation } from '@tanstack/react-query';
+
 import { useRouter } from 'next/navigation';
 import React from 'react'
 

@@ -271,84 +271,98 @@ export const postsData = [
 ];
 export const projectDetails = [
   {
-    placeholder: "Briefly describe your project, its purpose, and your desired outcome.",
-    label: "Project Overview",
-    name: "Project_Overview",
-    id: "projectoverview",
+    placeholder: "Q : What is your name?",
+    label: "Name",
+    name: "Name",
+    id: "name",
   },
   {
-    placeholder: "Do you have a detailed blueprint or a general idea? Outline the specific areas you want us to focus on, be it a complete build, renovation, or an addition.",
-    label: "Scope Overview",
-    name: "Scope_Of_Work",
-    id: "scopeoverview",
-  },
-  {
-    placeholder: "Write your email",
+    placeholder: "Q : Your Email ?",
     label: "Email",
-    name: "Email",
+    name: "email",
     id: "email",
   },
   {
-    placeholder: "Write your Phone No",
+    placeholder: "Q : Your Location & District ?",
+    label: "Location and District",
+    name: "location_and_district",
+    id: "location_and_district",
+  },
+  {
+    placeholder: "Q : Write your Phone No",
     label: "Phone",
     name: "Phone",
     id: "phone",
+  }
+];
+
+export const needsPreference = [
+  {
+    placeholder: "Q : How much square feet you are planning to construction ?",
+    label: "Square Feet",
+    name: "square_feet",
+    id: "square_feet",
   },
   {
-    placeholder: "Do you have a target completion date in mind?",
-    label: "Timeline",
-    name: "Timeline",
-    id: "timeline",
+    placeholder: "Q : Your requirements ?",
+    label: "Requirements",
+    name: "requirements",
+    id: "reuqirements",
   },
   {
-    placeholder: "Having a ballpark budget in mind will help us tailor a plan to your needs.",
+    placeholder: "Q : Your budget ?",
     label: "Budget",
     name: "Budget",
     id: "budget",
   },
 ];
-
-export const needsPreference = [
-  {
-    placeholder: "Do you have a particular architectural style in mind? Share any references or inspirational photos you may have.",
-    label: "Style and Design",
-    name: "Style_And_Design",
-    id: "styleanddesign",
-  },
-  {
-    placeholder: "Are there specific materials you prefer for construction or finishes?",
-    label: "Material",
-    name: "Matireal",
-    id: "material",
-  },
-  {
-    placeholder: "How will you be using the finished space? Specifying your functional needs helps us optimize the layout and features.",
-    label: "Functionality",
-    name: "Functionality",
-    id: "functionality",
-  },
-];
 export const ourApproach = [
   {
     img: "/ourapproaches/ourapproach1.png",
-    title: "Pre-Construction - Building the Foundation",
+    title: "INITIAL CONSULTATION AND DISCOVERY",
     index: "01",
+    description: [
+      {
+        heading: "Understanding Your Needs",
+        description: "We start with a detailed conversation to understand your vision, goals, and specific needs.This helps us tailor our approach to align perfectly with your expectations."
+      },
+      {
+        heading: "Research and Analysis",
+        description: "We conduct thorough research on your industry, competitors, and target audience to inform our strategy and design."
+      }
+    ]
   },
   {
     img: "/ourapproaches/ourapproach2.png",
-    title: "Design & Planning -  Creating the Blueprint",
+    title: "CONCEPT DEVELOPMENT",
     index: "02",
+    description: [
+      {
+        heading: "Collaborative Brainstorming",
+        description: "Our team engages in creative brainstorming sessions to generate innovative ideas that resonate with your brand"
+      },
+      {
+        heading: "Initial Design Concepts",
+        description: "We present multiple design concept and options for your review, providing a diverse range of ideas to choose."
+      }
+    ]
   },
   {
     img: "/ourapproaches/ourapproach3.png",
-    title: "Construction -  Bringing Your Vision to Life",
+    title: "CLIENT COLLABORATION AND FEEDBACK",
     index: "03",
-  },
-  {
-    img: "/ourapproaches/ourapproach4.png",
-    title: " Project Completion & Handover",
-    index: "04",
-  },
+    description: [
+      {
+        heading: "Understanding Your Needs",
+        description: "We start with a detailed conversation to understand your vision, goals, and specific needs.This helps us tailor our approach to align perfectly with your expectations."
+      },
+      {
+        heading: "Research and Analysis",
+        description: "We conduct thorough research on your industry, competitors, and target audience to inform our strategy and design."
+      }
+    ]
+
+  }
 ];
 export const careersData = [
   {
@@ -398,7 +412,7 @@ export const aboutUsHomepage = {
   image: "/home/abouthome.png",
   title: "About Us!",
   description:
-    "Welcome to Sebco, where we redefine construction excellence for both residential and commercial projects. As a premier construction agency, we take pride in transforming visions into tangible reality, whether its crafting dream homes or empowering thriving businesses.",
+    "We are a team of young passionate engineers who completed 100+ projects and 1000+ designs all over the 7 districts of Kerala, successfully created happy and satisfied customers by handing over their dream homes within the agreed time and keeping a very high standards of quality and professionalism.",
   achievements: [
     {
       heading: "500",

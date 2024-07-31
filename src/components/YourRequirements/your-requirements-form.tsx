@@ -1,23 +1,24 @@
 import { postData } from '@/backend/Services/firestore';
 import { Titles } from '@/data/admintitle';
 import { needsPreference, projectDetails } from '@/data/content-data';
-import { Textarea } from '@nextui-org/react'
+import { Textarea, Button } from '@nextui-org/react'
 import React, { useState } from 'react'
 
 const RequirementsForm = () => {
   const [formData, setFormData] = useState<any>({});
+  const [submitting, setSubmitting] = useState<boolean>(false);
   const handleSubmit = async (e: any) => {
     e.preventDefault();
+    setSubmitting(true);
+    console.log(formData);
     const data = {
-      project_overview: formData.projectoverview,
+      name: formData.name,
       email: formData.email,
-      timeline: formData.timeline,
-      matireal: formData.matireal,
-      style_and_design: formData.styleanddesign,
-      scope_of_work: formData.scopeoverview,
+      location_and_district: formData.location_and_district,
       phone: formData.phone,
       budget: formData.budget,
-      functionality: formData.functionality
+      square_feet: formData.square_feet,
+      requirements: formData.reuqirements,
     }
     console.log(data);
     const response = await postData(Titles.Requiremnt, data);
@@ -26,6 +27,8 @@ const RequirementsForm = () => {
       alert(response.data);
       alert(response.status);
     }
+    setSubmitting(false);
+    setFormData({});
   }
   const handleInputChange = (e: any) => {
     const { name, value } = e.target;
@@ -39,7 +42,7 @@ const RequirementsForm = () => {
             Your Requirements:</span> Building Your Vision Together</h1>
         <div className='w-full pt-6'>
           <div className='text-[#FFBD12] text-xl w-full flex justify-start items-start font-medium pt-6'>
-            Project Details:
+            Your Details:
           </div>
           {projectDetails.map((item, index) => (
             <Textarea
@@ -73,7 +76,7 @@ const RequirementsForm = () => {
             />
           ))}
         </div>
-        <div><button className='bg-[#FFBD12] rounded py-2 px-4 text-black' type='submit'>Submit</button></div>
+        <Button isLoading={submitting} className='bg-[#FFBD12] rounded py-2 px-4 text-black' type='submit'>Submit</Button>
       </form>
     </div>
   )

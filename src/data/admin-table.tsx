@@ -64,15 +64,12 @@ export const adminColums = {
     { name: "ACTIONS", uid: "actions", type: "action" }
   ],
   requiremnetColums: [
+    { name: "NAME", uid: "name", type: "text" },
+    { name: "LOCATION_AND_DISTRICT", uid: "location_and_district", type: "text" },
     { name: "EMAIL", uid: "email", type: "text" },
+    { name: "SQUARE_FEET", uid: "square_feet", type: "text" },
     { name: "PHONE", uid: "phone", type: "text" },
-    { name: "PROJECT_OVERVIEW", uid: "project_overview", type: "text" },
-    { name: "SCOPE_OF_WORK", uid: "scope_of_work", type: "text" },
-    { name: "TIMELINE", uid: "timeline", type: "text" },
     { name: "BUDGET", uid: "budget", type: "text" },
-    { name: "STYLE_AND_DESIGN", uid: "style_and_design", type: "text" },
-    { name: "MATIREAL", uid: "matireal", type: "text" },
-    { name: "FUNCTIONALITY", uid: "functionality", type: "text" },
     { name: "ACTIONS", uid: "actions", type: "action" }
   ],
   completedProjects: [
