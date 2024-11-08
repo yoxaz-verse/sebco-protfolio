@@ -1,12 +1,11 @@
 "use client";
-import React from 'react';
-import { Titles } from '@/data/admintitle';
-import StatsCard from '@/components/Admin/StatsCard';
-import { ADMIN_ROUTES } from '@/core/routes';
+import React from "react";
+import { Titles } from "@/data/admintitle";
+import StatsCard from "@/components/Admin/StatsCard";
+import { ADMIN_ROUTES } from "@/core/routes";
 
 function Dashboard() {
   const handleLink = (name: string) => {
-
     switch (name) {
       case Titles.Testimonial:
       case Titles.Blogs:
@@ -26,18 +25,14 @@ function Dashboard() {
       case "CompletedProjects":
         return ADMIN_ROUTES.OUR_STAFF;
       default:
-        return '';
+        return "";
     }
   };
 
   return (
-    <div className='grid grid-cols-1 md:grid-cols-4 gap-4 grid-rows-0 md:grid-rows-3'>
+    <div className="flex flex-wrap justify-evenly gap-4 mt-10">
       {Object.entries(Titles).map(([key, value], index) => (
-        <StatsCard
-          key={index}
-          title={key}
-          link={handleLink(key)}
-        />
+        <StatsCard key={index} title={key} link={handleLink(key)} />
       ))}
     </div>
   );

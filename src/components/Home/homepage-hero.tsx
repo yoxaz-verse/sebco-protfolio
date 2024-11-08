@@ -6,17 +6,17 @@ const HomePageHero = () => {
   return (
     <Animate
       style={{
-        backgroundImage: `url('/home/home.png')`,
+        backgroundImage: `url('/home/homeBanner.jpg')`,
         backgroundSize: "cover",
         backgroundPosition: "center",
         position: "relative",
       }}
-      className="w-full rounded min-h-[700px] "
+      className="w-full  flex  items-center justify-center rounded min-h-[700px] "
     >
       <div
         style={{
           backgroundColor: "#232323",
-          opacity: 0.5,
+          opacity: 0.8,
           position: "absolute",
           top: 0,
           bottom: 0,
@@ -27,15 +27,14 @@ const HomePageHero = () => {
       ></div>
       <Animate
         delay={1}
-        className="flex h-full w-full sm:items-center justify-center flex-col text-white z-10 p-5 opacity-100 relative"
+        className="flex  sm:items-center justify-center flex-col text-white z-10  opacity-100 relative"
       >
-        <div className="text-5xl font-medium py-2">
-          Transforming <span className="text-[#FFBD12]">Spaces</span>
+        <div className="text-5xl font-medium w-[400px] md:text-center  md:w-[550px] px-5">
+          WE BUILT YOUR <span className="text-[#FFBD12]">DREAM </span>
+          <span className="text-[#FFBD12]">SPACES </span>INTO REALITY
         </div>
-        <div className="text-[2.75rem] font-medium">
-          <span className="text-[#FFBD12]">Building</span> Tommorows
-        </div>
-        <Animate delay={2} className="text-lg sm:w-7/12 sm:text-center py-5">
+        <div className="text-[2.75rem] font-medium"></div>
+        <Animate delay={2} className="text-lg sm:w-7/12 sm:text-center p-5">
           {homePageContent.description}
         </Animate>
         <button className="bg-[#0000002a] hover:bg-[#0000007a] duration-300 border-1 border-white py-2 px-10 mt-20 rounded-sm">

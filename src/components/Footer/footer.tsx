@@ -2,9 +2,12 @@
 import { Divider } from "@nextui-org/react";
 import React from "react";
 import { RiInstagramFill } from "react-icons/ri";
-import { ImTwitter } from "react-icons/im";
 import { BsFacebook } from "react-icons/bs";
 import { useRouter } from "next/navigation";
+import { FaGoogle } from "react-icons/fa";
+
+import Image from "next/image";
+import Link from "next/link";
 const Footer = () => {
   const router = useRouter();
   return (
@@ -12,11 +15,31 @@ const Footer = () => {
       <div className="w-10/12 text-white pt-8">
         <div className="flex flex-col md:flex-row sm:pb-8">
           <div className="w-5/12">
-            <img src="./logo.png" className="w-1/2" />
+            <Image
+              src={"/logo.png"}
+              className="w-[100px] bg-white p-2 rounded-lg"
+              width={200}
+              height={200}
+              alt="Sebco"
+            />
             <div className="flex w-full pt-10">
-              <RiInstagramFill className="text-white cursor-pointer mr-4 text-lg" />
-              <ImTwitter className="text-white mx-4 cursor-pointer text-lg" />
-              <BsFacebook className="text-white mx-4 cursor-pointer text-lg" />
+              <Link
+                href={
+                  "https://www.instagram.com/sebco_infrastructures/profilecard/?igsh=MTl2cWloM3VqdXRoMw=="
+                }
+              >
+                <RiInstagramFill className="text-white cursor-pointer mr-4 text-lg" />
+              </Link>
+              <Link href={"https://g.co/kgs/SZxi6eK"}>
+                <FaGoogle className="text-white mx-4 cursor-pointer text-lg" />
+              </Link>
+              <Link
+                href={
+                  "https://www.facebook.com/profile.php?id=100084482203126&mibextid=LQQJ4d"
+                }
+              >
+                <BsFacebook className="text-white mx-4 cursor-pointer text-lg" />
+              </Link>
             </div>
           </div>
           <div className="w-full justify-between lg:1/2  flex">
@@ -29,12 +52,32 @@ const Footer = () => {
               </div>
             </div>
             <div className="">
-              <div onClick={() => router.push("/services")} className="py-3 px-2 cursor-pointer">Our Services</div>
-              <div onClick={() => router.push("/project")} className="py-3 px-2 cursor-pointer">Our Work</div>
-              <div onClick={() => router.push("/staff")} className="py-3 px-2 cursor-pointer">Our Team</div>
+              <div
+                onClick={() => router.push("/services")}
+                className="py-3 px-2 cursor-pointer"
+              >
+                Our Services
+              </div>
+              <div
+                onClick={() => router.push("/project")}
+                className="py-3 px-2 cursor-pointer"
+              >
+                Our Work
+              </div>
+              <div
+                onClick={() => router.push("/staff")}
+                className="py-3 px-2 cursor-pointer"
+              >
+                Our Team
+              </div>
             </div>
             <div className=" ">
-              <div onClick={() => router.push("/about-us")} className="py-3 px-2 cursor-pointer">About Us</div>
+              <div
+                onClick={() => router.push("/about-us")}
+                className="py-3 px-2 cursor-pointer"
+              >
+                About Us
+              </div>
               <div className="py-3 px-2 cursor-pointer">FAQs</div>
             </div>
           </div>

@@ -1,52 +1,58 @@
 "use client";
-import { login, register } from '@/backend/Services/auth';
-import { ADMIN_ROUTES } from '@/core/routes';
-import { Button, Input } from '@nextui-org/react'
-import { useMutation } from '@tanstack/react-query';
+import { login, register } from "@/backend/Services/auth";
+import { ADMIN_ROUTES } from "@/core/routes";
+import { Button, Input } from "@nextui-org/react";
+import { useMutation } from "@tanstack/react-query";
+import Image from "next/image";
 
-import { useRouter } from 'next/navigation';
-import React from 'react'
+import { useRouter } from "next/navigation";
+import React from "react";
 
 function Auth() {
-  const [submitting, setSubmitting] = React.useState(false)
-  const routes = useRouter()
+  const [submitting, setSubmitting] = React.useState(false);
+  const routes = useRouter();
   const loginMutation = useMutation({
     mutationFn: (data: any) => {
-      return login(data.email, data.password)
+      return login(data.email, data.password);
     },
     onSuccess: (data) => {
-      setSubmitting(false)
-      alert('Logged in successfully')
-      routes.push(ADMIN_ROUTES.DASHBOARD)
+      setSubmitting(false);
+      alert("Logged in successfully");
+      routes.push(ADMIN_ROUTES.DASHBOARD);
     },
     onError: (error: any) => {
-      setSubmitting(false)
-      alert(error)
+      setSubmitting(false);
+      alert(error);
     },
-  })
+  });
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault()
-    setSubmitting(true)
+    e.preventDefault();
+    setSubmitting(true);
     const formElement = e.target as HTMLFormElement;
-    const inputs = formElement.querySelectorAll('input');
-    const email = inputs[0]
-    const password = inputs[1]
-    const resp = await login(email.value, password.value)
+    const inputs = formElement.querySelectorAll("input");
+    const email = inputs[0];
+    const password = inputs[1];
+    const resp = await login(email.value, password.value);
     if (resp.status) {
-      setSubmitting(false)
-      alert('Logged in successfully')
-      routes.push(ADMIN_ROUTES.DASHBOARD)
+      setSubmitting(false);
+      alert("Logged in successfully");
+      routes.push(ADMIN_ROUTES.DASHBOARD);
     } else {
-      setSubmitting(false)
-      alert(resp.message)
+      setSubmitting(false);
+      alert(resp.message);
     }
-  }
+  };
   return (
-    <div className='w-screen h-screen flex justify-center gap-[2vh] align-middle'>
-      <div className='w-full md:w-1/2 p-5 flex flex-col justify-center text-center align-middle max-h-max gap-5 '>
-        <h1 className='text-2xl font-bold'>Logo</h1>
-        <h1 className='text-2xl font-bold'>Login</h1>
-        <form className='flex flex-col gap-3' onSubmit={handleSubmit}>
+    <div className="w-screen h-screen flex justify-center items-center gap-[2vh] align-middle bg-red-600">
+      <div className="w-full max-w-[500px] p-5 flex flex-col justify-center   align-middle max-h-max gap-5 ">
+        <Image
+          src="/logo.png"
+          width={500}
+          height={500}
+          className="w-[500px]  bg-white p-2"
+          alt="Sebco"
+        />{" "}
+        <form className="flex flex-col gap-3" onSubmit={handleSubmit}>
           <Input
             key={"inside"}
             type="email"
@@ -61,9 +67,9 @@ function Auth() {
           />
           <Button
             isLoading={submitting}
-            color="secondary"
-            className='p-6 text-lg font-bold'
-            type='submit'
+            color="warning"
+            className="p-6 text-lg font-bold"
+            type="submit"
             spinner={
               <svg
                 className="animate-spin h-5 w-5 text-current"
@@ -92,8 +98,7 @@ function Auth() {
         </form>
       </div>
     </div>
-
-  )
+  );
 }
 
-export default Auth
+export default Auth;
