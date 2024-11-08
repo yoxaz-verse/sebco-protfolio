@@ -1,10 +1,20 @@
 "use client";
 import React from "react";
-import { Navbar, NavbarBrand, Image, NavbarContent, NavbarItem, NavbarMenuToggle, NavbarMenu, NavbarMenuItem, Link, Button } from "@nextui-org/react";
+import {
+  Navbar,
+  NavbarBrand,
+  Image,
+  NavbarContent,
+  NavbarItem,
+  NavbarMenuToggle,
+  NavbarMenu,
+  NavbarMenuItem,
+  Link,
+  Button,
+} from "@nextui-org/react";
 import { ADMIN_ROUTES } from "@/core/routes";
 import { logout } from "@/backend/Services/auth";
 import { useRouter, usePathname } from "next/navigation";
-
 
 export default function AdminNavbar() {
   const [isMenuOpen, setIsMenuOpen] = React.useState(false);
@@ -35,8 +45,7 @@ export default function AdminNavbar() {
     {
       name: "Company",
       link: ADMIN_ROUTES.OUR_STAFF,
-    }
-
+    },
   ];
 
   const handleSignOut = async () => {
@@ -44,71 +53,63 @@ export default function AdminNavbar() {
     if (resp) {
       alert("Logged out successfully");
       routes.push(ADMIN_ROUTES.AUTH);
-
     } else {
       alert("Logout failed");
     }
-  }
+  };
 
   return (
-    <Navbar onMenuOpenChange={setIsMenuOpen} >
+    <Navbar onMenuOpenChange={setIsMenuOpen}>
       <NavbarContent>
         <NavbarMenuToggle
           aria-label={isMenuOpen ? "Close menu" : "Open menu"}
           className="sm:hidden"
         />
         <NavbarBrand>
-
-          <Image src="./logo.png" width={20} height={20} />
+          <Link href="/admin/dashboard">
+            <Image src="/logo.png" width={100} height={100} alt="Sebco" />
+          </Link>
         </NavbarBrand>
       </NavbarContent>
 
       <NavbarContent className="hidden sm:flex gap-4" justify="center">
-
-        {
-          menuItems2.map((item, index) => (
-            <NavbarItem key={`${item}-${index}`} isActive={
-
-              pathname === item.link
-            } >
-              <Link color="secondary" href={item.link
-              }>
-                {item.name}
-              </Link>
-            </NavbarItem>
-          ))
-        }
+        {menuItems2.map((item, index) => (
+          <NavbarItem
+            key={`${item}-${index}`}
+            isActive={pathname === item.link}
+          >
+            <Link color="warning" href={item.link}>
+              {item.name}
+            </Link>
+          </NavbarItem>
+        ))}
       </NavbarContent>
       <NavbarContent justify="end">
-
         <NavbarItem>
-          <Button as={Link} onClick={handleSignOut} color="danger" href="#" variant="flat">
+          <Button
+            as={Link}
+            onClick={handleSignOut}
+            color="danger"
+            href="#"
+            variant="flat"
+          >
             Logout
           </Button>
         </NavbarItem>
       </NavbarContent>
       <NavbarMenu>
-
-        {
-          menuItems2.map((item, index) => (
-            <NavbarMenuItem isActive={pathname === item.link} key={`${item}-${index}`}>
-              <Link
-
-                className="w-full"
-                href={item.link}
-                size="lg"
-              >
-                {item.name}
-              </Link>
-            </NavbarMenuItem>
-          ))
-        }
-        <NavbarMenuItem>
-          <Button
-            onClick={handleSignOut}
-            color="danger"
-            variant="flat"
+        {menuItems2.map((item, index) => (
+          <NavbarMenuItem
+            isActive={pathname === item.link}
+            key={`${item}-${index}`}
           >
+            <Link className="w-full" href={item.link} size="lg">
+              {item.name}
+            </Link>
+          </NavbarMenuItem>
+        ))}
+        <NavbarMenuItem>
+          <Button onClick={handleSignOut} color="danger" variant="flat">
             Logout
           </Button>
         </NavbarMenuItem>

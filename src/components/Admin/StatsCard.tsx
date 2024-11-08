@@ -23,7 +23,7 @@ const Counter = ({ from, to }: { from: number; to: number }) => {
         if (node) {
           node.textContent = value.toFixed(0);
         }
-      }
+      },
     });
 
     return () => controls.stop();
@@ -45,9 +45,16 @@ const StatsCard: React.FC<StatsCardProps> = ({ title, link }) => {
     <Card
       isPressable={!loading}
       onPress={cardPressHandler}
-      className="text-violet-400 w-[300px] h-[150px] flex flex-row items-center justify-around px-[2rem] cursor-pointer"
+      className="text-yellow-400 w-[300px] h-[150px] flex flex-row items-center justify-around px-[2rem] cursor-pointer"
     >
-      <User className="flex flex-row" name={normalizedTitle === Titles.Apply_for_job ? "People applied for Jobs" : `${normalizedTitle}s`} />
+      <User
+        className="flex flex-row "
+        name={
+          normalizedTitle === Titles.Apply_for_job
+            ? "People applied for Jobs"
+            : `${normalizedTitle}s`
+        }
+      />
       {loading ? (
         <Counter from={0} to={0} />
       ) : (
