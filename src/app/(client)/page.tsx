@@ -14,9 +14,10 @@ import VisitOurYoutube from "@/components/Home/visit-our-youtube";
 import ClientSaysComponent from "@/components/Home/what-our-clientsay-component";
 import { aboutUsHomepage, whatWeDo } from "@/data/content-data";
 import dynamic from "next/dynamic";
+import Image from "next/image";
 
 const Map = dynamic(() => import("@/components/Home/map-component"), {
-  ssr: false
+  ssr: false,
 });
 
 export default function HomePage() {
@@ -29,6 +30,13 @@ export default function HomePage() {
           <HomepageOurWork data={whatWeDo} />
           <OurCompletedProjects />
           <OurServicesComponent />
+          <Image
+            src={"./home/showcase.jpg"}
+            alt={"Sebco Projects"}
+            width={1500}
+            height={1500}
+            className="w-full h-full"
+          />
           <ClientSaysComponent />
           <Map />
           <SebcoCareers />
