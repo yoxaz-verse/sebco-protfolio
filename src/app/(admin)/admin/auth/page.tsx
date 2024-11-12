@@ -43,8 +43,8 @@ function Auth() {
     }
   };
   return (
-    <div className="w-screen h-screen flex justify-center items-center gap-[2vh] align-middle bg-red-600">
-      <div className="w-full max-w-[500px] p-5 flex flex-col justify-center   align-middle max-h-max gap-5 ">
+    <div className="w-screen h-screen flex justify-center items-center gap-[2vh] align-middle ">
+      <div className="w-full max-w-[500px] border-yellow-400 rounded-2xl border-3 p-5 flex flex-col justify-center   align-middle max-h-max gap-5 ">
         <Image
           src="/logo.png"
           width={500}

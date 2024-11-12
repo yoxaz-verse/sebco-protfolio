@@ -443,7 +443,7 @@ export const aboutUsHomepage = {
   ],
 };
 export const whatWeDo = {
-  image: "/home/ourcompletedproject.png",
+  image: "/home/ourCompletedProject.jpg",
   title: "What we do!",
   methods: [
     {

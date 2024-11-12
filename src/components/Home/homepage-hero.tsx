@@ -1,6 +1,7 @@
 import { homePageContent } from "@/data/content-data";
 import React from "react";
 import Animate from "../ReUseComponents/Animate";
+import Link from "next/link";
 
 const HomePageHero = () => {
   return (
@@ -37,9 +38,11 @@ const HomePageHero = () => {
         <Animate delay={2} className="text-lg sm:w-7/12 sm:text-center p-5">
           {homePageContent.description}
         </Animate>
-        <button className="bg-[#0000002a] hover:bg-[#0000007a] duration-300 border-1 border-white py-2 px-10 mt-20 rounded-sm">
-          Know More
-        </button>
+        <Link href={"/about-us"}>
+          <button className="bg-[#0000002a] hover:bg-[#0000007a] duration-300 border-1 border-white py-2 px-10 mt-20 rounded-sm">
+            Know More
+          </button>
+        </Link>
       </Animate>
     </Animate>
   );
