@@ -32,7 +32,7 @@ export default function HomePage() {
           <OurServicesComponent />
           <Image
             src={"/home/showcase.jpg"}
-            alt={"Sebco Projects"}
+            alt={"Sebco Projects Service"}
             width={1500}
             height={1500}
             className="w-full h-full"
