@@ -51,16 +51,8 @@ export const adminColums = {
     { name: "ACTIONS", uid: "actions", type: "action" },
   ],
   projectColumns: [
-    { name: "NAME", uid: "name", type: "text" },
-    { name: "LOCATION", uid: "location", type: "text" },
-    { name: "ADDRESS", uid: "address", type: "textbox" },
-    { name: "POSTAL CODE", uid: "postal code", type: "text" },
     { name: "CLIENT", uid: "client", type: "text" },
-    { name: "SERVICES_PROVIDED", uid: "service_dropdown", type: "textbox" },
-    { name: "PROJECT_DETAILS", uid: "project_details", type: "tabselect" },
-    { name: "COMPLETION_DATE", uid: "complete_date", type: "text" },
-    { name: "IMAGES", uid: "images", type: "images" },
-    { name: "MAIN IMAGE", uid: "image", type: "image" },
+    { name: "PROJECT BOOK", uid: "projectBook", type: "file" },
     { name: "ACTIONS", uid: "actions", type: "action" },
   ],
   requiremnetColums: [

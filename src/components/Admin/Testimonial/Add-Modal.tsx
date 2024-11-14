@@ -21,10 +21,16 @@ interface AddModalProps {
   columns: any;
 }
 
-export default function AddModal({ title, generateRandomId, columns }: AddModalProps) {
+export default function AddModal({
+  title,
+  generateRandomId,
+  columns,
+}: AddModalProps) {
   const { isOpen, onOpen, onOpenChange } = useDisclosure();
   const [uploadImageUrl, setUploadImageUrl] = useState("/01.png");
-  const [uploadImageUrlArr, setUploadImageUrlArr] = useState<string[]>(Array(5).fill("/01.png"));
+  const [uploadImageUrlArr, setUploadImageUrlArr] = useState<string[]>(
+    Array(5).fill("/01.png")
+  );
   const [submitting, setSubmitting] = useState(false);
   const [file, setFile] = useState<File | null>(null);
   const [files, setFiles] = useState<FileList | any>(Array(5).fill(null));
@@ -39,7 +45,6 @@ export default function AddModal({ title, generateRandomId, columns }: AddModalP
   };
 
   const removeTab = (index: number): void => {
-
     const tabsArr = [...tabs];
     const updatedServiceArr = [...serviceArr];
     updatedServiceArr.splice(index, 1);
@@ -75,28 +80,30 @@ export default function AddModal({ title, generateRandomId, columns }: AddModalP
 
     const filesToUpload = newFiles.slice(0, 5);
 
-
     const urls: string[] = [];
 
+    Promise.all(
+      filesToUpload.map((file) => {
+        const reader = new FileReader();
+        reader.readAsDataURL(file);
 
-    Promise.all(filesToUpload.map(file => {
-      const reader = new FileReader();
-      reader.readAsDataURL(file);
+        return new Promise<string>((resolve, reject) => {
+          reader.onloadend = () => {
+            const url = reader.result as string;
+            urls.push(url);
+            resolve(url);
+          };
 
-      return new Promise<string>((resolve, reject) => {
-        reader.onloadend = () => {
-          const url = reader.result as string;
-          urls.push(url);
-          resolve(url);
-        };
-
-        reader.onerror = reject;
+          reader.onerror = reject;
+        });
+      })
+    )
+      .then(() => {
+        setUploadImageUrlArr(urls);
+      })
+      .catch((error) => {
+        console.error("Error reading files:", error);
       });
-    })).then(() => {
-      setUploadImageUrlArr(urls);
-    }).catch(error => {
-      console.error('Error reading files:', error);
-    });
   };
 
   const handleSubmit = async (e: any, close: () => void) => {
@@ -115,9 +122,13 @@ export default function AddModal({ title, generateRandomId, columns }: AddModalP
       }
     });
 
-    const hasImageColumn = columns.some((column: any) => column.type === "image");
-    const hasImagesColumn = columns.some((column: any) => column.type === "images");
-
+    const hasImageColumn = columns.some(
+      (column: any) => column.type === "image"
+    );
+    const hasImagesColumn = columns.some(
+      (column: any) => column.type === "images"
+    );
+    const hasFileColumn = columns.some((column: any) => column.type === "file");
     if (hasImageColumn && !file) {
       alert("Please select an image");
       setSubmitting(false);
@@ -132,7 +143,12 @@ export default function AddModal({ title, generateRandomId, columns }: AddModalP
     const current_time = new Date().getTime();
 
     if (hasImageColumn && file) {
-      const image_upload_resp = await uploadImage(file, `${title}/${data.name ?? data.heading ?? data.title ?? data.position}-${current_time}`);
+      const image_upload_resp = await uploadImage(
+        file,
+        `${title}/${
+          data.name ?? data.heading ?? data.title ?? data.position
+        }-${current_time}`
+      );
       if (!image_upload_resp.status) {
         alert("Image upload failed");
         setSubmitting(false);
@@ -140,10 +156,26 @@ export default function AddModal({ title, generateRandomId, columns }: AddModalP
       }
       data.image = image_upload_resp.data;
     }
-
+    if (hasFileColumn && file) {
+      const image_upload_resp = await uploadImage(
+        file,
+        `${title}/${
+          data.name ?? data.heading ?? data.title ?? data.position
+        }-${current_time}`
+      );
+      if (!image_upload_resp.status) {
+        alert("Image upload failed");
+        setSubmitting(false);
+        return;
+      }
+      data.image = image_upload_resp.data;
+    }
     if (hasImagesColumn) {
       if (files.length > 0) {
-        const images_upload_resp = await multipleUpload(files, `${title}/${data.name ?? data.heading ?? data.title}-${current_time}`);
+        const images_upload_resp = await multipleUpload(
+          files,
+          `${title}/${data.name ?? data.heading ?? data.title}-${current_time}`
+        );
         if (!images_upload_resp.status) {
           alert("Multiple image upload failed");
           setSubmitting(false);
@@ -175,7 +207,10 @@ export default function AddModal({ title, generateRandomId, columns }: AddModalP
 
   return (
     <>
-      <Button onPress={onOpen} className="bg-violet-700 text-white">{`Add ${title}`}</Button>
+      <Button
+        onPress={onOpen}
+        className="bg-violet-700 text-white"
+      >{`Add ${title}`}</Button>
       <Modal
         isDismissable={false}
         isOpen={isOpen}
@@ -204,7 +239,13 @@ export default function AddModal({ title, generateRandomId, columns }: AddModalP
                     switch (column.type) {
                       case "text":
                         return (
-                          <Input key={columnIndex} label={column.name} name={column.name.toLowerCase()} placeholder={column.name} required />
+                          <Input
+                            key={columnIndex}
+                            label={column.name}
+                            name={column.name.toLowerCase()}
+                            placeholder={column.name}
+                            required
+                          />
                         );
                       case "image":
                         return (
@@ -230,9 +271,29 @@ export default function AddModal({ title, generateRandomId, columns }: AddModalP
                             />
                           </div>
                         );
+                      case "file":
+                        return (
+                          <div key={columnIndex}>
+                            <input
+                              // className="hidden"
+                              id={`${title}-file-${columnIndex}`}
+                              placeholder="file"
+                              required
+                              type="file"
+                              multiple={false}
+                              onChange={handleChange}
+                            />
+                          </div>
+                        );
                       case "textbox":
                         return (
-                          <Textarea key={columnIndex} label={column.name} name={column.name.toLowerCase()} placeholder={column.name} required />
+                          <Textarea
+                            key={columnIndex}
+                            label={column.name}
+                            name={column.name.toLowerCase()}
+                            placeholder={column.name}
+                            required
+                          />
                         );
                       case "action":
                         return null;
@@ -242,20 +303,24 @@ export default function AddModal({ title, generateRandomId, columns }: AddModalP
                             <h1>{column.name}</h1>
                             <label>
                               <div className="flex w-full flex-row gap-4 overflow-x-scroll">
-                                {uploadImageUrlArr.map((uploadImg: any, imgIndex: any) => (
-                                  <div key={imgIndex}>
-                                    <label htmlFor={`${title}-multiple-image`}>
-                                      <Image
-                                        className="cursor-pointer"
-                                        src={uploadImg}
-                                        alt="upload"
-                                        key={imgIndex}
-                                        width={400}
-                                        height={400}
-                                      />
-                                    </label>
-                                  </div>
-                                ))}
+                                {uploadImageUrlArr.map(
+                                  (uploadImg: any, imgIndex: any) => (
+                                    <div key={imgIndex}>
+                                      <label
+                                        htmlFor={`${title}-multiple-image`}
+                                      >
+                                        <Image
+                                          className="cursor-pointer"
+                                          src={uploadImg}
+                                          alt="upload"
+                                          key={imgIndex}
+                                          width={400}
+                                          height={400}
+                                        />
+                                      </label>
+                                    </div>
+                                  )
+                                )}
                                 <input
                                   id={`${title}-multiple-images`}
                                   name={column.name.toLowerCase()}
@@ -272,11 +337,24 @@ export default function AddModal({ title, generateRandomId, columns }: AddModalP
                         );
                       case "tabselect":
                         return (
-                          <div className="flex flex-col gap-4 justify-around" key={columnIndex}>
+                          <div
+                            className="flex flex-col gap-4 justify-around"
+                            key={columnIndex}
+                          >
                             <div className="flex flex-row gap-2">
-                              {tabs.map((tab, tabIndex) => (
-                                tab !== "" && <Chip variant="flat" color="warning" onClose={() => removeTab(tabIndex)} key={tabIndex}>{tab}</Chip>
-                              ))}
+                              {tabs.map(
+                                (tab, tabIndex) =>
+                                  tab !== "" && (
+                                    <Chip
+                                      variant="flat"
+                                      color="warning"
+                                      onClose={() => removeTab(tabIndex)}
+                                      key={tabIndex}
+                                    >
+                                      {tab}
+                                    </Chip>
+                                  )
+                              )}
                             </div>
                             <div className="flex flex-row justify-around">
                               <Input
@@ -287,11 +365,16 @@ export default function AddModal({ title, generateRandomId, columns }: AddModalP
                                 type="text"
                                 onChange={(e) => setService(e.target.value)}
                               />
-                              <Button color="primary" onClick={() => {
-                                pushTabs(service);
-                                setServiceArr([...serviceArr, service]);
-                                setService("");
-                              }}>Add</Button>
+                              <Button
+                                color="primary"
+                                onClick={() => {
+                                  pushTabs(service);
+                                  setServiceArr([...serviceArr, service]);
+                                  setService("");
+                                }}
+                              >
+                                Add
+                              </Button>
                             </div>
                           </div>
                         );
@@ -301,14 +384,22 @@ export default function AddModal({ title, generateRandomId, columns }: AddModalP
                   })}
                 </ModalBody>
                 <ModalFooter>
-                  <Button color="danger" variant="flat" onPress={() => {
-                    setServiceArr([]);
-                    setUploadImageUrlArr(Array(5).fill("/01.png"));
-                    onClose()
-                  }}>
+                  <Button
+                    color="danger"
+                    variant="flat"
+                    onPress={() => {
+                      setServiceArr([]);
+                      setUploadImageUrlArr(Array(5).fill("/01.png"));
+                      onClose();
+                    }}
+                  >
                     Close
                   </Button>
-                  <Button isLoading={submitting} color="secondary" type="submit">
+                  <Button
+                    isLoading={submitting}
+                    color="secondary"
+                    type="submit"
+                  >
                     Submit
                   </Button>
                 </ModalFooter>
@@ -316,7 +407,7 @@ export default function AddModal({ title, generateRandomId, columns }: AddModalP
             </>
           )}
         </ModalContent>
-      </Modal >
+      </Modal>
     </>
   );
 }

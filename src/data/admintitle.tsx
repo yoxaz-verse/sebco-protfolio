@@ -3,7 +3,7 @@ export const Titles = {
   Blogs: "Blogs",
   LatestNew: "Latest-New",
   Service: "Service",
-  Project: "Project",
+  Project: "ProjectBook",
   Location: "Location",
   Requiremnt: "Requiremnt",
   Contact: "Contact",
@@ -11,4 +11,4 @@ export const Titles = {
   Jobs: "Jobs",
   CompletedProjects: "Gallery",
   Our_Staff: "our-staff",
-}
+};

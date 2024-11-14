@@ -85,7 +85,7 @@ const Footer = () => {
         <Divider orientation="horizontal" className="text-white divider" />
         <div className="flex py-6">
           <div className="w-5/12">
-            <div>© 2024 Embrace, Inc All rights reserved</div>
+            <div>© 2024 Yoxaz Verse, Inc All rights reserved</div>
           </div>
           <div className="w-7/12 flex">
             <div className="w-1/3 px-2 cursor-pointer">Terms of Use</div>
