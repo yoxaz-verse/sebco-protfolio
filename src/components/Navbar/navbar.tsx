@@ -14,6 +14,7 @@ import { BsFacebook } from "react-icons/bs";
 import { FaPhoneAlt } from "react-icons/fa";
 import { IoMenu } from "react-icons/io5";
 import { RiInstagramFill } from "react-icons/ri";
+import Animate from "../ReUseComponents/Animate";
 
 const Navbar = () => {
   const router = useRouter();
@@ -42,7 +43,7 @@ const Navbar = () => {
             alt="Sebco"
           />
         </Link>
-        <div className=" flex g justify-center flex-col gap-3">
+        <Animate delay={1} className=" flex g justify-center flex-col gap-3">
           <Link
             href={
               "https://www.instagram.com/sebco_infrastructures/profilecard/?igsh=MTl2cWloM3VqdXRoMw=="
@@ -60,7 +61,7 @@ const Navbar = () => {
           <Link href={"tel:+91-70124-67647"}>
             <FaPhoneAlt className="text-white  cursor-pointer text-xl" />
           </Link>{" "}
-        </div>{" "}
+        </Animate>{" "}
       </div>
       <div className="w-4/5 flex justify-end items-center lg:hidden">
         <Dropdown className="bg-[#494949]">
