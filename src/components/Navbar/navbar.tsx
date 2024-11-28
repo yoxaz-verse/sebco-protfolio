@@ -10,7 +10,10 @@ import {
 } from "@nextui-org/react";
 import { usePathname, useRouter } from "next/navigation";
 import React, { useState } from "react";
+import { BsFacebook } from "react-icons/bs";
+import { FaPhoneAlt } from "react-icons/fa";
 import { IoMenu } from "react-icons/io5";
+import { RiInstagramFill } from "react-icons/ri";
 
 const Navbar = () => {
   const router = useRouter();
@@ -31,13 +34,34 @@ const Navbar = () => {
 
   return (
     <div className="bg-[#2C2B2B] flex justify-between items-center px-3 py-3  w-full">
-      <Link href="/">
-        <Image
-          src="./logo.png"
-          className="w-[150px]  bg-white p-2"
-          alt="Sebco"
-        />
-      </Link>
+      <div className="flex gap-4 ">
+        <Link href="/">
+          <Image
+            src="./logo.png"
+            className="w-[200px]  bg-white p-2"
+            alt="Sebco"
+          />
+        </Link>
+        <div className=" flex g justify-center flex-col gap-3">
+          <Link
+            href={
+              "https://www.instagram.com/sebco_infrastructures/profilecard/?igsh=MTl2cWloM3VqdXRoMw=="
+            }
+          >
+            <RiInstagramFill className="text-white cursor-pointer  text-xl" />
+          </Link>
+          <Link
+            href={
+              "https://www.facebook.com/profile.php?id=100084482203126&mibextid=LQQJ4d"
+            }
+          >
+            <BsFacebook className="text-white  cursor-pointer text-xl" />
+          </Link>
+          <Link href={"tel:+91-70124-67647"}>
+            <FaPhoneAlt className="text-white  cursor-pointer text-xl" />
+          </Link>{" "}
+        </div>{" "}
+      </div>
       <div className="w-4/5 flex justify-end items-center lg:hidden">
         <Dropdown className="bg-[#494949]">
           <DropdownTrigger>
@@ -87,7 +111,6 @@ const Navbar = () => {
           </DropdownMenu>
         </Dropdown>
       </div>
-
       {/* Full Navbar for Large Screens */}
       <div className="w-4/5 justify-evenly items-center hidden lg:flex cursor-default select-none">
         <div

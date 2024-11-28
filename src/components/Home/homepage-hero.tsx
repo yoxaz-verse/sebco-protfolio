@@ -2,6 +2,9 @@ import { homePageContent } from "@/data/content-data";
 import React from "react";
 import Animate from "../ReUseComponents/Animate";
 import Link from "next/link";
+import { RiInstagramFill } from "react-icons/ri";
+import { FaGoogle } from "react-icons/fa";
+import { BsFacebook } from "react-icons/bs";
 
 const HomePageHero = () => {
   return (
@@ -26,6 +29,7 @@ const HomePageHero = () => {
           zIndex: 1,
         }}
       ></div>
+
       <Animate
         delay={1}
         className="flex  sm:items-center justify-center flex-col text-white z-10  opacity-100 relative"
