@@ -415,7 +415,7 @@ export const homePageContent = {
     " we understand the unique demands of residential and commercial construction. For residences, we blend creativity with functionality to create spaces that resonate with the essence of home. From concept to completion, our team of skilled professionals is dedicated to delivering homes that surpass expectations, reflecting the individuality and lifestyle of our clients.",
 };
 export const aboutUsHomepage = {
-  image: "/home/abouthome.png",
+  image: "/home/about-us.jpg",
   title: "About Us!",
   description:
     "We are a team of young passionate engineers who completed 100+ projects and 1000+ Designs all over the 8 districts of Kerala, successfully created happy and satisfied customers by handing over their dream space within the agreed time and keeping a very high standards of quality and professionalism.",
