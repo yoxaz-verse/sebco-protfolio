@@ -31,7 +31,7 @@ const ClientSaysCard = ({ client }: ClientSaysCardProps) => {
           className={`w-full md:w-[45%] lg:w-[30%] bg-[#2C2B2B] rounded-sm`}
         >
           <div
-            onClick={() => router.push("/testimonals")}
+            onClick={() => router.push("/testimonials")}
             className="p-5 flex items-center z-10 relative flex-col"
           >
             <Avatar
