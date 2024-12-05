@@ -1,14 +1,17 @@
 import { clientSays } from "@/data/content-data";
 import React from "react";
 import Animate from "../ReUseComponents/Animate";
+import Link from "next/link";
 
 const VisitOurYoutube = () => {
   return (
     <div className="flex justify-between flex-col md:flex-row my-20">
       <div className="w-full md:w-[47%] flex justify-center flex-col py-5 md:py-0">
-        <Animate className="text-[#FFBD12] text-3xl font-medium">
-          Visit Our Youtube Channel
-        </Animate>
+        <Link href={"https://www.youtube.com/@SebcoInfrastructures"}>
+          <Animate className="text-[#FFBD12] text-3xl font-medium">
+            Visit Our Youtube Channel
+          </Animate>
+        </Link>
         <Animate className="text-white mt-5 w-full sm:w-[80%]">
           From commercial spaces to residential complexes, we showcase the
           highlights of each property, highlighting unique features, amenities,
@@ -32,4 +35,4 @@ const VisitOurYoutube = () => {
   );
 };
 
-export default VisitOurYoutube
+export default VisitOurYoutube;

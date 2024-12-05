@@ -19,9 +19,8 @@ const ClientSaysCard = ({ client }: ClientSaysCardProps) => {
   console.log(client);
   const videoUrl = client.link;
   const router = useRouter();
-  const videoId = videoUrl.split("v=")[1];
+  // const videoId = videoUrl.split("v=")[1];
   // https://youtu.be/46ROUxACjpY?si=EhlARlnQ_7HaAs9R
-  const embedLink = `https://www.youtube.com/embed/${videoId}`;
   return (
     <>
       {error ? (
@@ -43,7 +42,7 @@ const ClientSaysCard = ({ client }: ClientSaysCardProps) => {
               style={{ transform: "translateY(-50px)" }}
             />
             <iframe
-              src={embedLink}
+              src={client.link}
               title="YouTube video player"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
               className="px-3 w-60 h-40 lg:w-72"
