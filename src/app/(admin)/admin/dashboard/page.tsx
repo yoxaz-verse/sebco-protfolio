@@ -3,6 +3,7 @@ import React from "react";
 import { Titles } from "@/data/admintitle";
 import StatsCard from "@/components/Admin/StatsCard";
 import { ADMIN_ROUTES } from "@/core/routes";
+import HomeBanner from "@/components/Admin/HomeBanner";
 
 function Dashboard() {
   const handleLink = (name: string) => {
@@ -30,11 +31,14 @@ function Dashboard() {
   };
 
   return (
-    <div className="flex flex-wrap justify-evenly gap-4 mt-10">
-      {Object.entries(Titles).map(([key, value], index) => (
-        <StatsCard key={index} title={key} link={handleLink(key)} />
-      ))}
-    </div>
+    <section>
+      <HomeBanner />
+      <div className="flex flex-wrap justify-evenly gap-4 mt-10">
+        {Object.entries(Titles).map(([key, value], index) => (
+          <StatsCard key={index} title={key} link={handleLink(key)} />
+        ))}
+      </div>
+    </section>
   );
 }
 
