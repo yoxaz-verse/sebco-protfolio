@@ -75,7 +75,7 @@ const HomePageHero = () => {
         <div
           style={{
             backgroundColor: "#232323",
-            opacity: 0.8,
+            opacity: 0.5,
             position: "absolute",
             top: 0,
             bottom: 0,

@@ -49,17 +49,17 @@ const Navbar = () => {
               "https://www.instagram.com/sebco_infrastructures/profilecard/?igsh=MTl2cWloM3VqdXRoMw=="
             }
           >
-            <RiInstagramFill className="text-white cursor-pointer  text-xl" />
+            <RiInstagramFill className="text-white cursor-pointer  text-xl hover:text-orange-400" />
           </Link>
           <Link
             href={
               "https://www.facebook.com/profile.php?id=100084482203126&mibextid=LQQJ4d"
             }
           >
-            <BsFacebook className="text-white  cursor-pointer text-xl" />
+            <BsFacebook className="text-white  cursor-pointer text-xl hover:text-blue-500" />
           </Link>
           <Link href={"tel:+91-70124-67647"}>
-            <FaPhoneAlt className="text-white  cursor-pointer text-xl" />
+            <FaPhoneAlt className="text-white  cursor-pointer text-xl hover:text-green-500" />
           </Link>{" "}
         </Animate>{" "}
       </div>
@@ -67,7 +67,7 @@ const Navbar = () => {
         <Dropdown className="bg-[#494949]">
           <DropdownTrigger>
             <Button variant="light">
-              <IoMenu className="text-2xl text-white" />
+              <IoMenu className="text-2xl text-white hover:text-yellow-500 " />
             </Button>
           </DropdownTrigger>
           <DropdownMenu aria-label="Navigation Menu">
