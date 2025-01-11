@@ -6,7 +6,7 @@ const OurStaffPageHero = () => {
   return (
     <Animate>
       <Image
-        src={"/ourapproaches/ourapproach4.png"}
+        src={"/careers/hero.png"}
         width={1920}
         height={800}
         alt="Our Staff Hero Image"
